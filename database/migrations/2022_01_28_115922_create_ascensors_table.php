@@ -13,16 +13,17 @@ class CreateAscensorsTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('ascensors');
         Schema::create('ascensors', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('manual_id');
             $table->string('direccion');
             $table->string('modelo');
             $table->float('capacidad');
             $table->float('peso');
             $table->float('paradas');
             $table->float('recorrido');
-            $table->foreign('manual_id')->references('id')->on('manuals');
+            $table->integer('manual_id');
+            $table->foreign('manual_id')->references('id')->on('manuals')->onDelete('cascade');
             $table->timestamps();
         });
     }
