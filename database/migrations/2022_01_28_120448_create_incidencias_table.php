@@ -14,7 +14,14 @@ class CreateIncidenciasTable extends Migration
     public function up()
     {
         Schema::create('incidencias', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('cliente');
+            $table->dateTime('fechaInicio');
+            $table->dateTime('fechaFin');
+            $table->string('email');
+            $table->text('descripcion');
+            $table->enum('urgencia', ['no prioritario', 'prioritario', 'urgente']);
+            $table->enum('averia', ['electrica', 'mecanica', 'estetica']);
             $table->timestamps();
         });
     }

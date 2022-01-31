@@ -14,7 +14,8 @@ class CreateManualsTable extends Migration
     public function up()
     {
         Schema::create('manuals', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('ruta');
             $table->timestamps();
         });
     }

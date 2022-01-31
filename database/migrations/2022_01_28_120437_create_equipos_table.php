@@ -14,7 +14,11 @@ class CreateEquiposTable extends Migration
     public function up()
     {
         Schema::create('equipos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->unsignedBigInteger('jefe_id');
+            $table->string('codPostal');
+            $table->string('localidad');
+            $table->foreign('jefe_id')->references('id')->on('jefes');
             $table->timestamps();
         });
     }

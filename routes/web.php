@@ -22,3 +22,5 @@ Route::get('usuario/', 'UsuarioController@index');
 Route::get('usuario/{id}', 'UsuarioController@show');
 Route::get('usuario/{id}/create', 'UsuarioController@create');
 Route::get('usuario/', 'UsuarioController@store');
+
+Route::get('formulario', 'StorageController@index');
