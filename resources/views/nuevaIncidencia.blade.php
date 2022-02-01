@@ -129,7 +129,7 @@
             font-weight: normal;
         }
     </style>
-    <script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.3.10/sweetalert2.min.js') }}"></script>
+    <script src="{{ url('https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js') }}"></script>
     <script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js') }}"></script>
 </head>
 <body>
