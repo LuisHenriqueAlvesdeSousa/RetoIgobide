@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Operador extends Model
 {
     use HasFactory;
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    public function incidencias(){
+        return $this->hasMany('App\Incidencia');
+    }
 }

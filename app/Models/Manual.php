@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Manual extends Model
 {
     use HasFactory;
+
+    public function ascensor(){
+        return $this->belongsTo('App\Ascensor');
+    }
+
+    protected $fillable = [
+        'ruta',
+    ];
 }
