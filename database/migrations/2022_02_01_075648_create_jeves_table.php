@@ -14,6 +14,7 @@ class CreateJevesTable extends Migration
     public function up()
     {
         Schema::create('jeves', function (Blueprint $table) {
+            $table->increments('codigo');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedInteger('equipo_id');
