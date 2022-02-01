@@ -64,7 +64,7 @@
             background: linear-gradient(rgb(182, 255, 175), rgb(145, 223, 151));
         }
     </style>
-    <script src="./sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
     <div class="newOperario">
