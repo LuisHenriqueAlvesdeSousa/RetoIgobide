@@ -130,7 +130,7 @@
         }
     </style>
     <script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.3.10/sweetalert2.min.js') }}"></script>
-    <script src="{{ url('../js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js') }}"></script>
 </head>
 <body>
     <div class="newOperario">
