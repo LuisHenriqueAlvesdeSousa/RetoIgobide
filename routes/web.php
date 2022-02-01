@@ -18,9 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('usuario/', 'UsuarioController@index');
-Route::get('usuario/{id}', 'UsuarioController@show');
-Route::get('usuario/{id}/create', 'UsuarioController@create');
-Route::get('usuario/', 'UsuarioController@store');
+Auth::routes();
 
-Route::get('formulario', 'StorageController@index');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
