@@ -68,6 +68,8 @@
 </head>
 <body>
 
+    @include('header')
+
     <div class="newOperario">
         <ul>
             <li><div class="opNewOperario" style="background: linear-gradient(rgb(214, 231, 245), lightsteelblue);">Crear Nuevo Tecnico</div></li>
