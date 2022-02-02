@@ -59,6 +59,9 @@
     </style>
 </head>
 <body>
+
+@include('header')
+
     <div class="mainmanuales">
         <ul>
             <li><div class="manOpc">Apartado Manuales</div></li>
