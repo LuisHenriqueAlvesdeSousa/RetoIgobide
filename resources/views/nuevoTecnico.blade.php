@@ -36,6 +36,11 @@
             border: solid 0.5px gainsboro;
             overflow: auto;
         }
+        
+        .opNewOperario2{
+            width: 95%;
+            margin: 2% auto;
+        }
 
         .opNewOperario2 a{
             color: grey;
