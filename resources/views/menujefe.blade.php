@@ -66,12 +66,10 @@
         <li><div class="opcDirector">Listado Operarios</div></li>
         <li><a href="./listadoJefeEquipo" class="link"><div class="opcDirector">Listado Jefe Equipos</div></a></li>
         <li>
-            <a href="./LeerReportes" class="link">
-            <div class="opcDirector">
+            <div class="opcDirector" onclick="location.href='./reportes'">
                 <div class="info">3</div>
                 Leer Reportes
             </div>
-            </a>
         </li>
         <li><a href="./manuales" class="link"><div class="opcDirector">Manuales</div></a></li>
         <li><div class="opcDirector">
