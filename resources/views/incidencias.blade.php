@@ -35,7 +35,8 @@
         }
 
         .opcIncidencia{
-            width: 100%;
+            width: 96%;
+            margin: 2%;
             height: 200px;
             border-radius: 0.4em;
             box-shadow: 0px 0px 2px grey;
