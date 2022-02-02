@@ -80,7 +80,7 @@
 
         <ul>
             <li>
-                <div class="opcIncidencia urgente">
+                <div class="opcIncidencia urgente" onclick="location.href='./detalleIncidencia'">
                     <p>Incidencias Urgentes</p><br>
                     <p class="nIncidencias">Nº Incidencias: 8</p>
                     <svg class="ver" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
