@@ -66,7 +66,7 @@
         }
 
         .manOpc4{
-            height: 190px;
+            height: 250px;
             background: none;
             border: solid 0.5px gainsboro;
             overflow-y: scroll;
@@ -150,7 +150,8 @@
         }
 
         #lDetalles{
-            list-style: circle;
+            list-style: circle !important;
+            margin-left: 1em;
         }
     </style>
 
