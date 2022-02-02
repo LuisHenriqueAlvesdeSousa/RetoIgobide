@@ -89,7 +89,7 @@
     <div class="mainListado">
         <ul>
             <li><div class="tecnicosOpc">Listado de Tecnicos</div></li>
-            <li><div class="tecnicosOpc">Crear nuevo técnico</div></li>
+            <li><div class="tecnicosOpc" onclick="location.href='./nuevoTecnico'">Crear nuevo técnico</div></li>
         </ul>
 
         <p class="title">Lista de Técnicos</p>
