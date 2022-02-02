@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('inicio');
 });
 
+Route::get('/home', function () {
+    return view('inicio');
+});
 
 Route::get('/menujefe',function(){
     return view('menujefe'); 
