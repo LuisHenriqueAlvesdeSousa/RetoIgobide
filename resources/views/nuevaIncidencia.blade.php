@@ -133,6 +133,8 @@
     <script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js') }}"></script>
 </head>
 <body>
+    @include('header')
+
     <div class="newOperario">
         <ul>
             <li><div class="opNewOperario" style="background: linear-gradient(rgb(214, 231, 245), lightsteelblue);">Crear Nueva Incidencia</div></li>
