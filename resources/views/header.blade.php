@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header</title>
     <style>
-        *{
+       *{
             font-size: 1.35pc;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -72,6 +72,31 @@
         }
 
 
+        #menuOculto ul{
+            list-style: none;
+            padding: 0;
+            margin: 0%;
+            width: inherit;
+            position: relative;
+            top: 7%;
+        }
+
+        .opMenuOculto{
+            height: 70px;
+            width: 96%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.25em;
+        }
+
+        .line{
+            height: 2px;
+            width: 80%;
+            margin: 0 auto;
+            background-color: gainsboro;
+        }
 
         @keyframes muestraMenu {
             0%{
@@ -104,6 +129,18 @@
                 <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
             </svg>
         </div>
+        
+         <ul id="listaOp">
+            <li><div class="opMenuOculto">Incidencias</div></li><hr class="line">
+            <li><div class="opMenuOculto">Tecnicos</div></li><hr class="line">
+            <li><div class="opMenuOculto">Operarios</div></li><hr class="line">
+            <li><div class="opMenuOculto">Jefes de Equipo</div></li><hr class="line">
+            <li><div class="opMenuOculto">Incidencias</div></li><hr class="line">
+            <li><div class="opMenuOculto">Reportes</div></li><hr class="line">
+            <li><div class="opMenuOculto">Manuales</div></li><hr class="line">
+            <li><div class="opMenuOculto">Historial</div></li><hr class="line">
+            <li><div class="opMenuOculto">Estadisticas</div></li>
+        </ul>
     </div>
     <div id="header">
         <button id="menu" class="header">
@@ -121,18 +158,20 @@
     </div>
 
     <script>
-        //Si selecciono el icono del menu, mostrar el hiddenMenu
+         //Si selecciono el icono del menu, mostrar el hiddenMenu
         document.getElementById("menu").addEventListener('click',function(){
             document.getElementById("menuOculto").style.width="100%"; //En caso de que el width sea 0
             document.getElementById("menuOculto").style.display = "block";
             document.getElementById("menuOculto").style.animationName="muestraMenu";
             document.getElementById("menuOculto").style.animationPlayState="running";
+            $('#listaOp').fadeIn('slow');
         });
 
         document.getElementById("salirMenuOculto").addEventListener('click',function(){
             document.getElementById("menuOculto").style.animationName="ocultaMenu";
             document.getElementById("menuOculto").style.animationPlayState="running";
             document.getElementById("menuOculto").style.width="0%";
+            $('#listaOp').fadeOut(290);
         });
 
         //Cuando selecciona el boton de cerrar sesion
