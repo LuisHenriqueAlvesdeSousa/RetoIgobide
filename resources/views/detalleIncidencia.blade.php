@@ -16,6 +16,16 @@
             font-weight: 500;
             text-decoration: none;
         }
+        
+        .title{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        
+        .title ol{
+            margin-bottom:0;
+        }
 
         .maindetalleIncidencia{
             width: 100%;
@@ -235,10 +245,13 @@
                     <ul id="lDetalles"></ul>
                 </div>
             </li>
-            <li><div id="manOpc4" class="manOpc manOpc4">
-                <!--Cargar los comentarios-->
-                <ul id="lcomentarios"></ul>
-            </div></li>
+            <li>
+                <a class="titulo1">Comentarios</a>
+                <div id="manOpc4" class="manOpc manOpc4">
+                    <!--Cargar los comentarios-->
+                    <ul id="lcomentarios"></ul>
+                </div>
+            </li>
         </ul>
         
     <div id="addComent" class="manOpc">
