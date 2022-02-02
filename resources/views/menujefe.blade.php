@@ -18,10 +18,10 @@
 
         .opcDirector{
             height: 80px;
-            width: 100%;
+            width: 96%;
             background: linear-gradient(rgb(214, 231, 245), lightsteelblue);
             border-radius: 0.4em;
-            margin: 2% 0;
+            margin: 2%;
             font-size: 1.35pc;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
