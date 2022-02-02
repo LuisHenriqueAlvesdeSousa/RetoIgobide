@@ -84,10 +84,10 @@ class UserController extends Controller
             return redirect('/user/create')->with('status', 'Tipo de usuario vacío.');
         }
 
-        if(!trim($user->nombre ='')){
+        if(!trim($user->name ='')){
             return redirect('/user/create')->with('status', 'Nombre vacío.');
         }else{
-            if(!preg_match($patron_text, $user->nombre)){
+            if(!preg_match($patron_text, $user->name)){
                 return redirect('/user/create')->with('status', 'Formato del nombre incorrecto, se acepta carácteres alfanuméricos.');
             }
         }

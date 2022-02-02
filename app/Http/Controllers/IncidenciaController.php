@@ -107,9 +107,6 @@ class IncidenciaController extends Controller
     $incidencia->idTecnico->null;
     $incidencia->idAscensor->$request->get('idAscensor');
 
-    
-
-
     if(validar($incidencia)){
         $incidencia->save();
         return redirect('/incidencia/create')->with('status', 'Nuevo usuario creado correctamente.');
