@@ -83,6 +83,8 @@
     </style>
 </head>
 <body>
+    
+    @include('header')
 
     <div class="mainListado">
         <ul>
