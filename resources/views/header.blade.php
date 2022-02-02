@@ -120,6 +120,45 @@
     </style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script>
+        
+        function navegar(){
+            return new Promise((resolve,reject)=>{
+                resolve(
+                    Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                        )
+                        return "salir";
+                    }
+                    }))
+            })
+        }
+
+        async function confirmaNavegar(ir){
+            if(window.location.href=="https://komandaigobide.herokuapp.com/detalleIncidencia"){//Si está en incidencia
+                var seleccion = await navegar();
+                //Obtengo lo que el usuario ha seleccionado del popup
+                if(seleccion=="salir"){
+                    //Si ha seleccionado que quiere salir:
+                    window.location.href=ir;
+                }
+            }else{
+                window.location.href=ir;
+            }
+        }
+    </script>
 </head>
 <body>
     <div id="menuOculto">
@@ -131,13 +170,13 @@
         </div>
         
          <ul id="listaOp">
-            <li><div class="opMenuOculto">Incidencias</div></li><hr class="line">
-            <li><div class="opMenuOculto">Tecnicos</div></li><hr class="line">
+            <li><div class="opMenuOculto" onclick="confirmaNavegar('./incidencias')">Incidencias</div></li><hr class="line">
+            <li><div class="opMenuOculto" onclick="confirmaNavegar('./listadoTecnicos')">Tecnicos</div></li><hr class="line">
             <li><div class="opMenuOculto">Operarios</div></li><hr class="line">
-            <li><div class="opMenuOculto">Jefes de Equipo</div></li><hr class="line">
-            <li><div class="opMenuOculto">Incidencias</div></li><hr class="line">
-            <li><div class="opMenuOculto">Reportes</div></li><hr class="line">
-            <li><div class="opMenuOculto">Manuales</div></li><hr class="line">
+            <li><div class="opMenuOculto" onclick="confirmaNavegar('./listadoJefeEquipo')">Jefes de Equipo</div></li><hr class="line">
+            <li><div class="opMenuOculto" onclick="confirmaNavegar('./incidencias')">Incidencias</div></li><hr class="line">
+            <li><div class="opMenuOculto" onclick="confirmaNavegar('./reportes')">Reportes</div></li><hr class="line">
+            <li><div class="opMenuOculto" onclick="confirmaNavegar('./manuales')">Manuales</div></li><hr class="line">
             <li><div class="opMenuOculto">Historial</div></li><hr class="line">
             <li><div class="opMenuOculto">Estadisticas</div></li>
         </ul>
