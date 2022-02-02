@@ -122,28 +122,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
      <script>
         
-        function navegar(){
+       function navegar(){
             return new Promise((resolve,reject)=>{
                 resolve(
                     Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    icon: 'warning',
+                    title: 'Confirmar el estado de la incidencia',
+                    showDenyButton: true,
                     showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: `Completada`,
+                    denyButtonText: `En proceso`,
+                    cancelButtonText:'Cancelar',
                     }).then((result) => {
                     if (result.isConfirmed) {
-                        Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                        )
+                        console.log("Poner incidencia como completada")
                         return "salir";
+                    } else if (result.isDenied) {
+                        console.log("Poner incidencia en proceso")
                     }
-                    }))
-            })
+                    }));
+            });
         }
 
         async function confirmaNavegar(ir){
