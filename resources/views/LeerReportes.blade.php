@@ -60,6 +60,8 @@
 </head>
 <body>
 
+    @include('header')
+
     <div class="mainReportes">
         <ul>
             <li><div class="reportesOpc">Leer Reportes</div></li>
