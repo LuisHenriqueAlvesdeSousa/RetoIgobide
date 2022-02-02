@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,6 +70,14 @@ Route::get('/nuevoOperario',function(){
 
 Route::get('/nuevoTecnico',function(){
     return view('nuevoTecnico'); 
+});
+
+Route::get('/usuarioCreate', function(){
+    return view('usuarioCreate');
+});
+
+Route::get('/incidenciaCreate', function(){
+    return view('incidenciaCreate');
 });
 
 Auth::routes();

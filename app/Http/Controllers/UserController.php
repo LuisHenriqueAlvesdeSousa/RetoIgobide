@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -65,14 +66,58 @@ class UserController extends Controller
 {
     $user = new User(array(
         'rol' => $request->get('rol'),
-        'nombre' => $request->get('nombre'), 
+        'name' => $request->get('nombre'), 
         'dni' => $request->get('dni'), 
-        'fchNacimiento' => $request->get('fchNacimiento'), 
+        'fechaNac' => $request->get('fchNacimiento'), 
         'telefono' => $request->get('telefono'), 
         'password' => $request->get('password'), 
         'email' => $request->get('email')
 
     ));
+
+    function validar($user){
+        $patron_text = '/[A-Za-z0-9_]/';
+        $patron_dni = '/[0-9]{7,8}[A-Z]/';
+        $patron_telefono = '/[0-9]{9}';
+        
+        if(!trim($user->rol ='')){
+            return redirect('/user/create')->with('status', 'Tipo de usuario vacío.');
+        }
+
+        if(!trim($user->nombre ='')){
+            return redirect('/user/create')->with('status', 'Nombre vacío.');
+        }else{
+            if(!preg_match($patron_text, $user->nombre)){
+                return redirect('/user/create')->with('status', 'Formato del nombre incorrecto, se acepta carácteres alfanuméricos.');
+            }
+        }
+
+        if(!trim($user->dni ='')){
+            return redirect('/user/create')->with('status', 'DNI vacío.');
+        }else{
+            if(!preg_match($patron_dni, $user->dni)){
+                return redirect('/user/create')->with('status', 'Formato del DNI incorrecto, Ejemplo: 87654321A');
+            }
+        }
+
+        if(!trim($user->fechaNac ='')){
+            return redirect('/user/create')->with('status', 'Fecha de nacimiento vacía.');
+        }
+
+        if(!trim($user->telefono ='')){
+            return redirect('/user/create')->with('status', 'Teléfono vacío.');
+        }else{
+            if(!preg_match($patron_telefono, $user->telefono)){
+                return redirect('/user/create')->with('status', 'Formato del teléfono incorrecto, Ejemplo: 612345678 o 912345678.');
+            }
+        }
+
+        if(!trim($user->password ='')){
+            return redirect('/user/create')->with('status', 'Debe introducir una contraseña.');
+        }
+
+        return true;
+    }
 
     if(validar($user)){
         $user->save();
@@ -120,52 +165,14 @@ class UserController extends Controller
     
 }
 
-function validar($user){
-    $patron_text = '/[A-Za-z0-9_]/';
-    $patron_dni = '/[0-9]{7,8}[A-Z]/';
-    $patron_telefono = '/[0-9]{9}';
-    
-    if(!trim($user->rol ='')){
-        return redirect('/user/create')->with('status', 'Tipo de usuario vacío.');
+
+
+
+
+    public function create($listaEquipos)
+    {
+
     }
 
-    if(!trim($user->nombre ='')){
-        return redirect('/user/create')->with('status', 'Nombre vacío.');
-    }else{
-        if(!preg_match($patron_text, $user->nombre)){
-            return redirect('/user/create')->with('status', 'Formato del nombre incorrecto, se acepta carácteres alfanuméricos.');
-        }
-    }
 
-    if(!trim($user->dni ='')){
-        return redirect('/user/create')->with('status', 'DNI vacío.');
-    }else{
-        if(!preg_match($patron_dni, $user->dni)){
-            return redirect('/user/create')->with('status', 'Formato del DNI incorrecto, Ejemplo: 87654321A');
-        }
-    }
-
-    if(!trim($user->fchNacimiento ='')){
-        return redirect('/user/create')->with('status', 'Fecha de nacimiento vacía.');
-    }
-
-    if(!trim($user->telefono ='')){
-        return redirect('/user/create')->with('status', 'Teléfono vacío.');
-    }else{
-        if(!preg_match($patron_telefono, $user->telefono)){
-            return redirect('/user/create')->with('status', 'Formato del teléfono incorrecto, Ejemplo: 612345678 o 912345678.');
-        }
-    }
-
-    if(!trim($user->password ='')){
-        return redirect('/user/create')->with('status', 'Debe introducir una contraseña.');
-    }
-
-    return true;
-}
-
-public function create($listaEquipos)
-{
-
-}
 }

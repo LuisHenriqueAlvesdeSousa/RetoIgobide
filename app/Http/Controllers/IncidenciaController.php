@@ -81,19 +81,34 @@ class IncidenciaController extends Controller
 
     public function store(IncidenciaFormRequest $request)
 {
+    /*
     $incidencia = new Incidencia(array(
-        'nombreCliente' => $request->get('nombre'), 
-        'fch' => new DateTime('today')->format('dd-mm-yyyy'), 
-        'hInicio' => new DateTime('today')->format('HH:ii:ss'),
-        'hFin' => null,
-        'emailCLiente' => $request->get('email'),
+        'cliente' => $request->get('nombre'), 
+        'fechaInicio' => new DateTime('today')->format('dd-mm-yyyy'), 
+        'email' => $request->get('email'),
         'descripcion' => $request->get('comentario'), 
         'urgencia' => $request->get('urgencia'),
-        'tipoAveria' => $request->get('tipoAveria'),
+        'averia' => $request->get('tipoAveria'),
         "idOperario" => null,
         "idTecnico" => null,
         'idAscensor' => $request->get('idAscensor')
     ));
+    */
+
+    $incidencia = new Incidencia;
+    $incidencia->cliente->$request->get('nombre');
+    $incidencia->fechaInicio-> DateTime('today')->format('dd-mm-yyyy');
+    $incidencia->fechaFin->null;
+    $incidencia->email->$request->get('email');
+    $incidencia->descripcion->$request->get('comentario');
+    $incidencia->urgencia->$request->get('urgencia');
+    $incidencia->averia->$request->get('averia');
+    $incidencia->idOperario->null;
+    $incidencia->idTecnico->null;
+    $incidencia->idAscensor->$request->get('idAscensor');
+
+    
+
 
     if(validar($incidencia)){
         $incidencia->save();
@@ -102,33 +117,33 @@ class IncidenciaController extends Controller
     
 }
 
-function validar($incidencia){
-    $patron_text = '/[A-Za-z0-9_]/';
+    function validar($incidencia){
+        $patron_text = '/[A-Za-z0-9_]/';
 
-    if(!trim($incidencia->nombreCliente ='')){
-        return redirect('/incidencia/create')->with('status', 'Nombre vacío.');
-    }else{
-        if(!preg_match($patron_text, $incidencia->nombreCliente)){
-            return redirect('/incidencia/create')->with('status', 'Formato del nombre incorrecto, se acepta carácteres alfanuméricos.');
+        if(!trim($incidencia->nombreCliente ='')){
+            return redirect('/incidencia/create')->with('status', 'Nombre vacío.');
+        }else{
+            if(!preg_match($patron_text, $incidencia->nombreCliente)){
+                return redirect('/incidencia/create')->with('status', 'Formato del nombre incorrecto, se acepta carácteres alfanuméricos.');
+            }
         }
-    }
 
-    if(!trim($incidencia->descripcion ='')){
-        return redirect('/incidencia/create')->with('status', 'Comentario vacío.');
-    }
+        if(!trim($incidencia->descripcion ='')){
+            return redirect('/incidencia/create')->with('status', 'Comentario vacío.');
+        }
 
-    if(!trim($incidencia->urgencia ='')){
-        return redirect('/incidencia/create')->with('status', 'Seleccione por favor el nivel de urgencia.');
-    }
+        if(!trim($incidencia->urgencia ='')){
+            return redirect('/incidencia/create')->with('status', 'Seleccione por favor el nivel de urgencia.');
+        }
 
-    if(!trim($incidencia->tipoAveria ='')){
-        return redirect('/incidencia/create')->with('status', 'Seleccione por favor el tipo de averia.');
-    }
+        if(!trim($incidencia->tipoAveria ='')){
+            return redirect('/incidencia/create')->with('status', 'Seleccione por favor el tipo de averia.');
+        }
 
-    if(!trim($incidencia->idAscensor ='')){
-        return redirect('/incidencia/create')->with('status', 'ID ascensor vacío.');
-    }
+        if(!trim($incidencia->idAscensor ='')){
+            return redirect('/incidencia/create')->with('status', 'ID ascensor vacío.');
+        }
 
-    return true;
-}
+        return true;
+    }
 }
