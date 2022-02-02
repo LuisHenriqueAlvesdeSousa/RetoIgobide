@@ -190,7 +190,17 @@
 
      <div class="maindetalleIncidencia">
         <ul>
-            <li><div class="manOpc">Detalle Incidencia</div></li>
+            <li>
+                <div class="manOpc">
+                    <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item">Home</li>
+                         <li class="breadcrumb-item">Incidencias</li>
+                        <li class="breadcrumb-item active" aria-current="page">Detalle Incidencia</li>
+                      </ol>
+                    </nav>
+                </div>
+            </li>
             <li><div class="manOpc manOpc2">
                 <div id="map"></div>
                 <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
