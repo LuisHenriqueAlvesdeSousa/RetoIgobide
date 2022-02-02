@@ -6,15 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle de Incidencia</title>
     <style>
-        *{
+      *{
             font-size: 1.35pc;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        .titulo1{
+            color: steelblue;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
         .maindetalleIncidencia{
-            width: 96%;
+            width: 100%;
             height: auto;
-            margin: 0 2%
         }
 
         .maindetalleIncidencia ul{
@@ -30,7 +35,6 @@
         .manOpc{
             width: 100%;
             height: 70px;
-            background: linear-gradient(rgb(214, 231, 245), lightsteelblue);
             border-radius: 0.4em;
             display: flex;
             justify-content: center;
@@ -38,34 +42,16 @@
             overflow: hidden;
             box-shadow: 0px 0px 2px grey;
         }
-        
-        .title{
-            width: 100%;
-            height: auto;
-            padding: 1.5% 0;
-            border-radius: 0.4em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-        
-        .title > nav{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .title ol{
-            margin:0;
-        }
 
         .manOpc2{
             height: 350px;
         }
 
         .manOpc3{
-            height: 120px;
+            width: 100%;
+            display: flex;
+            height: auto !important;
+            border: none;
         }
 
         .manOpc4{
@@ -151,6 +137,10 @@
         #enviar > svg{
             margin: 0 2%;
         }
+
+        #lDetalles{
+            list-style: circle;
+        }
     </style>
 
     <!--Mapas-->
@@ -235,8 +225,16 @@
                   async
                 ></script>
             </div></li>
-            <li><div class="manOpc manOpc3">Descripcion</div></li>
-            <li><div class="manOpc">Detalles</div></li>
+                 <li>
+                <a class="titulo1">Descripción</a>
+                <p id="descripcion"></p>
+            </li>
+            <li>
+                <a class="titulo1">Detalles</a>
+                <div class="manOpc3">
+                    <ul id="lDetalles"></ul>
+                </div>
+            </li>
             <li><div id="manOpc4" class="manOpc manOpc4">
                 <!--Cargar los comentarios-->
                 <ul id="lcomentarios"></ul>
@@ -265,8 +263,29 @@
         $("#addComent").click(function(){
             $("#comentario").slideToggle("slow");
         })
+        
+        //Carga descripcion
+        var descripcion="La polea es un componente esencial para el correcto funcionamiento de un elevador. Con el tiempo, el roce constante y diario de los cables que la unen a la cabina, hace que se desgaste y que el cableado acabe por resbalar sobre ella. ";
+        document.getElementById("descripcion").innerHTML=descripcion;
 
-        //Ejemplo de muestra de comenetarios
+        //Carga detalles
+        var detalles={
+            comunidad:"Alava",
+            localidad:"Vitoria-Gasteiz",
+            calle:"Pozo Kalea,11",
+            idAscensor:"15653AV",
+            idManualAsociado:"213342"
+        }
+
+        for(var clave in detalles){
+            var detalle = document.createElement("li");
+            var texto = document.createTextNode(`${clave}: ${detalles[clave]}`);
+            detalle.appendChild(texto);
+            var listaDetalles = document.getElementById("lDetalles");
+            listaDetalles.appendChild(detalle);
+        }
+
+        //Ejemplo de muestra de comentarios
         var comentarios = ["Incidencia en proceso",
         "Arreglo de los botones de cerrar puertas",
         "Hello World",
