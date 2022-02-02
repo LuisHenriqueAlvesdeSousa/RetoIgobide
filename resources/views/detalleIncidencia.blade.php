@@ -129,6 +129,8 @@
 </head>
 <body>
 
+    @include('header')
+
     <div class="maindetalleIncidencia">
         <ul>
             <li><div class="manOpc">Detalle Incidencia</div></li>
