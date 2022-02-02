@@ -126,7 +126,8 @@
             return new Promise((resolve,reject)=>{
                 resolve(
                     Swal.fire({
-                    title: 'Confirmar el estado de la incidencia',
+                    title: 'Incidencia en proceso',
+                    text:"Confirma el estado de la incidencia antes de salir",
                     showDenyButton: true,
                     showCancelButton: true,
                     confirmButtonText: `Completada`,
