@@ -84,6 +84,8 @@
 </head>
 <body>
 
+    @include('header')
+
     <div class="mainListado">
         <ul>
             <li><div class="tecnicosOpc">Listado de Tecnicos</div></li>
