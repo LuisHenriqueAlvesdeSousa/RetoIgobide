@@ -72,6 +72,8 @@
     </style>
 </head>
 <body>
+
+    @include('header')
     
     <div class="mainIncidencia">
         <p class="title">Apartado Incidencias</p>
