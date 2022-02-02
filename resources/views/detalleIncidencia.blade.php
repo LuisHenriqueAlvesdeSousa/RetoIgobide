@@ -28,8 +28,9 @@
         }
 
         .maindetalleIncidencia{
-            width: 100%;
+            width: 96%;
             height: auto;
+            margin: 0 2%;
         }
 
         .maindetalleIncidencia ul{
