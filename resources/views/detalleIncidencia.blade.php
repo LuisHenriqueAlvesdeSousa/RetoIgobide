@@ -41,12 +41,19 @@
         
         .title{
             width: 100%;
-            height: 70px;
+            height: auto;
+            padding: 1.5% 0;
             border-radius: 0.4em;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
+        }
+        
+        .title > nav{
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .manOpc2{
