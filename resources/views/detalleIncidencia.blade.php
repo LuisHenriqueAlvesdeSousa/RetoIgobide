@@ -55,6 +55,10 @@
             justify-content: center;
             align-items: center;
         }
+        
+        .title ol{
+            margin:0;
+        }
 
         .manOpc2{
             height: 350px;
