@@ -47,22 +47,33 @@
             left: 2%;
             font-size: large;
         }
+        
+        
+        .link{
+            text-decoration: none;
+        }
+
+        .link:visited{
+            color: inherit;
+        }
 
     </style>
 </head>
 <body>
-    <ul id="listadoDirector">
-        <li><div class="opcDirector">Listado Incidencias</div></li>
-        <li><div class="opcDirector">Listado Tecnicos</div></li>
+ <ul id="listadoDirector">
+        <li><a href="./incidencias" class="link"><div class="opcDirector">Listado Incidencias</div></a></li>
+        <li><a href="./listadoTecnicos" class="link"><div class="opcDirector">Listado Tecnicos</div></a></li>
         <li><div class="opcDirector">Listado Operarios</div></li>
-        <li><div class="opcDirector">Listado Jefe Equipos</div></li>
+        <li><a href="./listadoJefeEquipo" class="link"><div class="opcDirector">Listado Jefe Equipos</div></a></li>
         <li>
+            <a href="./LeerReportes" class="link">
             <div class="opcDirector">
                 <div class="info">3</div>
                 Leer Reportes
             </div>
+            </a>
         </li>
-        <li><div class="opcDirector">Manuales</div></li>
+        <li><a href="./manuales" class="link"><div class="opcDirector">Manuales</div></a></li>
         <li><div class="opcDirector">
                 <div class="info">1</div>
                 Historial
