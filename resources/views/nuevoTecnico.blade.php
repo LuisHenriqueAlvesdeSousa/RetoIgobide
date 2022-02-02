@@ -11,7 +11,8 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         .newOperario{
-            width: 100%;
+            width: 96%;
+            margin: 2%;
             height: auto;
         }
         .newOperario ul{
