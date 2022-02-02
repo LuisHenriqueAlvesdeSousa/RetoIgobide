@@ -11,8 +11,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         .newOperario{
-            width: 96%;
-            margin: 2%;
+            width: 100%;
             height: auto;
         }
         .newOperario ul{
@@ -62,7 +61,19 @@
         }
 
         #guardar{
-            background: linear-gradient(rgb(182, 255, 175), rgb(145, 223, 151));
+            background: linear-gradient(rgb(164, 228, 122), rgb(148, 202, 111));
+        }
+
+        .title{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        
+        .title ol{
+            margin-bottom:0;
+            display: flex;
+            justify-content: center;
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"></script>
@@ -73,7 +84,22 @@
 
     <div class="newOperario">
         <ul>
-            <li><div class="opNewOperario" style="background: linear-gradient(rgb(214, 231, 245), lightsteelblue);">Crear Nuevo Tecnico</div></li>
+            <li>
+            <div class="title">
+                    <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house" viewBox="0 0 15 20">
+                              <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                              <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+                            </svg>
+                        </li>
+                        <li class="breadcrumb-item">Técnicos</li>
+                        <li class="breadcrumb-item">Nuevo Técnico</li>
+                      </ol>
+                    </nav>
+                </div>
+            </li>
             <li>
                 <div class="opNewOperario2">
                     <a>Nombre*</a>
