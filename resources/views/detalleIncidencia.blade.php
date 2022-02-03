@@ -155,13 +155,44 @@
         }
     </style>
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script><!--Axios para peticiones con geolocalizacion-->
+    <script>
     <!--Mapas-->
     <script>
+         //Geolocalizacion
+        function geocode(){
+            var location="2,Pozoa Kalea,Vitoria-Gasteiz,Araba,Spain"; //Obtener el nombre de la calle de la incidencia(portal,Nombre,Ciudad,Comunidad,Pais(Opcional))
+            return new Promise((resolve,reject)=>{
+                resolve( 
+                axios.get("https://maps.googleapis.com/maps/api/geocode/json",{
+                params:{
+                    address: location, //Localizacion que quiero buscar
+                    key: 'AIzaSyBmBn7kS79QyLpJnHnuTTW2uN-TTh_q-e8',//Clave del proyecto de Google Developers
+                }}).then(function(response){//Respuesta de la peticion
+                    var lat = response.data.results[0].geometry.location.lat;
+                    var lng = response.data.results[0].geometry.location.lng;
+                    console.log(`lat: ${lat} y lng:${lng}`);
+                    var posicion = [lat,lng];//Devuelvo las posiciones para que el metodo render lo centre en el sitio exacto
+                    return posicion;
+                }).catch(function(error){//En caso de error
+                    if(error){
+                        console.log(error);
+                    }
+                }))
+                });
+           
+        }
+
+        //Renderizar mapa
         let map, infoWindow;
-        function initMap() {
+        async function initMap(){//Funcion asincrona
+            
+        var posiciones=await geocode();//lat y lng para centrar el mapa en la calle requerida await funcion de obtencion de pos.
+
+        console.log(posiciones);
         map = new google.maps.Map(document.getElementById("map"), {
-            center: { lat: 40.1586764, lng: -5.6814445 },
-            zoom: 6.8,
+            center: { lat: posiciones[0], lng: posiciones[1] },
+            zoom: 18,
         });
         infoWindow = new google.maps.InfoWindow();
 
