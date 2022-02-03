@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth;
@@ -80,6 +79,6 @@ Route::get('/incidenciaCreate', function(){
     return view('incidenciaCreate');
 });
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

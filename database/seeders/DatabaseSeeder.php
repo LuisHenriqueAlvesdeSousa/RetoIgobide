@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use Auth;
 use Faker\Core\Number;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
             ]);
 
             DB::table('manuals')->insert([
-                'ruta'=>$faker->url(),
+                'ruta'=>$faker->url()
             ]);
 
             DB::table('ascensors')->insert([

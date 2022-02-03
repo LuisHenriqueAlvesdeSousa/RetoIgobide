@@ -72,7 +72,6 @@ class UserController extends Controller
         'telefono' => $request->get('telefono'), 
         'password' => $request->get('password'), 
         'email' => $request->get('email')
-
     ));
 
     function validar($user){
@@ -123,7 +122,7 @@ class UserController extends Controller
         $user->save();
         switch ($user->rol) {
             case 'tecnico':
-                            if(!trim($request->get('equipo') ='')){
+                            if(!trim($request->get('equipo') =='')){
                                 return redirect('/user/create')->with('status', 'Seleccione un equipo por favor.');
                             }
                             $tecnico = new Tecnico(array(
@@ -133,7 +132,7 @@ class UserController extends Controller
                             $tecnico->save();
                             break;
             case 'jefe':
-                            if(!trim($request->get('equipo') ='')){
+                            if(!trim($request->get('equipo') =='')){
                                 return redirect('/user/create')->with('status', 'Seleccione un equipo por favor.');
                             }
                             $jefe = new Jefe(array(
