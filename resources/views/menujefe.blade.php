@@ -37,6 +37,10 @@
             box-shadow: 0px 0px 2px grey;
             position: relative;
         }
+        
+        .opcDirector:hover{
+            cursor:pointer;
+        }
 
         .info{
             background-color: red;
