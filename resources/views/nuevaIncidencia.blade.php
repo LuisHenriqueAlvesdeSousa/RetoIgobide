@@ -205,7 +205,7 @@
             <li>
                 <div class="container">
                     <div class="opNewOperario2 lineal">
-                        <a class="titulo">Tipo Instalacion</a><br>
+                        <a class="titulo">Tipo Instal.</a><br>
                         <select class="selector">
                             <option>Opcion 1</option>
                             <option>Opcion 1</option>
