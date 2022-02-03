@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ReporteExport;
 use App\Models\Reporte;
 use Illuminate\Http\Request;
 

@@ -79,6 +79,18 @@ Route::get('/incidenciaCreate', function(){
     return view('incidenciaCreate');
 });
 
+//Rutas manuales
+
+Route::get('/form', [App\Http\Controllers\PdfController::class, 'mform'])->name('form');
+
+Route::post('/guardar', [App\Http\Controllers\PdfController::class, 'mguardar'])->name('guardar');
+
+//Rutas descargar excels
+
+Route::get('/export/reporte/create', [App\Http\Controllers\ExcelController::class, 'ReporteExport']);
+
+Route::get('/export/estadisticas/create', [App\Http\Controllers\ExcelController::class, 'EstadisticaExport']);
+
 //Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
