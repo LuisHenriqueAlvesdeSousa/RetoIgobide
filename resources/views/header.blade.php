@@ -41,7 +41,7 @@
 
         #logo{
             width: 58.5%;
-            background-image: url("{{url('/logo.jpg')}}");
+            background-image: url("{{url('logo.png')}}");
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
