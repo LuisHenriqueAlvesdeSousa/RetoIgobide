@@ -11,10 +11,6 @@
             padding: 0;
         }
         
-        .row>*{
-            padding:0;
-        }
-        
         #listadoDirector{
             list-style: none;
             padding: 0;
