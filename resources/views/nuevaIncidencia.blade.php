@@ -55,7 +55,7 @@
         }
 
         .titulo{
-            color: grey;
+            color: black;
             font-weight: 500;
             text-decoration: none;
         }
@@ -173,7 +173,7 @@
             </li>
             <li>
                 <div class="opNewOperario2">
-                    <a class="titulo">Direccion*</a>
+                    <a class="titulo">Dirección*</a>
                     <input type="search" class="opNewOperario">
                 </div>
             </li>
