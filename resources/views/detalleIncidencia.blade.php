@@ -160,6 +160,12 @@
                 height: 600px;
             }
         }
+        
+         @media (max-width:850px) {
+            .maindetalleIncidencia{
+               padding: 0 1.5%;
+            }
+        }
     </style>
 
     <!--Mapas-->
@@ -210,7 +216,7 @@
     @include('header')
 
     <div class="maindetalleIncidencia">
-        <div class="flex-container">
+        <div>
             <div class="col">
                     <!--Añadir las clases de bootstrap-->
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
