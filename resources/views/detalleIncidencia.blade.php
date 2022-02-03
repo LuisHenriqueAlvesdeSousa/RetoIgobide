@@ -153,6 +153,13 @@
             list-style: circle !important;
             margin-left: 1em;
         }
+        
+         /*Cambia el tamaño del mapa para pc*/
+        @media (min-width:1000px) {
+            .manOpc2{
+                height: 600px;
+            }
+        }
     </style>
 
     <!--Mapas-->
