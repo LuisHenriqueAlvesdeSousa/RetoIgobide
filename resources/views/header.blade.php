@@ -29,6 +29,10 @@
             align-items: center;
             margin:2%;
         }
+        
+        .header:hover{
+            cursor:pointer;
+        }
 
         #menu{
             width: 18.5%;
@@ -75,6 +79,10 @@
         #exit{
             position: relative;
         }
+        
+        #exit:hover{
+            cursor:pointer;
+        }
 
 
         #menuOculto ul{
@@ -94,6 +102,10 @@
             align-items: center;
             justify-content: center;
             border-radius: 0.25em;
+        }
+        
+        .opMenuOculto:hover{
+            cursor:pointer;
         }
 
         .line{
