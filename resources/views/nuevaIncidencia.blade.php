@@ -111,7 +111,7 @@
         }
 
         .lineal{
-            width: 45% !important;
+            width: 48.5% !important;
             margin: 0 auto;
         }
 
@@ -205,7 +205,7 @@
             <li>
                 <div class="container">
                     <div class="opNewOperario2 lineal">
-                        <a class="titulo">Tipo Instal.</a><br>
+                        <a class="titulo">Tipo Instalación</a><br>
                         <select class="selector">
                             <option>Opcion 1</option>
                             <option>Opcion 1</option>
