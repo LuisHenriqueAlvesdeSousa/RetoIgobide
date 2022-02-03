@@ -232,7 +232,7 @@
                                         </svg>
                                     </li>
                                         <li class="breadcrumb-item">Incidencias</li>
-                                    <li class="breadcrumb-item active" aria-current="page">Detalle Incidencia</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Id Incidencia</li>
                                     </ol>
                                 </nav>
                             </div>
