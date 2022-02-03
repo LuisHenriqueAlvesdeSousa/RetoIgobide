@@ -69,7 +69,7 @@
         .mainHome{
             width: 96%;
             height: auto;
-            margin: 0% 2%;
+            margin: 3% 2% 1% 2%;
         }
 
         @media (min-width:900px){
