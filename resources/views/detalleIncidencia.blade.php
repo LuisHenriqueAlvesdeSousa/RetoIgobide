@@ -155,11 +155,10 @@
         }
     </style>
 
+    <!--Mapas-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script><!--Axios para peticiones con geolocalizacion-->
     <script>
-    <!--Mapas-->
-    <script>
-         //Geolocalizacion
+        //Geolocalizacion
         function geocode(){
             var location="2,Pozoa Kalea,Vitoria-Gasteiz,Araba,Spain"; //Obtener el nombre de la calle de la incidencia(portal,Nombre,Ciudad,Comunidad,Pais(Opcional))
             return new Promise((resolve,reject)=>{
@@ -236,6 +235,54 @@
         );
         infoWindow.open(map);
         }
+    </script>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="./sweetalert2.all.min.js"></script>
+    <!--Comprueba que el usario quiere salir-->
+    <script>
+        
+        function navegar(){
+            return new Promise((resolve,reject)=>{
+                resolve(
+                    Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                        )
+                        return "salir";
+                    }
+                    }))
+            })
+        }
+
+        async function confirmaNavegar(){
+            var seleccion = await navegar();
+
+            //Obtengo lo que el usuario ha seleccionado del popup
+            if(seleccion=="salir"){
+                //Si ha seleccionado que quiere salir:
+                window.location.href="menujefe.html";
+            }
+   
+        }
+
+
+        window.addEventListener('beforeunload',function(event){
+            confirmaNavegar();
+            event.preventDefault();
+            hideDefaultAlert = false;
+            return null;
+        });
     </script>
 </head>
 <body>
