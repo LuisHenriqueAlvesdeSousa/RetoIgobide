@@ -11,6 +11,10 @@
             padding: 0;
         }
         
+        .row{
+            padding:0;
+        }
+        
         #listadoDirector{
             list-style: none;
             padding: 0;
@@ -20,7 +24,6 @@
             padding: 0%;
             margin: 0%;
         }
-
 
         .opcDirector{
             height: 90px;
