@@ -137,7 +137,6 @@
         </ul>
 
         <a class="title1">Lista de Jefes de Equipo</a>
-        <hr>
 
         <!--Litado de los tecnicos-->
         <ul>
