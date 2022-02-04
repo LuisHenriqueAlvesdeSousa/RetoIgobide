@@ -81,9 +81,7 @@ Route::get('/incidenciaCreate', function(){
 
 //Rutas manuales
 
-Route::get('/form', [App\Http\Controllers\PdfController::class, 'mform'])->name('form');
-
-Route::post('/guardar', [App\Http\Controllers\PdfController::class, 'mguardar'])->name('guardar');
+Route::post('/subir', 'ManualController@subirManual')->name('subir');
 
 //Rutas descargar excels
 

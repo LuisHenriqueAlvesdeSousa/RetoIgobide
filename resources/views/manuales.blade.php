@@ -64,7 +64,8 @@
             <li><div class="manOpc">Apartado Manuales</div></li>
             <li><div class="manOpc">
                 <form method="POST" action="{{route('subir')}}" accept-charset="UTF-8" enctype="multipart/form-data">
-                    <label for="archivo">
+                {{ csrf_field() }}
+                <label for="archivo">
                         <b>Nuevo manual: </b>
                     </label><br>
                     <input type="file" name="archivo">
