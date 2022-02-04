@@ -46,7 +46,6 @@
             margin: 0.5em 2% 2% 2%;
             height: auto;
             border-radius: 0.4em;
-            box-shadow: 0px 0px 2px grey;
             position: relative;
         }
 
@@ -59,11 +58,10 @@
         }
 
         .prioritaria{
-            
             background: linear-gradient(rgb(253, 158, 94),rgb(247, 139, 68));
         }
 
-        .noPrioritaria{
+        .noprioritaria{
             background: linear-gradient(rgb(214, 231, 245), lightsteelblue);
         }
 
@@ -89,7 +87,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0px 0px 2px grey;
             position: relative;
         
         }
@@ -211,8 +208,21 @@
                    position: absolute;
                    right: 3%;
                }
+
+               .urgente{
+                    background: linear-gradient(rgb(255, 113, 113), rgb(223, 84, 84));
+                }
+
+                .prioritaria{
+                    background: linear-gradient(rgb(253, 158, 94),rgb(247, 139, 68));
+                }
+
+                .noprioritaria{
+                    background: linear-gradient(rgb(214, 231, 245), lightsteelblue);
+                }
+               
            </style>
-           <div class="tecnicosOpc2" onclick="location.href='./detalleIncidencia'">
+           <div class="tecnicosOpc2 ${this.getAttribute("tipo")}" onclick="location.href='./detalleIncidencia'">
                <div class="imagenTecn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="4pc" height="4.1pc" fill="currentColor" class="bi bi-exclamation" viewBox="0 0 16 16">
                 <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.553.553 0 0 1-1.1 0L7.1 4.995z"/>
@@ -270,7 +280,7 @@
         <ul>
             <li>
                 <a class="title1">Incidencias Urgentes</a><!--Indicar el numero de incidencias-->
-                <div class="opcIncidencia urgente" onclick="location.href='./detalleIncidencia'">
+                <div class="opcIncidencia" onclick="location.href='./detalleIncidencia'">
                     <ul id="lUrgentes">
                         <!--Introducir los datos aqui-->
                     </ul>
@@ -278,7 +288,7 @@
             </li>
             <li>
                 <a class="title1">Incidencias Prioritarias</a>
-                <div class="opcIncidencia prioritaria">
+                <div class="opcIncidencia">
                     <ul id="lPrioritaria">
                         <!--Introducir los datos aqui-->
                     </ul>
@@ -287,7 +297,7 @@
 
             <li>
                 <a class="title1">Incidencias No Prioritarias</a><!--Indicar el numero de incidencias-->
-                <div class="opcIncidencia noPrioritaria">
+                <div class="opcIncidencia">
                     <ul id="lNoprioritaria">
                         <!--Introducir los datos aqui-->
                     </ul>
@@ -316,11 +326,11 @@
             {calle:"Calle Ramón y Cajal, Vitoria-Gasteiz",fecha:"1/2/2022",tipo:"prioritaria"},
             {calle:"Calle Prudencio María Verástegui, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"prioritaria"},
             {calle:"Calle de Puerto Rico, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"prioritaria"},
-            {calle:"Pozoa Kalea, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"no prioritaria"},
-            {calle:"Calle Correría, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"no prioritaria"},
-            {calle:"Calle Reyes Católicos, Vitoria-Gasteiz",fecha:"1/2/2022",tipo:"no prioritaria"},
-            {calle:"Pozoa Kalea, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"no prioritaria"},
-            {calle:"Calle Correría, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"no prioritaria"},
+            {calle:"Pozoa Kalea, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"noprioritaria"},
+            {calle:"Calle Correría, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"noprioritaria"},
+            {calle:"Calle Reyes Católicos, Vitoria-Gasteiz",fecha:"1/2/2022",tipo:"noprioritaria"},
+            {calle:"Pozoa Kalea, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"noprioritaria"},
+            {calle:"Calle Correría, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"noprioritaria"},
         ];
        
         for(let i=0;i<datos.length;i++){
@@ -328,6 +338,7 @@
            var elemento = document.createElement("incidencia-p");
            elemento.setAttribute("calle",datos[i]["calle"]);//Paso los datos del array mediante un atributo al web component
            elemento.setAttribute("fecha",datos[i]["fecha"]);
+           elemento.setAttribute("tipo",datos[i]["tipo"]);
            item.appendChild(elemento);
        
            var posicionElemento = i+1;
@@ -337,7 +348,7 @@
                 document.getElementById("lUrgentes").appendChild(item);
             }else if(datos[i]["tipo"]=="prioritaria"){
                 document.getElementById("lPrioritaria").appendChild(item);
-            }else if(datos[i]["tipo"]=="no prioritaria"){
+            }else if(datos[i]["tipo"]=="noprioritaria"){
                 document.getElementById("lNoprioritaria").appendChild(item);
             }
            
