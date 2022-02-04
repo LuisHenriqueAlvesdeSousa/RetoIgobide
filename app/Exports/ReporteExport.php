@@ -1,7 +1,6 @@
 <?php
     namespace App\Exports;
     use Illuminate\Support\Facades\DB;
-    use App\Models\Reporte;
     use Carbon\Doctrine\DateTimeType;
     use Maatwebsite\Excel\Concerns\FromCollection;
     use Maatwebsite\Excel\Concerns\WithHeadings;

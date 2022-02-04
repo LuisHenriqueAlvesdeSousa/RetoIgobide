@@ -62,7 +62,15 @@
     <div class="mainmanuales">
         <ul>
             <li><div class="manOpc">Apartado Manuales</div></li>
-            <li><div class="manOpc">Subir Nuevo Manual</div></li>
+            <li><div class="manOpc">
+                <form method="POST" action="{{route('subir')}}" accept-charset="UTF-8" enctype="multipart/form-data">
+                    <label for="archivo">
+                        <b>Nuevo manual: </b>
+                    </label><br>
+                    <input type="file" name="archivo">
+                    <input class="btn btn-success" type="submit" value="Enviar" >
+                </form>
+            </div></li>
             <li>
                 <div class="contflex">
                     <div class="manOpc2" style="flex-grow: 0.5;">

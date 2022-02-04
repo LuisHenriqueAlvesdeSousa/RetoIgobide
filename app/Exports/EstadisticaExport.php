@@ -6,7 +6,7 @@
     use Maatwebsite\Excel\Concerns\FromCollection;
     use Maatwebsite\Excel\Concerns\WithHeadings;
 
-    class ReporteExport implements FromCollection, WithHeadings{
+    class EstadisticaExport implements FromCollection, WithHeadings{
         /**
         * @return \Illuminate\Support\Collection
         */

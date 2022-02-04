@@ -82,4 +82,8 @@ class ManualController extends Controller
     {
         //
     }
+
+    public function subirManual(Request $request){
+        $request->file('archivo')->store('public');
+    }
 }

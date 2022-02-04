@@ -99,7 +99,7 @@
 
             <ul>
                 <li>
-                    <div class="opNewOperario" style="background: linear-gradient(rgb(214, 231, 245), lightsteelblue);">Crear Nuevo Tecnico</div>
+                    <div class="opNewOperario" style="background: linear-gradient(rgb(214, 231, 245), lightsteelblue);">Crear Nuevo Usuario</div>
                 </li>
                 <li>
                     <div class="opNewOperario2">

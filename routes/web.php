@@ -87,9 +87,9 @@ Route::post('/guardar', [App\Http\Controllers\PdfController::class, 'mguardar'])
 
 //Rutas descargar excels
 
-Route::get('/export/reporte/create', [App\Http\Controllers\ExcelController::class, 'ReporteExport']);
+Route::post('/export/reporte/create', [App\Http\Controllers\ExcelController::class, 'ReporteExport']);
 
-Route::get('/export/estadisticas/create', [App\Http\Controllers\ExcelController::class, 'EstadisticaExport']);
+Route::post('/export/estadisticas/create', [App\Http\Controllers\ExcelController::class, 'EstadisticaExport']);
 
 //Auth::routes();
 

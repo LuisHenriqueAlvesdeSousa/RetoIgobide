@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Incidencia;
 use Illuminate\Http\Request;
+use \App\Http\Requests\IncidenciaFormRequest;
 
 class IncidenciaController extends Controller
 {

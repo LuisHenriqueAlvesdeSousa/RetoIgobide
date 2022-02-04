@@ -7,7 +7,12 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use App\Models;
+use \App\Models\User;
+use \App\Models\Manual;
+use \App\Models\Equipo;
+use \App\Models\Tecnico;
+use \App\Models\Operador;
+use \App\Models\Ascensor;
 use Illuminate\Support\Facades\App;
 
 class DatabaseSeeder extends Seeder
@@ -44,7 +49,7 @@ class DatabaseSeeder extends Seeder
                 'peso' =>$faker->numberBetween(100, 500),
                 'paradas'=>$faker->numberBetween(1, 20),
                 'recorrido'=>$faker->numberBetween(3, 39),
-                'manual_id'=>$faker->unique()->numberBetween(1, App\Manual::count()),
+                'manual_id'=>$faker->unique()->numberBetween(1, Manual::count()),
             ]);
 
             DB::table('equipos')->insert([
@@ -53,11 +58,11 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        $users = App\User::pluck('id')->toArray();
-        $equipos = App\Equipo::pluck('id')->toArray();
-        $ascensores = App\Ascensor::pluck('id')->toArray();
-        $tecnicos = App\Tecnico::pluck('codigo')->toArray();
-        $operadores = App\Operador::pluck('codigo')->toArray();
+        $users = User::pluck('id')->toArray();
+        $equipos = Equipo::pluck('id')->toArray();
+        $ascensores = Ascensor::pluck('id')->toArray();
+        $tecnicos = Tecnico::pluck('codigo')->toArray();
+        $operadores = Operador::pluck('codigo')->toArray();
 
         DB::table('tecnicos')->insert([
             'user_id'=>$faker->randomElement($users),
