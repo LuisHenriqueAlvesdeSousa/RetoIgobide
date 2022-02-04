@@ -26,6 +26,7 @@
             color: steelblue;
             font-weight: 500;
             text-decoration: none;
+            margin: 0% 0% 0 2%;
         }
         
         .title ol{
@@ -42,7 +43,7 @@
 
         .opcIncidencia{
             width: 96%;
-            margin: 2%;
+            margin: 0.5em 2% 2% 2%;
             height: auto;
             border-radius: 0.4em;
             box-shadow: 0px 0px 2px grey;
