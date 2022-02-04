@@ -130,7 +130,7 @@ class UserController extends Controller
                                 }
                                 $tecnico = new Tecnico(array(
                                     'idUsuario' => $user->id,
-                                    'idEquipo' => $$request->get('equipo')
+                                    'idEquipo' => $request->get('equipo')
                                 ));
                                 $tecnico->save();
                                 break;
@@ -140,7 +140,7 @@ class UserController extends Controller
                                 }
                                 $jefe = new Jefe(array(
                                     'idUsuario' => $user->id,
-                                    'idEquipo' => $$request->get('equipo')
+                                    'idEquipo' => $request->get('equipo')
                                 ));
                                 $jefe->save();
                                 break;

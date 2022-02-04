@@ -191,6 +191,6 @@
             </li>
         </ul>
     </div>
-    
+    @include('footer')
 </body>
 </html>

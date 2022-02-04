@@ -64,33 +64,36 @@ class DatabaseSeeder extends Seeder
         $tecnicos = Tecnico::pluck('codigo')->toArray();
         $operadores = Operador::pluck('codigo')->toArray();
 
-        DB::table('tecnicos')->insert([
-            'user_id'=>$faker->randomElement($users),
-            'equipo'=>$faker->randomElement($equipos),
-        ]);
+        for ($i=0; $i < 6; $i++) { 
+            DB::table('tecnicos')->insert([
+                'user_id'=>$faker->randomElement($users),
+                'equipo_id'=>$faker->randomElement($equipos),
+            ]);
 
-        DB::table('operadors')->insert([
-            'user_id'=>$faker->randomElement($users),
-        ]);
+            DB::table('operadors')->insert([
+                'user_id'=>$faker->randomElement($users),
+            ]);
+    
+            DB::table('jeves')->insert([
+                'user_id'=>$faker->randomElement($users),
+                'equipo_id'=>$faker->randomElement($equipos),
+            ]);
+    
+            DB::table('directors')->insert([
+                'user_id'=>$faker->randomElement($users),
+            ]);
+    
+            DB::table('incidencias')->insert([
+               'cliente'=>$faker->name(),
+                'fechaInicio'=>$faker->dateTime($max = 'now'),
+               'fechaFin'=>$faker->dateTime(),
+                'email'=>$faker->unique()->safeEmail(),
+                'descripcion'=>$faker->realText(150, 2),
+                'ascensor_id'=>$faker->randomElement($ascensores),
+                'tecnico_id'=>$faker->randomElement($tecnicos),
+                'operador_id'=>$faker->randomElement($operadores),
+            ]);
+        }    
 
-        DB::table('jeves')->insert([
-            'user_id'=>$faker->randomElement($users),
-            'equipo'=>$faker->randomElement($equipos),
-        ]);
-
-        DB::table('directors')->insert([
-            'user_id'=>$faker->randomElement($users),
-        ]);
-
-        DB::table('incidencias')->insert([
-           'cliente'=>$faker->name(),
-            'fechaInicio'=>$faker->dateTime($max = 'now'),
-           'fechaFin'=>$faker->dateTime(),
-            'email'=>$faker->unique()->safeEmail(),
-            'descripcion'=>$faker->realText(150, 2),
-            'ascensor'=>$faker->randomElement($ascensores),
-            'tecnico'=>$faker->randomElement($tecnicos),
-            'operador'=>$faker->randomElement($operadores),
-        ]);
     }
 }

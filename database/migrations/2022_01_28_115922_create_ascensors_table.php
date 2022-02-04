@@ -23,7 +23,7 @@ class CreateAscensorsTable extends Migration
             $table->float('paradas');
             $table->float('recorrido');
             $table->unsignedInteger('manual_id');
-            $table->foreign('manual_id')->references('id')->on('manuals')->onDelete('cascade');
+            $table->foreign('manual_id')->references('id')->on('manuals')->onDelete('cascade')->nullable();
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
