@@ -14,11 +14,7 @@ use App\Http\Controllers\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/', function () {
-    return view('menujefe');
+    return view('inicio');
 });
 
 
@@ -55,20 +51,12 @@ Route::get('/listadoTecnicos',function(){
     return view('listadoTecnicos'); 
 });
 
+Route::get('/listadoOperarios',function(){
+    return view('listadoOperarios'); 
+});
+
 Route::get('/manuales',function(){
     return view('manuales'); 
-});
-
-Route::get('/nuevaIncidencia',function(){
-    return view('nuevaIncidencia'); 
-});
-
-Route::get('/nuevoOperario',function(){
-    return view('nuevoOperario'); 
-});
-
-Route::get('/nuevoTecnico',function(){
-    return view('nuevoTecnico'); 
 });
 
 Route::get('/usuarioCreate', function(){
