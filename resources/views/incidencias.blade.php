@@ -40,10 +40,6 @@
             padding: 0%;
         }
 
-        .mainIncidencia li{
-            margin: 1.5% 0 3.5% 0;
-        }
-
         .opcIncidencia{
             width: 96%;
             margin: 2%;
@@ -100,6 +96,50 @@
         .opcIncidencia2 > svg{
             margin: 0 2%;
         }
+
+        #lUrgentes{
+            display: flex; 
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        #lUrgentes li{
+            width: 50%;
+        }
+
+        #lPrioritaria{
+            display: flex; 
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        #lPrioritaria li{
+            width: 50%;
+        }
+
+        #lNoprioritaria{
+            display: flex; 
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        #lNoprioritaria li{
+            width: 50%;
+        }
+ 
+        @media (max-width:768px) {
+            #lUrgentes li{
+                width: 100%;
+            }  
+            
+            #lPrioritaria li{
+                width: 100%;
+            }
+
+            #lNoprioritaria li{
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <script src="./sweetalert2.all.min.js"></script>
@@ -131,9 +171,9 @@
                    margin: 2% 0 2.5% 0;
                }
                .tecnicosOpc2{
-                   width: 100%;/*Cambiar a auto despues de poner Editar y eliminar de la lista de tecnicos*/
+                   width: 98%;/*Cambiar a auto despues de poner Editar y eliminar de la lista de tecnicos*/
                    height: auto;
-                   margin:1% 0;
+                   margin:1%;
                    border-radius: 0.4em;
                    box-shadow: 0px 0px 2px grey;
                    background: linear-gradient(rgb(214, 231, 245), lightsteelblue);
@@ -154,6 +194,9 @@
                    background:rgba(255, 255, 255, 0.708) ;
                    margin-left: 2%;
                    border-radius: 0.4em;
+                   display:flex;
+                   align-items:center;
+                   justify-content:center;
                }
                .info{
                    height: 70px;
@@ -170,9 +213,8 @@
            </style>
            <div class="tecnicosOpc2" onclick="location.href='./detalleIncidencia'">
                <div class="imagenTecn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="4pc" height="4.1pc" fill="currentColor" class="bi bi-exclamation-square" viewBox="0 0 16 16">
-                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="4pc" height="4.1pc" fill="currentColor" class="bi bi-exclamation" viewBox="0 0 16 16">
+                <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.553.553 0 0 1-1.1 0L7.1 4.995z"/>
                 </svg>
                </div>
                
@@ -226,7 +268,7 @@
 
         <ul>
             <li>
-                <p>Incidencias Urgentes</p><!--Indicar el numero de incidencias-->
+                <a class="title1">Incidencias Urgentes</a><!--Indicar el numero de incidencias-->
                 <div class="opcIncidencia urgente" onclick="location.href='./detalleIncidencia'">
                     <ul id="lUrgentes">
                         <!--Introducir los datos aqui-->
@@ -234,7 +276,7 @@
                 </div>
             </li>
             <li>
-                <p>Incidencias Prioritarias</p>
+                <a class="title1">Incidencias Prioritarias</a>
                 <div class="opcIncidencia prioritaria">
                     <ul id="lPrioritaria">
                         <!--Introducir los datos aqui-->
@@ -243,7 +285,7 @@
             </li>
 
             <li>
-                <p>Incidencias No Prioritarias</p><!--Indicar el numero de incidencias-->
+                <a class="title1">Incidencias No Prioritarias</a><!--Indicar el numero de incidencias-->
                 <div class="opcIncidencia noPrioritaria">
                     <ul id="lNoprioritaria">
                         <!--Introducir los datos aqui-->
@@ -281,18 +323,21 @@
         ];
        
         for(let i=0;i<datos.length;i++){
+            var item=document.createElement("li");
            var elemento = document.createElement("incidencia-p");
            elemento.setAttribute("calle",datos[i]["calle"]);//Paso los datos del array mediante un atributo al web component
            elemento.setAttribute("fecha",datos[i]["fecha"]);
+           item.appendChild(elemento);
+       
            var posicionElemento = i+1;
 
            //Condicional para saber si es urgente
             if(datos[i]["tipo"]=="urgente"){
-                document.getElementById("lUrgentes").appendChild(elemento);
+                document.getElementById("lUrgentes").appendChild(item);
             }else if(datos[i]["tipo"]=="prioritaria"){
-                document.getElementById("lPrioritaria").appendChild(elemento);
+                document.getElementById("lPrioritaria").appendChild(item);
             }else if(datos[i]["tipo"]=="no prioritaria"){
-                document.getElementById("lNoprioritaria").appendChild(elemento);
+                document.getElementById("lNoprioritaria").appendChild(item);
             }
            
        }
