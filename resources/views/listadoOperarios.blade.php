@@ -170,8 +170,7 @@
 </style>
 <body>
    @include('header')
-   <div class="container-fluid">
-        <div class="mainListado" style="width: 100%;height: auto;">
+        <div class="mainListado">
         <ul>
             <li>
                 <div class="title">
@@ -220,7 +219,6 @@
                 </div>
             </div>
         </div>  
-   </div>
    
    <script>
         //Array con datos (cambiar a consulta a BD)
