@@ -51,6 +51,10 @@ Route::get('/listadoTecnicos',function(){
     return view('listadoTecnicos'); 
 });
 
+Route::get('/listadoOperarios',function(){
+    return view('listadoOperarios'); 
+});
+
 Route::get('/manuales',function(){
     return view('manuales'); 
 });
