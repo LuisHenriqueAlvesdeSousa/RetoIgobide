@@ -198,8 +198,15 @@
                }
                .info{
                    height: 70px;
-                   width: auto;
+                   width: 66%;
+                   overflow:hidden;
                    margin-left: 1.5%;
+               }
+
+               .info li{
+                   margin: 0 0 2% 0;
+                   height:1.7pc;
+                   overflow:hidden;
                }
 
                .opciones{
