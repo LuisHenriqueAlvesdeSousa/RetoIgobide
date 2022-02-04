@@ -168,7 +168,7 @@
     }
 </style>
 <body>
-
+   @include('header')
    <div class="container-fluid">
         <div class="mainListado" style="width: 100%;height: auto;">
         <ul>
