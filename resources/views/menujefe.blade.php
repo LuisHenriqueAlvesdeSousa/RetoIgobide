@@ -76,6 +76,10 @@
             .opcDirector{
                 height: 175px;
             }
+            
+            .mainHome{
+                margin: 1% 2% 1% 2%;
+            }
         }
 
     </style>
