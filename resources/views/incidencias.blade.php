@@ -47,7 +47,7 @@
         .opcIncidencia{
             width: 96%;
             margin: 2%;
-            height: 200px;
+            height: auto;
             border-radius: 0.4em;
             box-shadow: 0px 0px 2px grey;
             position: relative;
@@ -58,10 +58,11 @@
         }
 
         .urgente{
-            background: linear-gradient(rgb(255, 113, 113), rgb(223, 84, 84));
+           background: linear-gradient(rgb(255, 113, 113), rgb(223, 84, 84));
         }
 
         .prioritaria{
+            
             background: linear-gradient(rgb(253, 158, 94),rgb(247, 139, 68));
         }
 
@@ -101,6 +102,109 @@
         }
     </style>
 </head>
+<script src="./sweetalert2.all.min.js"></script>
+<script src="./jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+<sctipt src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></sctipt>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+//Web component
+  class Incidencia extends HTMLElement{
+      
+       constructor(){
+           super();
+       }
+
+       connectedCallback(){
+           let shadowRoot = this.attachShadow({ mode: "open" });
+           shadowRoot.innerHTML = `
+           <style>
+               *{
+                   font-size: 1.35pc;
+               }
+               ul{
+                   list-style: none;
+                   margin: 0;
+                   padding: 0%;
+               }
+               li{
+                   margin: 2% 0 2.5% 0;
+               }
+               .tecnicosOpc2{
+                   width: 100%;/*Cambiar a auto despues de poner Editar y eliminar de la lista de tecnicos*/
+                   height: auto;
+                   margin:1% 0;
+                   border-radius: 0.4em;
+                   box-shadow: 0px 0px 2px grey;
+                   background: linear-gradient(rgb(214, 231, 245), lightsteelblue);
+                   display: flex;
+                   flex-direction: row;
+                   position: relative;
+                   overflow: hidden;
+                   padding: 2% 0;
+               }
+               
+               .opciones li{
+                   margin-bottom: 5px;
+               }
+
+               .imagenTecn{
+                   width: auto;
+                   height: auto;
+                   background:rgba(255, 255, 255, 0.708) ;
+                   margin-left: 2%;
+                   border-radius: 0.4em;
+               }
+               .info{
+                   height: 70px;
+                   width: auto;
+                   margin-left: 1.5%;
+               }
+
+               .opciones{
+                   height: 100%;
+                   width: auto;
+                   position: absolute;
+                   right: 3%;
+               }
+           </style>
+           <div class="tecnicosOpc2" onclick="location.href='./detalleIncidencia'">
+               <div class="imagenTecn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="4pc" height="4.1pc" fill="currentColor" class="bi bi-exclamation-square" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
+                </svg>
+               </div>
+               
+               <div class="opciones">
+                   <ul>
+                       <li>
+                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                               <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                           </svg>
+                       </li>
+                       <li>
+                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                               <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                               <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                           </svg>
+                       </li>
+                   </ul>
+               </div>
+
+               <div class="info">
+                   <ul>
+                       <li>${this.getAttribute("calle")}</li>
+                       <li>${this.getAttribute("fecha")}</li>
+                   </ul>
+               </div>
+           </div>
+           `;
+       }
+  }
+
+  window.customElements.define("incidencia-p", Incidencia);
+</script>
 <body>
 
     @include('header')
@@ -122,34 +226,28 @@
 
         <ul>
             <li>
+                <p>Incidencias Urgentes</p><!--Indicar el numero de incidencias-->
                 <div class="opcIncidencia urgente" onclick="location.href='./detalleIncidencia'">
-                    <p>Incidencias Urgentes</p><br>
-                    <p class="nIncidencias">Nº Incidencias: 8</p>
-                    <svg class="ver" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
-                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
-                    </svg>
+                    <ul id="lUrgentes">
+                        <!--Introducir los datos aqui-->
+                    </ul>
                 </div>
             </li>
             <li>
+                <p>Incidencias Prioritarias</p>
                 <div class="opcIncidencia prioritaria">
-                    <p>Incidencias Prioritarias</p><br>
-                    <p class="nIncidencias">Nº Incidencias: 8</p>
-                    <svg class="ver" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
-                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
-                    </svg>
+                    <ul id="lPrioritaria">
+                        <!--Introducir los datos aqui-->
+                    </ul>
                 </div>
             </li>
 
             <li>
+                <p>Incidencias No Prioritarias</p><!--Indicar el numero de incidencias-->
                 <div class="opcIncidencia noPrioritaria">
-                    <p>Incidencias Prioritarias</p><br>
-                    <p class="nIncidencias">Nº Incidencias: 8</p>
-                    <svg class="ver" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
-                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
-                    </svg>
+                    <ul id="lNoprioritaria">
+                        <!--Introducir los datos aqui-->
+                    </ul>
                 </div>
             </li>
         </ul>
@@ -162,6 +260,46 @@
           </svg>
         Nueva Incidencia
     </div>
+
+
+    <script>
+        //Array con datos (cambiar a consulta a BD)
+        var datos=[
+            {calle:"Pozoa Kalea, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"urgente"},
+            {calle:"Calle Correría, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"urgente"},
+            {calle:"Calle Reyes Católicos, Vitoria-Gasteiz",fecha:"1/2/2022",tipo:"urgente"},
+            {calle:"Pozoa Kalea, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"urgente"},
+            {calle:"Calle Correría, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"urgente"},
+            {calle:"Calle Ramón y Cajal, Vitoria-Gasteiz",fecha:"1/2/2022",tipo:"prioritaria"},
+            {calle:"Calle Prudencio María Verástegui, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"prioritaria"},
+            {calle:"Calle de Puerto Rico, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"prioritaria"},
+            {calle:"Pozoa Kalea, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"no prioritaria"},
+            {calle:"Calle Correría, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"no prioritaria"},
+            {calle:"Calle Reyes Católicos, Vitoria-Gasteiz",fecha:"1/2/2022",tipo:"no prioritaria"},
+            {calle:"Pozoa Kalea, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"no prioritaria"},
+            {calle:"Calle Correría, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"no prioritaria"},
+        ];
+       
+        for(let i=0;i<datos.length;i++){
+           var elemento = document.createElement("incidencia-p");
+           elemento.setAttribute("calle",datos[i]["calle"]);//Paso los datos del array mediante un atributo al web component
+           elemento.setAttribute("fecha",datos[i]["fecha"]);
+           var posicionElemento = i+1;
+
+           //Condicional para saber si es urgente
+            if(datos[i]["tipo"]=="urgente"){
+                document.getElementById("lUrgentes").appendChild(elemento);
+            }else if(datos[i]["tipo"]=="prioritaria"){
+                document.getElementById("lPrioritaria").appendChild(elemento);
+            }else if(datos[i]["tipo"]=="no prioritaria"){
+                document.getElementById("lNoprioritaria").appendChild(elemento);
+            }
+           
+       }
+
+   </script>
+
+
 
 </body>
 </html>
