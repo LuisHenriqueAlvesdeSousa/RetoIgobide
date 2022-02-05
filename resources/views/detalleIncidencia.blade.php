@@ -154,7 +154,7 @@
             margin-left: 1em;
         }
         
-        breadcrumb-item > a:hover{
+       .breadcrumb-item > a,svg:hover{
             cursor:pointer;
         }
         
