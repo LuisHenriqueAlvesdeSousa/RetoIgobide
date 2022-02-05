@@ -86,7 +86,7 @@
 
         @media (max-width:768px){
             .opcDirector{
-                height: 100px;
+                height: 130px;
             }
             
             .mainHome{
