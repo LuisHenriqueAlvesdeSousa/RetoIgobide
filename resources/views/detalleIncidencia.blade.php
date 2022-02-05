@@ -206,7 +206,7 @@
         var posiciones=await geocode();//lat y lng para centrar el mapa en la calle requerida await funcion de obtencion de pos.
         map = new google.maps.Map(document.getElementById("map"), {
             center: { lat: posiciones[0], lng: posiciones[1] },
-            zoom: 18,
+            zoom: 19,
         });
         infoWindow = new google.maps.InfoWindow();
         }
