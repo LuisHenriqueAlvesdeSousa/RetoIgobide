@@ -10,23 +10,33 @@
             margin: 0;
             padding: 0;
         }
+
+        #mainListado{
+            width: 100%;
+           
+        }
         
         #listadoDirector{
+            width: 100%;
             list-style: none;
             padding: 0;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
         }
 
         #listadoDirector li{
             padding: 0%;
             margin: 0%;
+            width: 50%;
         }
 
         .opcDirector{
-            height: 90px;
-            width: 100%;
+            height: 10.5pc;
+            width: 98%;
             background: linear-gradient(rgb(214, 231, 245), lightsteelblue);
             border-radius: 0.4em;
-            margin: 2% 0;
+            margin:1%;
             font-size: 1.35pc;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
@@ -72,23 +82,30 @@
             margin: 3% 2% 1% 2%;
         }
 
-        @media (min-width:900px){
+        @media (max-width:768px){
             .opcDirector{
-                height: 175px;
+                height: 100px;
             }
             
             .mainHome{
                 margin: 1% 2% 1% 2%;
             }
+
+            #listadoDirector li{
+                width: 100%;
+            }
         }
 
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <sctipt src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></sctipt>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <div class="mainHome">
           <div>
              <div class="row">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <div id="mainListado" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                     <ul id="listadoDirector">
                         <li>
                             <div class="opcDirector" onclick="location.href='./incidencias'">
@@ -99,7 +116,7 @@
                                 Listado Incidencias
                             </div>
                         </li>
-                        <li class="d-lg-none" >
+                        <li>
                             <div class="opcDirector" onclick="location.href='./listadoTecnicos'">
                                 <svg class="w-50 h-50 w-lg-100 h-lg-100 w-xl-100 h-xl-100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-wrench-adjustable-cricle" viewBox="0 0 15 20">
                                     <path fill-rule="evenodd" d="M15 8a7 7 0 0 1-10.253 6.2l1.658-1.99a4.49 4.49 0 0 0 1.592.29c.652 0 1.273-.139 1.833-.39L8.497 9l-1-2.5 3.826-1.53a4.5 4.5 0 0 0-7.537 4.623l-1.988 1.656A7 7 0 1 1 15 8Zm1 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-3.504 0a4.491 4.491 0 0 1-1.703 3.526L9.497 8.5l2.959-1.11c.027.2.04.403.04.61Zm-5.791.139a.25.25 0 0 0-.288-.376l-1.5.5.159.474.808-.27-.595.894a.25.25 0 0 0 .287.376l.808-.27-.595.894a.25.25 0 0 0 .287.376l1.5-.5-.159-.474-.808.27.596-.894a.25.25 0 0 0-.288-.376l-.808.27.596-.894Z"/>
@@ -116,7 +133,7 @@
                                 Listado Operarios
                             </div>
                         </li>
-                        <li class="d-lg-none">
+                        <li>
                             <div class="opcDirector" onclick="location.href='./listadoJefeEquipo'">
                                 <svg class="w-50 h-50 w-lg-100 h-lg-100 w-xl-100 h-xl-100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-briefcase" viewBox="0 0 15 20">
                                     <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z"/>
@@ -134,7 +151,7 @@
                                 Leer Reportes
                             </div>
                         </li>
-                        <li class="d-lg-none">
+                        <li>
                             <div class="opcDirector" onclick="location.href='./manuales'">
                                 <svg class="w-50 h-50 w-lg-100 h-lg-100 w-xl-100 h-xl-100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-book" viewBox="0 0 15 20">
                                     <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
@@ -152,7 +169,7 @@
                                 Historial
                             </div>
                         </li>
-                        <li class="d-lg-none">
+                        <li>
                             <div class="opcDirector">
                                 <svg class="w-50 h-50 w-lg-100 h-lg-100 w-xl-100 h-xl-100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 15 20">
                                     <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z"/>
@@ -163,43 +180,7 @@
                     </ul>
                 </div>
     
-                <!--Columna extra para las versiones lg y xl-->
-                <div class="d-none d-lg-block d-xl-block col-lg-6 col-xl-6">
-                    <ul id="listadoDirector">  
-                        <li>
-                            <div class="opcDirector" onclick="location.href='./listadoTecnicos'">
-                                <svg class="w-50 h-50 w-lg-100 h-lg-100 w-xl-100 h-xl-100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-wrench-adjustable-cricle" viewBox="0 0 15 20">
-                                    <path fill-rule="evenodd" d="M15 8a7 7 0 0 1-10.253 6.2l1.658-1.99a4.49 4.49 0 0 0 1.592.29c.652 0 1.273-.139 1.833-.39L8.497 9l-1-2.5 3.826-1.53a4.5 4.5 0 0 0-7.537 4.623l-1.988 1.656A7 7 0 1 1 15 8Zm1 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-3.504 0a4.491 4.491 0 0 1-1.703 3.526L9.497 8.5l2.959-1.11c.027.2.04.403.04.61Zm-5.791.139a.25.25 0 0 0-.288-.376l-1.5.5.159.474.808-.27-.595.894a.25.25 0 0 0 .287.376l.808-.27-.595.894a.25.25 0 0 0 .287.376l1.5-.5-.159-.474-.808.27.596-.894a.25.25 0 0 0-.288-.376l-.808.27.596-.894Z"/>
-                                </svg>
-                                Listado Tecnicos
-                            </div>
-                        </li>
-                        <li>
-                            <div class="opcDirector" onclick="location.href='./listadoJefeEquipo'">
-                                <svg class="w-50 h-50 w-lg-100 h-lg-100 w-xl-100 h-xl-100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-briefcase" viewBox="0 0 15 20">
-                                    <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z"/>
-                                </svg>
-                                Listado Jefe Equipos
-                            </div>
-                        </li>
-                        <li>
-                            <div class="opcDirector" onclick="location.href='./manuales'">
-                                <svg class="w-50 h-50 w-lg-100 h-lg-100 w-xl-100 h-xl-100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-book" viewBox="0 0 15 20">
-                                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
-                                </svg>
-                                Manuales
-                            </div>
-                        </li>
-                        <li>
-                            <div class="opcDirector">
-                                <svg class="w-50 h-50 w-lg-100 h-lg-100 w-xl-100 h-xl-100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 15 20">
-                                    <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z"/>
-                                </svg>
-                                Estadisticas
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                
             </div>
           </div> 
     </div>
