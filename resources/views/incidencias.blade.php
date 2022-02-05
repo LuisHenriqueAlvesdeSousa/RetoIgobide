@@ -181,16 +181,11 @@
                    margin:1%;
                    border-radius: 0.4em;
                    box-shadow: 0px 0px 2px grey;
-                   background: linear-gradient(rgb(214, 231, 245), lightsteelblue);
                    display: flex;
                    flex-direction: row;
                    position: relative;
                    overflow: hidden;
                    padding: 2% 0;
-               }
-               
-               .tecnicosOpc2:hover{
-                   cursor:pointer;
                }
                
                .opciones li{
@@ -216,7 +211,7 @@
 
                .info li{
                    margin: 0 0 2% 0;
-                   height:1.7pc;
+                   height:1.9pc;
                    overflow:hidden;
                }
 
@@ -228,15 +223,22 @@
                }
 
                .urgente{
-                    background: linear-gradient(rgb(255, 113, 113), rgb(223, 84, 84));
+                background-image:linear-gradient(rgb(255, 102, 102),rgb(250, 83, 83)), url("./vector.jpg");
+                background-size: cover;
+                background-blend-mode: multiply;
                 }
 
                 .prioritaria{
-                    background: linear-gradient(rgb(253, 158, 94),rgb(247, 139, 68));
+                    background-image:linear-gradient(rgb(253, 158, 94),rgb(247, 139, 68)), url("./vector.jpg");
+                    background-size: cover;
+                    background-blend-mode: multiply;
                 }
 
                 .noprioritaria{
-                    background: linear-gradient(rgb(214, 231, 245), lightsteelblue);
+       
+                    background-image:linear-gradient(rgb(214, 231, 245), lightsteelblue), url("./vector.jpg");
+                    background-size: cover;
+                    background-blend-mode: multiply;
                 }
                
            </style>
@@ -265,7 +267,7 @@
 
                <div class="info">
                    <ul>
-                       <li>${this.getAttribute("calle")}</li>
+                       <li style="font-weight:500;">${this.getAttribute("calle")}</li>
                        <li>${this.getAttribute("fecha")}</li>
                    </ul>
                </div>
