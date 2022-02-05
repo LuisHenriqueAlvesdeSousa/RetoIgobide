@@ -32,7 +32,7 @@
         }
 
         .opcDirector{
-            height: 10.5pc;
+            height: 175px;
             width: 98%;
             background: linear-gradient(rgb(214, 231, 245), lightsteelblue);
             border-radius: 0.4em;
