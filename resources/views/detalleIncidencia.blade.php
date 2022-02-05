@@ -173,7 +173,7 @@
     <script>
         //Geolocalizacion
         function geocode(){
-            var location="2,Pozoa Kalea,Vitoria-Gasteiz,Araba,Spain"; //Obtener el nombre de la calle de la incidencia(portal,Nombre,Ciudad,Comunidad,Pais(Opcional))
+            var location=this.getAttribute("calle"); //Obtener el nombre de la calle de la incidencia(portal,Nombre,Ciudad,Comunidad,Pais(Opcional))
             return new Promise((resolve,reject)=>{
                 resolve( 
                 axios.get("https://maps.googleapis.com/maps/api/geocode/json",{
