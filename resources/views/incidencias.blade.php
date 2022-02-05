@@ -189,6 +189,10 @@
                    padding: 2% 0;
                }
                
+               .tecnicosOpc2:hover{
+                   cursor:pointer;
+               }
+               
                .opciones li{
                    margin-bottom: 5px;
                }
