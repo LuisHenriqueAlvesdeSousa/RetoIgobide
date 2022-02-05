@@ -88,7 +88,7 @@
             }
             
             .mainHome{
-                margin: 1% 2% 1% 2%;
+                margin: 3% 2% 1% 2%;
             }
 
             #listadoDirector li{
