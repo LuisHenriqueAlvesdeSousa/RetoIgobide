@@ -298,7 +298,7 @@
         var detalles={
             comunidad:"Alava",
             localidad:"Vitoria-Gasteiz",
-            calle:"Pozo Kalea,11",
+            calle:sessionStorage.getItem("calleIncidencia"),
             idAscensor:"15653AV",
             idManualAsociado:"213342"
         }
