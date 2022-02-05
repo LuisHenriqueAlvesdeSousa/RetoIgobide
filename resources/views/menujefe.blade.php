@@ -31,10 +31,12 @@
             width: 50%;
         }
 
-        .opcDirector{
-            height: 175px;
+    .opcDirector{
+            height: 10.5pc;
             width: 98%;
-            background: linear-gradient(rgb(214, 231, 245), lightsteelblue);
+            background-image:linear-gradient(rgb(255, 191, 73), rgb(255, 170, 13)), url("{{url('vector.jpg')}}");
+            background-size: cover;
+            background-blend-mode: multiply;
             border-radius: 0.4em;
             margin:1%;
             font-size: 1.35pc;
