@@ -173,7 +173,7 @@
     <script>
         //Geolocalizacion
         function geocode(){
-            var location=sessionStorage.setItem("calleIncidencia"); //Obtener el nombre de la calle de la incidencia(portal,Nombre,Ciudad,Comunidad,Pais(Opcional))
+            var location=sessionStorage.getItem("calleIncidencia"); //Obtener el nombre de la calle de la incidencia(portal,Nombre,Ciudad,Comunidad,Pais(Opcional))
             return new Promise((resolve,reject)=>{
                 resolve( 
                 axios.get("https://maps.googleapis.com/maps/api/geocode/json",{
