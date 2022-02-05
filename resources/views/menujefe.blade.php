@@ -11,6 +11,33 @@
             padding: 0;
         }
 
+        .vista{
+            height: 2pc;
+            width: 2pc;
+            margin: 0 0 1% 0.5%;
+        }
+
+        .opColumnas{
+            height: auto;
+            width: 50%;
+            padding: 2% 0;
+            margin: 2% auto;
+            border-radius: 0.5em;
+            border:0.5px solid gainsboro;
+        }
+
+        .opColumnas:hover{
+            cursor: pointer;
+        }
+
+        .opColumnasSelected{
+            border: 0.5px solid rgb(255, 191, 73);
+        }
+
+        .vista:hover{
+            cursor:pointer;
+        }
+
         #mainListado{
             width: 100%;
            
@@ -31,10 +58,10 @@
             width: 50%;
         }
 
-    .opcDirector{
+        .opcDirector{
             height: 10.5pc;
             width: 98%;
-            background-image:linear-gradient(rgb(255, 191, 73), rgb(255, 170, 13)), url("{{url('vector.jpg')}}");
+            background-image:linear-gradient(rgb(255, 191, 73), rgb(255, 170, 13)), url("./vector.jpg");
             background-size: cover;
             background-blend-mode: multiply;
             border-radius: 0.4em;
@@ -51,6 +78,11 @@
         
         .opcDirector:hover{
             cursor:pointer;
+            animation-name: expand;
+            animation-duration: 1s;
+            animation-iteration-count: 0.8s;
+            animation-play-state: running;
+            animation-fill-mode: forwards;
         }
 
         .info{
@@ -81,16 +113,16 @@
         .mainHome{
             width: 96%;
             height: auto;
-            margin: 1% auto;
+            margin: 3% 2% 1% 2%;
         }
 
         @media (max-width:768px){
             .opcDirector{
-                height: 130px;
+                height: 120px;
             }
             
             .mainHome{
-                margin: 3% 2% 1% 2%;
+                margin: 1% 2% 1% 2%;
             }
 
             #listadoDirector li{
@@ -98,7 +130,19 @@
             }
         }
 
+        @keyframes expand {
+            0%{
+                width: 98%;
+            }
+
+            100%{
+                width: 100%;
+            }
+        }
+
     </style>
+    <script src="./sweetalert2.all.min.js"></script>
+    <script src="./jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <sctipt src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></sctipt>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -108,6 +152,11 @@
           <div>
              <div class="row">
                 <div id="mainListado" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                    <div id="vista" class="vista">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="2pc" height="2pc" fill="currentColor" class="bi bi-grid-3x3-gap" viewBox="0 0 16 16">
+                            <path d="M4 2v2H2V2h2zm1 12v-2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm5 10v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zM9 2v2H7V2h2zm5 0v2h-2V2h2zM4 7v2H2V7h2zm5 0v2H7V7h2zm5 0h-2v2h2V7zM4 12v2H2v-2h2zm5 0v2H7v-2h2zm5 0v2h-2v-2h2zM12 1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zm-1 6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zm1 4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-2z"/>
+                          </svg>
+                    </div>
                     <ul id="listadoDirector">
                         <li>
                             <div class="opcDirector" onclick="location.href='./incidencias'">
@@ -115,7 +164,7 @@
                                     <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                                     <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z"/>
                                 </svg>
-                                Listado Incidencias
+                                Incidencias
                             </div>
                         </li>
                         <li>
@@ -123,7 +172,7 @@
                                 <svg class="w-50 h-50 w-lg-100 h-lg-100 w-xl-100 h-xl-100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-wrench-adjustable-cricle" viewBox="0 0 15 20">
                                     <path fill-rule="evenodd" d="M15 8a7 7 0 0 1-10.253 6.2l1.658-1.99a4.49 4.49 0 0 0 1.592.29c.652 0 1.273-.139 1.833-.39L8.497 9l-1-2.5 3.826-1.53a4.5 4.5 0 0 0-7.537 4.623l-1.988 1.656A7 7 0 1 1 15 8Zm1 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-3.504 0a4.491 4.491 0 0 1-1.703 3.526L9.497 8.5l2.959-1.11c.027.2.04.403.04.61Zm-5.791.139a.25.25 0 0 0-.288-.376l-1.5.5.159.474.808-.27-.595.894a.25.25 0 0 0 .287.376l.808-.27-.595.894a.25.25 0 0 0 .287.376l1.5-.5-.159-.474-.808.27.596-.894a.25.25 0 0 0-.288-.376l-.808.27.596-.894Z"/>
                                 </svg>
-                                Listado Tecnicos
+                                Técnicos
                             </div>
                         </li>
                         <li>
@@ -132,7 +181,7 @@
                                     <path d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
                                     <path d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z"/>
                                 </svg>
-                                Listado Operarios
+                                Operarios
                             </div>
                         </li>
                         <li>
@@ -140,7 +189,7 @@
                                 <svg class="w-50 h-50 w-lg-100 h-lg-100 w-xl-100 h-xl-100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-briefcase" viewBox="0 0 15 20">
                                     <path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z"/>
                                 </svg>
-                                Listado Jefe Equipos
+                                Jefes de Equipo
                             </div>
                         </li>
                         <li>
@@ -150,7 +199,7 @@
                                     <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
                                     <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
                                 </svg>
-                                Leer Reportes
+                                Reportes
                             </div>
                         </li>
                         <li>
@@ -188,5 +237,68 @@
     </div>
 
 
+    <!--Distribucion de las columnas-->
+    <script>
+        $(document).ready(function(){
+            $("#vista").click(function(){
+                Swal.fire({
+                title: 'Vista',
+                html:`<p>Configura la distribución de los elementos</p>
+                <ul style="list-style:none;padding:0;margin:0;">
+                        <li class="opColumnas">1 Columna</li>
+                        <li class="opColumnas">2 Columnas</li>
+                        <li class="opColumnas">3 Columnas</li>
+                </ul>`,
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText:'Cancelar',
+                confirmButtonText: 'Confirmar',
+                didRender: () => {
+                    $(".opColumnas").click(function(){
+                        var seleccionado = $(".opColumnasSelected");///Comprueba si hay elementos ya seleccionados
+                        if(seleccionado.length>=1){
+                            for(i=0;i<seleccionado.length;i++){
+                                seleccionado[i].className="opColumnas";
+                            }   
+                        }
+                        $(this).toggleClass("opColumnasSelected");
+                    });
+                }
+                }).then((result) => {
+                if (result.isConfirmed) {
+                   // Guardar la seleccion en cookies
+                   var columnas = $(".opColumnasSelected");
+                   if(columnas[0]==undefined){
+                    console.log("No se ha especificado opcion");
+                   }else{
+                        localStorage.setItem("columnas",columnas[0].innerHTML);//Almaceno la opcion en localstorage
+                        var elementos = $("#listadoDirector > li")
+                        console.log("Elementos li: " + elementos.length);
+                        switch(columnas[0].innerHTML){
+                            case "1 Columna":
+                                for(i=0;i<elementos.length;i++){
+                                    console.log(elementos[i].getAttribute("style"));
+                                    elementos[i].setAttribute("style","width:100%");
+                                }
+                                break;
+                            case "2 Columnas":arguments
+                                for(i=0;i<elementos.length;i++){
+                                    elementos[i].setAttribute("style","width:50%");
+                                }
+                                break;
+                            case "3 Columnas":
+                                for(i=0;i<elementos.length;i++){
+                                    elementos[i].setAttribute("style","width:33%");
+                                }
+                            break;
+                        }
+                   }
+                }
+                });
+            })
+        });
+    </script>
 </body>
 </html>
