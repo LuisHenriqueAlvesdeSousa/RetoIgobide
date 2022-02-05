@@ -230,12 +230,12 @@
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
-                                        <svg onclick="location.href='./'" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house" viewBox="0 0 16 20">
+                                        <svg onclick="confirmaNavegar('./')" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house" viewBox="0 0 16 20">
                                             <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
                                             <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
                                         </svg>
                                     </li>
-                                        <li class="breadcrumb-item"><a onclick="location.href='./incidencias'">Incidencias</a></li>
+                                        <li class="breadcrumb-item"><a onclick="confirmaNavegar('./incidencias')">Incidencias</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Id Incidencia</li>
                                     </ol>
                                 </nav>
@@ -293,6 +293,36 @@
         $("#addComent").click(function(){
             $("#comentario").slideToggle("slow");
         })
+        
+        //Confirma estado de incidencia antes de salir
+        function navegar(){
+            return new Promise((resolve,reject)=>{
+                resolve(
+                    Swal.fire({
+                    title: 'Incidencia en proceso',
+                    text:"Confirma el estado de la incidencia antes de salir",
+                    showDenyButton: true,
+                    showCancelButton: true,
+                    confirmButtonText: `Completada`,
+                    denyButtonText: `En proceso`,
+                    cancelButtonText:'Cancelar',
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                        console.log("Poner incidencia como completada")
+                        return "salir";
+                    } else if (result.isDenied) {
+                        console.log("Poner incidencia en proceso")
+                    }
+                    }));
+            });
+        }
+        async function confirmaNavegar(ir){
+            //Obtengo lo que el usuario ha seleccionado del popup
+            var seleccion = await navegar();
+            if(seleccion=="salir"){
+                window.location.href=ir;
+            } 
+        }
         
         //Carga descripcion
         var descripcion="La polea es un componente esencial para el correcto funcionamiento de un elevador. Con el tiempo, el roce constante y diario de los cables que la unen a la cabina, hace que se desgaste y que el cableado acabe por resbalar sobre ella. ";
