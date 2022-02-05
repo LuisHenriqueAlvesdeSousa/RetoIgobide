@@ -80,7 +80,7 @@
 
         .selector{
             width: 100%;
-            height: 50px;
+            height: auto;
             padding: 2%;
             border: none;
             border-radius: 0.4em;
