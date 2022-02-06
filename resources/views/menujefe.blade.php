@@ -124,10 +124,10 @@
             margin: 3% 2% 1% 2%;
         }
 
-        .mainHome{
+         .mainHome{
             width: 96%;
             height: auto;
-            margin: 1% 2% 1% 2%;
+            margin: 0% 2% 1% 2%;
         }
 
         @media (max-width:768px){
@@ -136,7 +136,7 @@
             }
             
             .mainHome{
-                margin: 3% 2% 1% 2%;
+                margin: 2% 2% 1% 2%;
             }
 
             #listadoDirector li{
