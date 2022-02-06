@@ -5,16 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu Director</title>
-    <style>
+<style>
         *{
             margin: 0;
             padding: 0;
         }
 
         .vista{
-            height: 2pc;
-            width: 2pc;
+            height: 1em;
+            width: 3.7em;
             margin: 0 0 1% 0.5%;
+            border-radius: 0.1em;
+            display: flex;
+            flex-direction: row;
+            font-size: 1.5em;
+            align-items: center;
+            color: rgb(66, 66, 66);
+        }
+
+
+        .vista a{
+            margin-left: 0.18em;
+        }
+
+        .vista:hover{
+            cursor:pointer;
+            color: black;
         }
 
         .opColumnas{
@@ -32,10 +48,6 @@
 
         .opColumnasSelected{
             border: 0.5px solid rgb(255, 191, 73);
-        }
-
-        .vista:hover{
-            cursor:pointer;
         }
 
         #mainListado{
@@ -65,6 +77,7 @@
             background-size: cover;
             background-blend-mode: multiply;
             border-radius: 0.4em;
+            border: solid 1px rgb(255, 170, 13);
             margin:1%;
             font-size: 1.35pc;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -78,11 +91,6 @@
         
         .opcDirector:hover{
             cursor:pointer;
-            animation-name: expand;
-            animation-duration: 1s;
-            animation-iteration-count: 0.8s;
-            animation-play-state: running;
-            animation-fill-mode: forwards;
         }
 
         .info{
@@ -129,17 +137,6 @@
                 width: 100%;
             }
         }
-
-        @keyframes expand {
-            0%{
-                width: 98%;
-            }
-
-            100%{
-                width: 100%;
-            }
-        }
-
     </style>
     <script src="./sweetalert2.all.min.js"></script>
     <script src="./jquery-3.6.0.min.js"></script>
@@ -148,14 +145,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <div class="mainHome">
+        <div class="mainHome">
           <div>
              <div class="row">
                 <div id="mainListado" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                     <div id="vista" class="vista">
                         <svg xmlns="http://www.w3.org/2000/svg" width="2pc" height="2pc" fill="currentColor" class="bi bi-grid-3x3-gap" viewBox="0 0 16 16">
                             <path d="M4 2v2H2V2h2zm1 12v-2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm5 10v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zM9 2v2H7V2h2zm5 0v2h-2V2h2zM4 7v2H2V7h2zm5 0v2H7V7h2zm5 0h-2v2h2V7zM4 12v2H2v-2h2zm5 0v2H7v-2h2zm5 0v2h-2v-2h2zM12 1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zm-1 6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zm1 4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-2z"/>
-                          </svg>
+                        </svg>
+                        <a>VISTA</a>
                     </div>
                     <ul id="listadoDirector">
                         <li>
