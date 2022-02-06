@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operarios</title>
+    <title>Tecnicos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script>
          //Web component
@@ -30,12 +30,14 @@
                         margin: 2% 0 2.5% 0;
                     }
                     .tecnicosOpc2{
-                        width: 100%;/*Cambiar a auto despues de poner Editar y eliminar de la lista de tecnicos*/
+                        width: 98%;/*Cambiar a auto despues de poner Editar y eliminar de la lista de tecnicos*/
                         height: auto;
-                        margin:1% 0;
+                        margin: 0 1%;
                         border-radius: 0.4em;
                         box-shadow: 0px 0px 2px grey;
-                        background: linear-gradient(rgb(214, 231, 245), lightsteelblue);
+                        background-image:linear-gradient(rgb(214, 231, 245), lightsteelblue), url("./vector2.jpg");
+                        background-size: cover;
+                        background-blend-mode: multiply;
                         display: flex;
                         flex-direction: row;
                         position: relative;
@@ -124,7 +126,7 @@
     }
 
     .mainListado li{
-        margin: 1% 0 2% 0;
+        margin: 0.5% 0;
     }
 
     .title{
@@ -166,6 +168,26 @@
         text-align: center;
         padding: 2% 0 0 0;
         margin-bottom: 0;
+    }
+
+    #listaTecnicos{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #listaTecnicos li{
+        width: 50%;
+    }   
+
+    @media (max-width:768px) {
+        #listaTecnicos li{
+            width: 100%;
+        }  
+
+        .mainListado li{
+        margin: 1% 0;
+    }
     }
 </style>
 <body>
