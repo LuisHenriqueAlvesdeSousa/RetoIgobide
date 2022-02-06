@@ -124,13 +124,19 @@
             margin: 3% 2% 1% 2%;
         }
 
+        .mainHome{
+            width: 96%;
+            height: auto;
+            margin: 1% 2% 1% 2%;
+        }
+
         @media (max-width:768px){
             .opcDirector{
                 height: 120px;
             }
             
             .mainHome{
-                margin: 1% 2% 1% 2%;
+                margin: 3% 2% 1% 2%;
             }
 
             #listadoDirector li{
