@@ -103,6 +103,7 @@
 
        window.customElements.define("usuario-p", Usuario);
     </script>
+    
 </head>
 <style>
     *{
@@ -112,9 +113,8 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     .mainListado{
-        width: 96%;
+        width: 100%;
         height: auto;
-        margin: 0 2%;
     }
 
     .mainListado ul{
@@ -124,7 +124,7 @@
     }
 
     .mainListado li{
-        margin: 1% 0 2% 0;
+        margin: 2% 0;
     }
 
     .title{
@@ -169,7 +169,8 @@
     }
 </style>
 <body>
-   @include('header')
+
+   <div class="container-fluid">
         <div class="mainListado">
         <ul>
             <li>
@@ -199,26 +200,18 @@
         <a class="title1">Lista de Operarios</a>
             <!---->
             <div class="row">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="row">
-                        <div style="height: auto;width: 100%; margin: 0 auto;">
+                        <div id="mainlistaprueba" style="height: auto;width: 100%; margin: 0 auto;">
                             <ul id="listaprueba1" style="list-style: none; padding: 0;margin: 0;">
                              <!--Añadir datos aqui-->
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="row">
-                        <div style="height: auto;width: 100%; margin: 0 auto;">
-                            <ul id="listaprueba2" style="list-style: none; padding: 0;margin: 0;">
-                                <!--Añadir datos aqui-->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>  
+   </div>
    
    <script>
         //Array con datos (cambiar a consulta a BD)
@@ -245,13 +238,9 @@
            var elemento = document.createElement("usuario-p");
            elemento.setAttribute("nombre",datos[i]["nombre"]);//Paso los datos del array mediante un atributo al web component
            elemento.setAttribute("equipo",datos[i]["equipo"]);
-           var posicionElemento = i+1;
-
-           if(posicionElemento%2==0){
-                document.getElementById("listaprueba2").appendChild(elemento);
-           }else{
-                document.getElementById("listaprueba1").appendChild(elemento);
-           }
+            
+            document.getElementById("listaprueba1").appendChild(elemento);
+       
            
        }
 
