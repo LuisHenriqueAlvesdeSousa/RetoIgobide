@@ -199,20 +199,11 @@
         <a class="title1">Lista de Técnicos</a>
             <!---->
             <div class="row">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <div class="row">
                         <div style="height: auto;width: 100%; margin: 0 auto;">
-                            <ul id="listaprueba1" style="list-style: none; padding: 0;margin: 0;">
+                            <ul id="listaTecnicos" style="list-style: none; padding: 0;margin: 0;">
                              <!--Añadir datos aqui-->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-6">
-                    <div class="row">
-                        <div style="height: auto;width: 100%; margin: 0 auto;">
-                            <ul id="listaprueba2" style="list-style: none; padding: 0;margin: 0;">
-                                <!--Añadir datos aqui-->
                             </ul>
                         </div>
                     </div>
@@ -242,19 +233,13 @@
         ];
        
         for(let i=0;i<datos.length;i++){
-           var elemento = document.createElement("usuario-p");
-           elemento.setAttribute("nombre",datos[i]["nombre"]);//Paso los datos del array mediante un atributo al web component
-           elemento.setAttribute("equipo",datos[i]["equipo"]);
-           var posicionElemento = i+1;
-
-           if(posicionElemento%2==0){
-                document.getElementById("listaprueba2").appendChild(elemento);
-           }else{
-                document.getElementById("listaprueba1").appendChild(elemento);
-           }
-           
-       }
-
+            var item = document.createElement("li");
+            var elemento = document.createElement("usuario-p");
+            elemento.setAttribute("nombre",datos[i]["nombre"]);//Paso los datos del array mediante un atributo al web component
+            elemento.setAttribute("equipo",datos[i]["equipo"]);
+            item.appendChild(elemento);
+            document.getElementById("listaTecnicos").appendChild(item);
+        }
    </script>
 
 </body>
