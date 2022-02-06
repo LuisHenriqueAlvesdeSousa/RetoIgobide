@@ -166,7 +166,7 @@
 
     .title{
         text-align: center;
-        padding: 2% 0 0 0;
+        padding: 0;
         margin-bottom: 0;
     }
 
@@ -186,8 +186,12 @@
         }  
 
         .mainListado li{
-        margin: 1% 0;
-    }
+            margin: 1% 0;
+        }
+        
+        .title{
+            padding:2% 0;
+        }
     }
 </style>
 <body>
