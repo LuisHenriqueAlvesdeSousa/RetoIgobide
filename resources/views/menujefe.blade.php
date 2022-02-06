@@ -18,7 +18,7 @@
             border-radius: 0.1em;
             display: flex;
             flex-direction: row;
-            font-size: 1.5em;
+            font-size: -0.5em;
             align-items: center;
             color: rgb(66, 66, 66);
         }
