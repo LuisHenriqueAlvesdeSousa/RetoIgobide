@@ -94,7 +94,7 @@
 
                     <div class="info">
                         <ul>
-                            <li>${this.getAttribute("nombre")}</li>
+                            <li style="font-weight:500">${this.getAttribute("nombre")}</li>
                             <li>${this.getAttribute("equipo")}</li>
                         </ul>
                     </div>
