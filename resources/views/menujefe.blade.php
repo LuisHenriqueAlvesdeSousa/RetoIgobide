@@ -241,7 +241,7 @@
     </div>
 
 
-    <!--Distribucion de las columnas-->
+     <!--Distribucion de las columnas-->
     <script>
         $(document).ready(function(){
             $("#vista").click(function(){
@@ -249,9 +249,9 @@
                 title: 'Vista',
                 html:`<p>Configura la distribución de los elementos</p>
                 <ul style="list-style:none;padding:0;margin:0;">
-                        <li class="opColumnas">1 Columna</li>
+                        <li class="opColumnas d-lg-none d-lg-block d-xl-none d-xl-block d-xxl-none d-xxl-block">1 Columna</li>
                         <li class="opColumnas">2 Columnas</li>
-                        <li class="opColumnas">3 Columnas</li>
+                        <li class="opColumnas d-none d-sm-block">3 Columnas</li>
                 </ul>`,
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
