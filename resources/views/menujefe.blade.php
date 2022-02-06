@@ -253,7 +253,6 @@
                         <li class="opColumnas">2 Columnas</li>
                         <li class="opColumnas">3 Columnas</li>
                 </ul>`,
-                icon: 'info',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
