@@ -14,10 +14,7 @@ use App\Http\Controllers\Auth;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->action([HomeController::class, 'index']);
-});
-
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/menujefe',function(){
     return view('menujefe'); 
