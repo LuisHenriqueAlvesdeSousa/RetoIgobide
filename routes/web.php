@@ -16,8 +16,6 @@ use App\Http\Controllers\Auth;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/index.php', [HomeController::class, 'index']);
-
 Route::get('/menujefe',function(){
     return view('menujefe'); 
 })->name('menu');
