@@ -21,7 +21,8 @@
 
         .header{
             height: 60px;
-            background: linear-gradient(rgb(214, 231, 245), lightsteelblue);
+            background: linear-gradient(rgb(78, 78, 78), rgb(41, 41, 41));
+            color: white;
             border-radius: 0.4em;
             box-shadow: 0px 0px 2px grey;
             display: flex;
@@ -108,9 +109,10 @@
             cursor:pointer;
         }
 
-        .line{
-            height: 2px;
+         .line{
+            height: 1.5px;
             width: 80%;
+            border-radius: 1em;
             margin: 0 auto;
             background-color: rgb(255, 255, 255);
         }
