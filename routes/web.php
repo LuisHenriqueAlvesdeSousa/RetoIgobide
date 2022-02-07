@@ -1,6 +1,10 @@
-<?php
+t<?php
 use App\Http\Controllers\UsuarioController;
+
 use App\Http\Controllers\ManualController;
+
+use App\Http\Controllers\HomeController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth;
 /*
@@ -14,15 +18,17 @@ use App\Http\Controllers\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('inicio');
-});
-
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/menujefe',function(){
     return view('menujefe'); 
-});
+})->name('menu');
 
+Route::get('/login', function(){
+    return view('login'); 
+})->name('login');
+
+Route::post('/login', [HomeController::class, 'login'])->name('login.validate');
 
 Route::get('/reportes',function(){
     return view('reportes'); 
@@ -76,4 +82,4 @@ Route::post('/export/estadisticas/create', [App\Http\Controllers\ExcelController
 
 //Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
