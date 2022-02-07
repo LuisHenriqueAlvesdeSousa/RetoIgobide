@@ -57,9 +57,10 @@
             width: 18.5%;
         }
 
-        #menuOculto{
+         #menuOculto{
             height: 100vh;
-            background-color: lightsteelblue;
+            background: linear-gradient(rgb(78, 78, 78), rgb(41, 41, 41));
+            color: white;
             z-index: 1;
             margin: 0%;
             position: absolute;
