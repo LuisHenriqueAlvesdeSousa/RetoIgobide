@@ -33,7 +33,14 @@ class HomeController extends Controller
             return redirect()->route('menu');
         }
         //comprobamos si recibimos parametros para realizar un login
-        elseif(null !== $_POST["login"] && null !== $_POST["email"] && null !== $_POST["password"]){
+        else{
+            return redirect()->route('login');
+        }
+    }
+    
+    public funtion login()
+    {
+        if(null !== $_POST["login"] && null !== $_POST["email"] && null !== $_POST["password"]){
             if(comprobarCredenciales($_POST["email"], $_POST["password"])){
                 $_SESSION["email"] = $_POST["email"];
                 return redirect()->route('menu');
@@ -44,7 +51,8 @@ class HomeController extends Controller
                 return redirect()->route("login");
         }
 
-        function comprobarCredenciales($email, $password){
+        function comprobarCredenciales($email, $password)
+        {
             $usuarioActual = User::where('email', '=', $email)->first();
             if($usuarioActual->id() != null){
                 return false;
