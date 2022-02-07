@@ -62,11 +62,11 @@ $kernel->terminate($request, $response);
 session_start();
 
 //si el usuario ya se ha logeado vamos directamente a menu
-if(isset(session("email"))){
+if(null !== session("email")){
     return redirect()->route('menu');
 }
 //comprobamos si recibimos parametros para realizar un login
-elseif(isset($_POST["login"]) && isset($_POST["email"]) && isset($_POST["password"])){
+elseif(null !== $_POST["login"] && null !== $_POST["email"] && null !== $_POST["password"]){
     if(comprobarCredenciales($_POST["email"], $_POST["password"])){
         $_SESSION["email"] = $_POST["email"];
         return redirect()->route('menu');
