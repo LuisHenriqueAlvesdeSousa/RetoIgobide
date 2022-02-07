@@ -15,7 +15,7 @@ use App\Http\Controllers\Auth;
 */
 
 Route::get('/', function () {
-    return redirect()->action([HomeController::class, 'index']);;
+    return redirect()->action([HomeController::class, 'index']);
 });
 
 
