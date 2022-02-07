@@ -29,13 +29,12 @@ class HomeController extends Controller
         session_start();
 $_SESSION["email"] = 'hola';
         //si el usuario ya se ha logeado vamos directamente a menu
-        if(null !== $_SESSION["email"]){
-            return redirect()->route('menu');
+        if(null == $_SESSION["email"]){
+             return redirect()->route('login');
         }
         //comprobamos si recibimos parametros para realizar un login
         else{
-             return redirect()->route('login');
-
+            return redirect()->route('menu');
         }
     }
     
