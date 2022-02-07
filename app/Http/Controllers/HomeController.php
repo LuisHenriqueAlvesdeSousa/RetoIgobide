@@ -45,10 +45,10 @@ class HomeController extends Controller
                 $_SESSION["email"] = $_POST["email"];
                 return redirect()->route('menu');
             }else{
-                return redirect()->route("login");
+                return redirect()->view("login");
             }
         }else{
-                return redirect()->route("login");
+                return redirect()->view("login");
         }
 
         function comprobarCredenciales($email, $password)
