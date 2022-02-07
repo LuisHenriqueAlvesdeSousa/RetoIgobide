@@ -1,4 +1,4 @@
-<?php
+t<?php
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth;
@@ -14,7 +14,7 @@ use App\Http\Controllers\Auth;
 */
 
 Route::get('/', function () {
-    return view('inicio');
+    return redirect()->action([HomeController::class, 'index']);;
 });
 
 
