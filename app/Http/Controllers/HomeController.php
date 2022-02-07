@@ -27,7 +27,7 @@ class HomeController extends Controller
         // MAIN__________________________________________________
 
         session_start();
-
+$_SESSION["email"] = 'hola';
         //si el usuario ya se ha logeado vamos directamente a menu
         if(null !== $_SESSION["email"]){
             return redirect()->route('menu');
