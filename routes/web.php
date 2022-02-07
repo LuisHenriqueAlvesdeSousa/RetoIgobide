@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\ManualController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth;
 /*
@@ -24,15 +25,11 @@ Route::get('/menujefe',function(){
 
 
 Route::get('/reportes',function(){
-    return view('LeerReportes'); 
+    return view('reportes'); 
 });
 
 Route::get('/detalleIncidencia',function(){
     return view('detalleIncidencia'); 
-});
-
-Route::get('/detalleReporte',function(){
-    return view('detalleReporte'); 
 });
 
 Route::get('/header',function(){

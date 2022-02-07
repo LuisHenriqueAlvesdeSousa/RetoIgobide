@@ -33,5 +33,7 @@
             <input type="submit" value="Entrar">
         </form>
     </div>
+
+    @include ('footer')
 </body>
 </html>
