@@ -18,8 +18,11 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/menujefe',function(){
     return view('menujefe'); 
-});
+})->name('menu');
 
+Route::get('/login',function(){
+    return view('login'); 
+})->name('login');
 
 Route::get('/reportes',function(){
     return view('LeerReportes'); 
@@ -77,4 +80,4 @@ Route::post('/export/estadisticas/create', [App\Http\Controllers\ExcelController
 
 //Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
