@@ -208,7 +208,7 @@
 
     .title{
         text-align: center;
-        padding: 2% 0 0 0;
+        padding: 0;
         margin-bottom: 0;
     }
 
