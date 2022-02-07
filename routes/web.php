@@ -20,9 +20,7 @@ Route::get('/menujefe',function(){
     return view('menujefe'); 
 })->name('menu');
 
-Route::get('/login',function(){
-    return view('login'); 
-})->name('login');
+Route::post('/login', [HomeController::class, 'index'])->name('login');
 
 Route::get('/reportes',function(){
     return view('LeerReportes'); 
