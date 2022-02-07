@@ -38,10 +38,10 @@ class HomeController extends Controller
                 $_SESSION["email"] = $_POST["email"];
                 return redirect()->route('menu');
             }else{
-                include_once "login.blade.php";
+                return redirect()->route("login");
             }
         }else{
-            include_once "login.blade.php";
+                return redirect()->route("login");
         }
 
         function comprobarCredenciales($email, $password){
