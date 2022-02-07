@@ -113,6 +113,46 @@
         font-size: 1.35pc;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+
+    .vista{
+        height: 1em;
+        width: 3.7em;
+        margin: 0 0 1% 0.5%;
+        border-radius: 0.1em;
+        display: flex;
+        flex-direction: row;
+        font-size: 1.5em;
+        align-items: center;
+        color: rgb(66, 66, 66);
+    }
+
+
+    .vista a{
+        margin-left: 0.18em;
+    }
+
+    .vista:hover{
+        cursor:pointer;
+        color: black;
+    }
+
+    .opColumnas{
+        height: auto;
+        width: 50%;
+        padding: 2% 0;
+        margin: 2% auto;
+        border-radius: 0.5em;
+        border:0.5px solid gainsboro;
+    }
+
+    .opColumnas:hover{
+        cursor: pointer;
+    }
+
+    .opColumnasSelected{
+        border: 0.5px solid rgb(255, 191, 73);
+    }
+
     .mainListado{
         width: 96%;
         height: auto;
@@ -160,13 +200,14 @@
 
     #creaTecnico{
         background: linear-gradient(rgb(164, 228, 122), rgb(148, 202, 111));
+        margin: 2% 0;
     }
 
     #creaTecnico svg{margin: 0 2%;}
 
     .title{
         text-align: center;
-        padding: 0;
+        padding: 2% 0 0 0;
         margin-bottom: 0;
     }
 
@@ -186,14 +227,15 @@
         }  
 
         .mainListado li{
-            margin: 1% 0;
-        }
-        
-        .title{
-            padding:2% 0;
-        }
+        margin: 1% 0;
+    }
     }
 </style>
+<script src="./sweetalert2.all.min.js"></script>
+<script src="./jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+<sctipt src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></sctipt>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <body>
    @include('header')
         <div class="mainListado">
@@ -222,7 +264,16 @@
             </li>
         </ul>
 
-        <a class="title1">Lista de Técnicos</a>
+        <div style="display: flex;flex-direction: row;align-items:flex-end">
+            <a class="title1">Lista de Técnicos</a>
+            <div id="vista" class="vista d-none d-sm-block">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1.2pc" height="1.2pc" fill="currentColor" class="bi bi-grid-3x3-gap" viewBox="0 0 16 16">
+                    <path d="M4 2v2H2V2h2zm1 12v-2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm5 10v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V7a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zm0-5V2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1zM9 2v2H7V2h2zm5 0v2h-2V2h2zM4 7v2H2V7h2zm5 0v2H7V7h2zm5 0h-2v2h2V7zM4 12v2H2v-2h2zm5 0v2H7v-2h2zm5 0v2h-2v-2h2zM12 1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zm-1 6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V7zm1 4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-2z"/>
+                </svg>
+               
+            </div>
+        </div>
+ 
             <!---->
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
@@ -266,6 +317,60 @@
             item.appendChild(elemento);
             document.getElementById("listaTecnicos").appendChild(item);
         }
+
+        $("#vista").click(function(){
+                Swal.fire({
+                title: 'Vista',
+                html:`<p>Configura la distribución de los elementos</p>
+                <ul style="list-style:none;padding:0;margin:0;">
+                        <li class="opColumnas">2 Columnas</li>
+                        <li class="opColumnas">3 Columnas</li>
+                </ul>`,
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText:'Cancelar',
+                confirmButtonText: 'Confirmar',
+                didRender: () => {
+                    //Deshabilito el boton de confirmar hasta que no haya seleccionado nada
+
+
+                    $(".opColumnas").click(function(){
+                        var seleccionado = $(".opColumnasSelected");///Comprueba si hay elementos ya seleccionados
+                        if(seleccionado.length>=1){
+                            for(i=0;i<seleccionado.length;i++){
+                                seleccionado[i].className="opColumnas";
+                            }   
+                        }
+                        $(this).toggleClass("opColumnasSelected");
+                    });
+                }
+                }).then((result) => {
+                if (result.isConfirmed) {
+                   // Guardar la seleccion en cookies
+                   var columnas = $(".opColumnasSelected");
+                   if(columnas[0]==undefined){
+                    console.log("No se ha especificado opcion");
+                   }else{
+                        localStorage.setItem("columnas",columnas[0].innerHTML);//Almaceno la opcion en localstorage
+                        var elementos = $("#listaTecnicos > li")
+                        console.log("Elementos li: " + elementos.length);
+                        switch(columnas[0].innerHTML){
+                            case "2 Columnas":arguments
+                                for(i=0;i<elementos.length;i++){
+                                    elementos[i].setAttribute("style","width:50%");
+                                }
+                                break;
+                            case "3 Columnas":
+                                for(i=0;i<elementos.length;i++){
+                                    elementos[i].setAttribute("style","width:33%");
+                                }
+                            break;
+                        }
+                   }
+                }
+                });
+        })
    </script>
 
 </body>
