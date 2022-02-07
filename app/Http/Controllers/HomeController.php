@@ -23,6 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        require_once __DIR__.'/public/index.php';
+        echo __DIR__.'/public/index.php';
     }
 }
