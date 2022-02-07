@@ -13,11 +13,11 @@ use App\Http\Controllers\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return redirect()->action([HomeController::class, 'index']);
 });
-
+*/
 
 Route::get('/menujefe',function(){
     return view('menujefe'); 
