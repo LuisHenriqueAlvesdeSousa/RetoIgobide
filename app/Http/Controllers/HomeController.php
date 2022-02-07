@@ -38,7 +38,7 @@ class HomeController extends Controller
         }
     }
     
-    public funtion login()
+    public function login()
     {
         if(null !== $_POST["login"] && null !== $_POST["email"] && null !== $_POST["password"]){
             if(comprobarCredenciales($_POST["email"], $_POST["password"])){
