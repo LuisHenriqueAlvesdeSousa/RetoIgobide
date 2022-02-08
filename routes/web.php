@@ -78,7 +78,7 @@ Route::post('/subir', [App\Http\Controllers\ManualController::class, 'subirManua
 
 Route::post('/export/reporte/create', [App\Http\Controllers\ReporteController::class, 'ReporteExport']);
 
-Route::post('/export/estadisticas/create', [App\Http\Controllers\ExcelController::class, 'EstadisticaExport']);
+Route::post('/export/estadisticas/create', [App\Http\Controllers\EstadisticaController::class, 'EstadisticaExport']);
 
 //Auth::routes();
 
