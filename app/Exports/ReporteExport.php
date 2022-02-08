@@ -12,12 +12,12 @@
 
 
 
-        public function collection($fchInicio, $fchFin)
+        public function collection()
         {
-            $this->fchInicio = date($fchInicio);
-            $this->fchFin = date($fchFin);
+            //$this->fchInicio = date($fchInicio);
+            //$this->fchFin = date($fchFin);
             return DB::table('incidencias')
-                        ->whereBetween('incidencias.fechaInicio', [$this->fchInicio, $this->fchFin])
+                        //->whereBetween('incidencias.fechaInicio', [$this->fchInicio, $this->fchFin])
                         ->get();
         }
         public function headings(): array
