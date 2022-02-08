@@ -18,23 +18,23 @@
         public function collection()
         {
             return DB::table('incidencias')
-                        ->join('user', 'user.id', '=', 'incidencia.idTecnico')
-                        ->join('tecnico', 'tecnico.idUsuario', '=', 'user.id')
-                        ->join('equipo', 'equipo.id', '=', 'tecnico.idEquipo')
+                        ->join('users', 'users.id', '=', 'tecnicos.user_id')
+                        ->join('tecnicos', 'tecnicos.codigo', '=', 'incidencias.tecnico_id')
+                        ->join('equipos', 'equipos.id', '=', 'tecnicos.equipo_id')
                         ->select(
-                                 'incidencia.id',
-                                 'incidencia.nombreCliente', 
-                                 'incidencia.fch', 
-                                 'incidencia.emailCliente', 
-                                 'incidencia.urgencia', 
-                                 'incidencia.tipoAveria', 
-                                 'user.id', 
-                                 'user.nombre', 
-                                 'user.telefono',
-                                 'equipo.cp'
+                                 'incidencias.id',
+                                 'incidencias.cliente', 
+                                 'incidencias.fechaInicio', 
+                                 'incidencias.email', 
+                                 'incidencias.urgencia', 
+                                 'incidencias.tipoAveria', 
+                                 'users.id', 
+                                 'users.name', 
+                                 'users.telefono',
+                                 'equipos.codPostal'
                                 )
-                        ->ordeby('tecnico.idEquipo')
-                        ->whereBetween('incidencia.fch', [$this->fchInicio, $this->fchFin])
+                        ->ordeby('tecnicos.equipo_id')
+                        ->whereBetween('incidencias.fch', [$this->fchInicio, $this->fchFin])
                         ->get();
         }
         public function headings(): array
