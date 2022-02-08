@@ -26,10 +26,6 @@ Route::get('/login', function(){
 
 Route::post('/login', [HomeController::class, 'login'])->name('login.validate');
 
-Route::get('/reportes',function(){
-    return view('LeerReportes'); 
-});
-
 Route::get('/detalleIncidencia',function(){
     return view('detalleIncidencia'); 
 });
@@ -72,7 +68,8 @@ Route::get('/incidenciaCreate', function(){
 
 //Rutas manuales
 
-Route::post('/subir', 'ManualController@subirManual')->name('subir');
+Route::post('/subir', [App\Http\Controllers\ManualController::class, 'subirManual'])->name('subir');
+
 
 //Rutas descargar excels
 
