@@ -10,13 +10,12 @@
         * @return \Illuminate\Support\Collection
         */
 
-        public function _constructor($fchInicio, $fchFin){
+
+
+        public function collection($fchInicio, $fchFin)
+        {
             $this->fchInicio = date($fchInicio);
             $this->fchFin = date($fchFin);
-        }
-
-        public function collection()
-        {
             return DB::table('incidencias')
                         ->whereBetween('incidencias.fechaInicio', [$this->fchInicio, $this->fchFin])
                         ->get();
