@@ -11,32 +11,24 @@
         * @return \Illuminate\Support\Collection
         */
 
-        public function _constructor($fchInicio, $fchFin){
-            $this->fchInicio = $fchInicio;
-            $this->fchFin = $fchFin;
-        }
+
 
         public function collection()
         {
-            return DB::table('operador')
-                        ->join('user', 'user.id', '=', 'operador.idUsuario')
-                        ->join('incidencia', 'incidencia.idUsuario', '=', 'user.id')
-                        ->select(
-                                 'user.id', 
-                                 'user.nombre', 
-                                 'user.telefono'
-                                )
-                        ->groupBy('incidencia.idOperador')
-                        ->ordeby('operador.idUsuario')
-                        ->whereBetween('incidencia.fch', [$this->fchInicio, $this->fchFin])
+            return DB::table('users')
                         ->get();
         }
         public function headings(): array
         {
             return [
-                'ID Operario',
-                'Nombre Operario',
-                'Telefono Operario'
+                'ID Usuario',
+                'Nombre',
+                'Email',
+                'Fecha registro',
+                'Contraseña',
+                'Fecha nacimiento',
+                'Telefono',
+                'DNI'
             ];
         }
     }
