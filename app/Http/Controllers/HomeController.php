@@ -50,28 +50,31 @@ class HomeController extends Controller
             if(empty($usuarioActual)){
                 return view('login');
             }else{
-                $_SESSION['idUsuario'] = $usuarioActual->id();
-                $_SESSION["email"] = $_POST["email"];
+                if($usuarioActual->password == $_POST['password']){
+                    $_SESSION['idUsuario'] = $usuarioActual->id;
+                    $_SESSION["email"] = $_POST["email"];
 
-                $validacion = Director::find($usuarioActual->id());
-                if($validacion == null){
-                    $validacion = Jefe::find($usuarioActual->id());
+                    $validacion = Director::find($usuarioActual->id());
                     if($validacion == null){
-                        $validacion = Tecnico::find($usuarioActual->id());
+                        $validacion = Jefe::find($usuarioActual->id());
                         if($validacion == null){
-                            $_SESSION['rol'] = "operador";
+                            $validacion = Tecnico::find($usuarioActual->id());
+                            if($validacion == null){
+                                $_SESSION['rol'] = "operador";
+                            }else{
+                                $_SESSION['rol'] = "tecnico";
+                            }
                         }else{
-                            $_SESSION['rol'] = "tecnico";
+                            $_SESSION['rol'] = "jefe";
                         }
                     }else{
-                        $_SESSION['rol'] = "jefe";
+                        $_SESSION['rol'] = "director";
                     }
-                }else{
-                    $_SESSION['rol'] = "director";
                 }
-            }
-            return view('menuJefe'); 
-
+                return view('menuJefe'); 
+                }else{
+                    return view('login');
+                }
         }else{
                 return view('login');
         }
