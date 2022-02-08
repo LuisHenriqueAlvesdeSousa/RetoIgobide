@@ -28,6 +28,7 @@ class HomeController extends Controller
 
         session_start();
         
+        $_SESSION["email"] = 'prueba';
         //si el usuario ya se ha logeado vamos directamente a menu
         if(empty($_SESSION["email"])){
              return view('login');
