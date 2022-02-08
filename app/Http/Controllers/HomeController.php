@@ -41,24 +41,12 @@ class HomeController extends Controller
     public function login()
     {
         if(null !== $_POST["email"] && null !== $_POST["password"]){
-            if(comprobarCredenciales($_POST["email"], $_POST["password"])){
-                $_SESSION["email"] = $_POST["email"];
-                return view('menuJefe');
-
-            }else{
-                return view('login');
-            }
-        }else{
-                return view('login');
-        }
-
-        function comprobarCredenciales($email, $password)
-        {
             $usuarioActual = User::where('email', '=', $email)->first();
             if($usuarioActual->id() != null){
-                return false;
+                return view('login');
             }else{
                 $_SESSION['idUsuario'] = $usuarioActual->id();
+                $_SESSION["email"] = $_POST["email"];
 
                 $validacion = Director::find($usuarioActual->id());
                 if($validacion == null){
@@ -77,7 +65,13 @@ class HomeController extends Controller
                     $_SESSION['rol'] = "director";
                 }
             }
-            return true;
+            return view('menuJefe'); 
+
+        }else{
+                return view('login');
         }
+
+
+        
     }
 }
