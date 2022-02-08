@@ -45,12 +45,15 @@ class HomeController extends Controller
     
     public function login()
     {
-        if(null !== $_POST["email"] && null !== $_POST["password"]){
+        if(null !== $_POST["email"] && null !== $_POST["password"])
+        {
             $usuarioActual = User::where('email', '=', $_POST["email"])->first();
-            if(empty($usuarioActual)){
+            if(empty($usuarioActual))
+            {
                 return view('login');
             }else{
-                if($usuarioActual->password == $_POST['password']){
+                if($usuarioActual->password == $_POST['password'])
+                {
                     $_SESSION['idUsuario'] = $usuarioActual->id;
                     $_SESSION["email"] = $_POST["email"];
 
@@ -70,11 +73,10 @@ class HomeController extends Controller
                     }else{
                         $_SESSION['rol'] = "director";
                     }
-                }
-                return view('menuJefe'); 
+                    return view('menuJefe'); 
                 }else{
                     return view('login');
-                }
+             }
         }else{
                 return view('login');
         }
