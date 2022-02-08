@@ -18,7 +18,7 @@ class ReporteController extends Controller
             $fchControl = New DateTime('02-02-2022')/*->format('dd-mm-yyyy')*/;
             $fchHoy = New DateTime('now')/*->format('dd-mm-yyyy')*/;
             
-            if($fchInicio > $fchFin) return redirect('/reportes/create')->with('status', 'La fecha de Inicio es mayor que la fecha Final.');
+            if($fchInicio > $fchFin) return redirect('/export/reportes/create')->with('status', 'La fecha de Inicio es mayor que la fecha Final.');
     
             if($fchInicio < $fchControl) $fchInicio = $fchControl;
     
