@@ -10,7 +10,7 @@ class ReporteController extends Controller
 {
     public function ReporteExport()
     {       
-            return Excel::download(new ReporteExport($fchInicio, $fchFin), 'reporte.xlsx');
+            return Excel::download(new ReporteExport(), 'reporte.xlsx');
         
     }
 }
