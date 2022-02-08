@@ -12,7 +12,7 @@
             <div class="alert alert-success">
                 {{ session('status') }}
             </div>
-
+        @endif
     <div id="contReportes">
 
                 @foreach ($errors->all() as $error)
