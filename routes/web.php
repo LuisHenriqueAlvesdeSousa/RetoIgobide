@@ -16,15 +16,7 @@ use App\Http\Controllers\Auth;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/menujefe',function(){
-    return view('menujefe'); 
-})->name('menu');
-
-Route::get('/login', function(){
-    return view('login'); 
-})->name('login');
-
-Route::post('/login', [HomeController::class, 'login'])->name('login.validate');
+Route::post('/', [HomeController::class, 'login'])->name('login.validate');
 
 Route::get('/detalleIncidencia',function(){
     return view('detalleIncidencia'); 
