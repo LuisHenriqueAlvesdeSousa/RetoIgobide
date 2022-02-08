@@ -26,6 +26,12 @@ Route::get('/export/estadisticas/create',function(){
     return view('estadisticas'); 
 });
 
+//Rutas descargar excels
+
+Route::post('/export/reporte/create', [App\Http\Controllers\ReporteController::class, 'ReporteExport']);
+
+Route::post('/export/estadisticas/create', [App\Http\Controllers\EstadisticaController::class, 'EstadisticaExport']);
+
 //___________________________
 
 
@@ -74,11 +80,7 @@ Route::get('/incidenciaCreate', function(){
 Route::post('/subir', [App\Http\Controllers\ManualController::class, 'subirManual'])->name('subir');
 
 
-//Rutas descargar excels
 
-Route::post('/export/reporte/create', [App\Http\Controllers\ReporteController::class, 'ReporteExport']);
-
-Route::post('/export/estadisticas/create', [App\Http\Controllers\EstadisticaController::class, 'EstadisticaExport']);
 
 //Auth::routes();
 
