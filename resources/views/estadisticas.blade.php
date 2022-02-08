@@ -20,7 +20,7 @@
                 @endforeach
 
         <h1>Generador estadísticas en Excel.</h1>
-        <p>Aquí podrás podras generar una estadística y descargar un archivo Excel (.xsl) referente a la fechas que indiques.</p>
+        <p>Aquí podrás generar una tabla con datos los datos de los empleados de la empresa y descargar un archivo Excel (.xsl) para un mejor análisis</p>
 
             <form method="post">
             @csrf
