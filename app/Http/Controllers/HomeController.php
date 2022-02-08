@@ -30,11 +30,11 @@ class HomeController extends Controller
         
         //si el usuario ya se ha logeado vamos directamente a menu
         if(null == $_SESSION["email"]){
-             return redirect()->route('login');
+             return view('login');
         }
         //comprobamos si recibimos parametros para realizar un login
         else{
-            return redirect()->route('menu');
+            return view('menuJefe');
         }
     }
     
@@ -43,12 +43,13 @@ class HomeController extends Controller
         if(null !== $_POST["login"] && null !== $_POST["email"] && null !== $_POST["password"]){
             if(comprobarCredenciales($_POST["email"], $_POST["password"])){
                 $_SESSION["email"] = $_POST["email"];
-                return redirect()->route('menu');
+                return view('menuJefe');
+
             }else{
-                return redirect()->route("login");
+                return view('login');
             }
         }else{
-                return redirect()->route("login");
+                return view('login');
         }
 
         function comprobarCredenciales($email, $password)
