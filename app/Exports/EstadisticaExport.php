@@ -28,7 +28,8 @@
                 'Contraseña',
                 'Fecha nacimiento',
                 'Telefono',
-                'DNI'
+                'DNI',
+                'Token'
             ];
         }
     }
