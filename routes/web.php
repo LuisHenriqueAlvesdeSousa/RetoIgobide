@@ -22,6 +22,10 @@ Route::get('/export/reporte/create',function(){
     return view('reportes'); 
 });
 
+Route::get('/export/estadisticas/create',function(){
+    return view('estadisticas'); 
+});
+
 //___________________________
 
 
