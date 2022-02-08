@@ -18,7 +18,11 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::post('/', [HomeController::class, 'login'])->name('login');
 
-//Route::get('/login', [HomeController::class, 'login'])->name('login.validate');
+Route::get('/reportes',function(){
+    return view('reportes'); 
+});
+
+//___________________________
 
 
 Route::get('/detalleIncidencia',function(){
