@@ -11,30 +11,14 @@
         */
 
         public function _constructor($fchInicio, $fchFin){
-            $this->fchInicio = $fchInicio;
-            $this->fchFin = $fchFin;
+            $this->fchInicio = date($fchInicio);
+            $this->fchFin = date($fchFin);
         }
 
         public function collection()
         {
             return DB::table('incidencias')
-                        ->join('users', 'users.id', '=', 'tecnicos.user_id')
-                        ->join('tecnicos', 'tecnicos.codigo', '=', 'incidencias.tecnico_id')
-                        ->join('equipos', 'equipos.id', '=', 'tecnicos.equipo_id')
-                        ->select(
-                                 'incidencias.id',
-                                 'incidencias.cliente', 
-                                 'incidencias.fechaInicio', 
-                                 'incidencias.email', 
-                                 'incidencias.urgencia', 
-                                 'incidencias.tipoAveria', 
-                                 'users.id', 
-                                 'users.name', 
-                                 'users.telefono',
-                                 'equipos.codPostal'
-                                )
-                        ->ordeby('tecnicos.equipo_id')
-                        ->whereBetween('incidencias.fch', [$this->fchInicio, $this->fchFin])
+                        ->whereBetween('incidencias.fechaInicio', [$this->fchInicio, $this->fchFin])
                         ->get();
         }
         public function headings(): array
