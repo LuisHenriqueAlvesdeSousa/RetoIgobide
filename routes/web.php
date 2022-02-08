@@ -1,4 +1,4 @@
-t<?php
+<?php
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
