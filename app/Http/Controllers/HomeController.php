@@ -41,7 +41,7 @@ class HomeController extends Controller
     public function login()
     {
         if(null !== $_POST["email"] && null !== $_POST["password"]){
-            $usuarioActual = Users::where('email', '=', $email)->first();
+            $usuarioActual = Users::where('email', '=', $_POST["email"])->first();
             if($usuarioActual->id() != null){
                 echo $usuarioActual;
                 exit;
