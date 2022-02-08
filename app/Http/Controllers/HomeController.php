@@ -77,9 +77,8 @@ class HomeController extends Controller
                 }else{
                     return view('login');
              }
-        }else{
                 return view('login');
-        }
+       
 
 
         
