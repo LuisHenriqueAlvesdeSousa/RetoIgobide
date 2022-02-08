@@ -18,7 +18,7 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::post('/', [HomeController::class, 'login'])->name('login');
 
-Route::get('/reportes',function(){
+Route::get('/export/reporte/create',function(){
     return view('reportes'); 
 });
 
