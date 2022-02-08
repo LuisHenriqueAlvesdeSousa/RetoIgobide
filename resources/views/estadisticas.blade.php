@@ -23,7 +23,7 @@
         <p>Aquí podrás podras generar una estadística y descargar un archivo Excel (.xsl) referente a la fechas que indiques.</p>
 
             <form method="post">
-            @csrf_field
+            @csrf
                 <input type="submit" value="Generar Estadística">
 
             </form>
