@@ -7,25 +7,24 @@
     <title>Document</title>
 </head>
 <body>
-        <!--
-        @section('content')
+
         @if (session('status')) 
             <div class="alert alert-success">
                 {{ session('status') }}
             </div>
         @endif
-    -->
+
     <div id="contReportes">
-                    <!--
+
                 @foreach ($errors->all() as $error)
                     <p class="alert alert-danger">{{ $error}}</p><br>
                 @endforeach
-                {!! csrf_field() !!}
-            -->
+
         <h1>Generador de repotes en Excel.</h1>
         <p>Aquí podrás podras generar un reporte y descargar un archivo Excel (.xsl) referente a la fechas que indiques.</p>
 
             <form method="post">
+            @csrf
                 <div id="contFch">
                     <label for="fchInicio">
                         <span>Fecha Inicio</span>
@@ -39,7 +38,6 @@
                 <input type="submit" value="Generar Reporte">
 
             </form>
-    <!--@endsection('content')-->
     </div>
 </body>
 </html>
