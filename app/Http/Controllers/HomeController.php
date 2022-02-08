@@ -57,11 +57,11 @@ class HomeController extends Controller
                     $_SESSION['idUsuario'] = $usuarioActual->id;
                     $_SESSION["email"] = $_POST["email"];
 
-                    $validacion = Director::find($usuarioActual->id);
+                    $validacion = Director::where('user_id', '=', $usuarioActual->id);
                     if($validacion == null){
-                        $validacion = Jefe::find($usuarioActual->id);
+                        $validacion = Jefe::where('user_id', '=', $usuarioActual->id);
                         if($validacion == null){
-                            $validacion = Tecnico::find($usuarioActual->id);
+                            $validacion = Tecnico::where('user_id', '=', $usuarioActual->id);
                             if($validacion == null){
                                 $_SESSION['rol'] = "operador";
                             }else{
