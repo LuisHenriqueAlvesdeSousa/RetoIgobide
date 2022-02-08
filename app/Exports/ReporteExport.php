@@ -14,25 +14,22 @@
 
         public function collection()
         {
-            //$this->fchInicio = date($fchInicio);
-            //$this->fchFin = date($fchFin);
-            return DB::table('incidencias')
-                        //->whereBetween('incidencias.fechaInicio', [$this->fchInicio, $this->fchFin])
-                        ->get();
+            return DB::table('incidencias')->get();
         }
         public function headings(): array
         {
             return [
                 'ID Incidencia',
                 'Nombre Cliente',
-                'Fecha de la Incidencia',
+                'Fecha Inicio de la Incidencia',
+                'Fecha Fin de la Incidencia',
                 'Email Cliente',
+                'Descripcion',
+                'ID Ascensor',
+                'ID Tecnico',
+                'ID Operador',
                 'Nivel de Urgencia',
                 'Tipo de Averia',
-                'ID Tecnico',
-                'Nombre Tecnico',
-                'Telefono Tecnico',
-                'Equipo'
             ];
         }
     }
