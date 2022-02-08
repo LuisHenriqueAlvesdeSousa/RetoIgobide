@@ -22,6 +22,7 @@
     </style>
     <div id="contLogin">
         <form method="POST" action="index.php">
+            @crsf
             <label for="email">
                 <span>Email Coorporativo</span>
                 <input type="email" id="email" name="email" required>
