@@ -72,7 +72,7 @@ Route::post('/subir', [App\Http\Controllers\ManualController::class, 'subirManua
 
 //Rutas descargar excels
 
-Route::post('/export/reporte/create', [App\Http\Controllers\ExcelController::class, 'ReporteExport']);
+Route::post('/export/reporte/create', [App\Http\Controllers\ReporteController::class, 'ReporteExport']);
 
 Route::post('/export/estadisticas/create', [App\Http\Controllers\ExcelController::class, 'EstadisticaExport']);
 
