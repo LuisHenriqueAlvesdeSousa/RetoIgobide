@@ -73,7 +73,7 @@ class HomeController extends Controller
                     }else{
                         $_SESSION['rol'] = "director";
                     }
-                    return view('menuJefe'); 
+                    return view('menujefe'); 
                 }else{
                     return view('login');
                 }
