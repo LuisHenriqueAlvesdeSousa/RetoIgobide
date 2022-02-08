@@ -76,11 +76,11 @@ class HomeController extends Controller
                     return view('menuJefe'); 
                 }else{
                     return view('login');
-             }
+                }
                 return view('login');
        
 
-            }
         
-    }
+            }
+        }
 }
