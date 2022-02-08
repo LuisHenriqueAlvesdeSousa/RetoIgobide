@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Tecnico;
+use App\Models\Operador;
+use App\Models\Jefe;
+use App\Models\Director;
 
 class HomeController extends Controller
 {
