@@ -35,7 +35,7 @@ class HomeController extends Controller
         }
         //comprobamos si recibimos parametros para realizar un login
         else{
-            return view('menuJefe');
+            return view('menujefe');
         }
     }
     
