@@ -28,7 +28,6 @@ class HomeController extends Controller
 
         session_start();
         
-        $_SESSION["email"] = 'prueba';
         //si el usuario ya se ha logeado vamos directamente a menu
         if(empty($_SESSION["email"])){
              return view('login');
@@ -44,6 +43,7 @@ class HomeController extends Controller
         if(null !== $_POST["email"] && null !== $_POST["password"]){
             $usuarioActual = Users::where('email', '=', $email)->first();
             if($usuarioActual->id() != null){
+                return function(){echo $usuarioActual}
                 return view('login');
             }else{
                 $_SESSION['idUsuario'] = $usuarioActual->id();
