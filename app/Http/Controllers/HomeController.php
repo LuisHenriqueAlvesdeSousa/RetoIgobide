@@ -43,8 +43,7 @@ class HomeController extends Controller
         if(null !== $_POST["email"] && null !== $_POST["password"]){
             $usuarioActual = Users::where('email', '=', $_POST["email"])->first();
             if($usuarioActual->id() != null){
-                echo 'flag';
-                //return view('login');
+                return view('login');
             }else{
                 $_SESSION['idUsuario'] = $usuarioActual->id();
                 $_SESSION["email"] = $_POST["email"];
