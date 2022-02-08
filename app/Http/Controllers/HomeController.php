@@ -27,9 +27,10 @@ class HomeController extends Controller
         // MAIN__________________________________________________
 
         session_start();
+        if($_SESSION['email'] == undefined) $_SESSION['email'] = '';
         
         //si el usuario ya se ha logeado vamos directamente a menu
-        if(null == $_SESSION["email"]){
+        if($_SESSION["email"] == ''){
              return view('login');
         }
         //comprobamos si recibimos parametros para realizar un login
