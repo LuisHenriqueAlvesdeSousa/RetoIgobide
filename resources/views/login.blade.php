@@ -12,40 +12,11 @@
             background-image: url(fondo_login.png);
         }
 
-
-        .card {
-            border: none;
-            height: 320px
+        .btn-login {
+          font-size: 0.9rem;
+          letter-spacing: 0.05rem;
+          padding: 0.75rem 1rem;
         }
-
-        .forms-inputs {
-            position: relative
-        }
-
-        .forms-inputs span {
-            position: absolute;
-            top: -18px;
-            left: 10px;
-            background-color: #fff;
-            padding: 5px 10px;
-            font-size: 15px
-        }
-
-        .forms-inputs input {
-            height: 100px;
-            border: 2px solid #eee
-        }
-
-        .forms-inputs input:focus {
-            box-shadow: none;
-            outline: none;
-            border: 2px solid #000
-        }
-
-        .btn {
-            height: 100px
-        }
-
 
     </style>
   <div class="container">
