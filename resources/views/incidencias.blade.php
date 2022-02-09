@@ -345,7 +345,7 @@
     </div>
 
     <script>
-        var url1="/getIncidencias/";
+        var url1="/getIncidencias";
         $.ajax({
         type: 'post',
         data: {"_token": "{{ csrf_token() }}"},
