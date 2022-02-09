@@ -15,7 +15,7 @@
 
         .card {
             border: none;
-            height: 320px
+            height: 600px
         }
 
         .forms-inputs {
@@ -46,14 +46,6 @@
             height: 50px
         }
 
-        .success-data {
-            display: flex;
-            flex-direction: column
-        }
-
-        .bxs-badge-check {
-            font-size: 90px
-        }
 
     </style>
 <div class="container mt-5">
