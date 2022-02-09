@@ -21,19 +21,31 @@
         }
 
     </style>
-    <div id="contLogin">
-        <form method="POST" action="index.php">
-            @csrf
-            <label for="email">
-                <span>Email Coorporativo</span>
-                <input type="email" id="email" name="email" required>
-            </label>
-            <label for="password">
-                <span>Contraseña</span>
-                <input type="password" id="password" name="password" required>
-            </label>
-            <input type="submit" value="Entrar">
-        </form>
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <div class="card px-5 py-5" id="form1">
+                <div class="form-data" v-if="!submitted">
+                <form method="POST" action="index.php">
+                    @csrf
+                    <div class="forms-inputs mb-4"> 
+                        <label for="email">
+                            <span>Email Coorporativo</span>
+                            <input type="email" id="email" name="email" required>
+                        </label>
+                    </div>
+                    <div class="forms-inputs mb-4">
+                        <label for="password">
+                            <span>Contraseña</span>
+                            <input type="password" id="password" name="password" required>
+                        </label>
+                    </div>
+                    <div class="mb-3"><input type="submit" value="Entrar"></div>
+                </form>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 </body>
 </html>
