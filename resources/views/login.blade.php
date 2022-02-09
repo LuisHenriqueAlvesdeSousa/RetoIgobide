@@ -15,7 +15,7 @@
 
         .card {
             border: none;
-            height: 600px
+            height: 320px
         }
 
         .forms-inputs {
@@ -32,7 +32,7 @@
         }
 
         .forms-inputs input {
-            height: 50px;
+            height: 100px;
             border: 2px solid #eee
         }
 
@@ -43,7 +43,7 @@
         }
 
         .btn {
-            height: 50px
+            height: 100px
         }
 
 
@@ -51,7 +51,7 @@
 <div class="container mt-5">
     <div class="row d-flex justify-content-center">
         <div class="col-md-6">
-            <div class="card px-5 py-5" id="form1">
+            <div class="card px-5 py-5">
                 <form method="POST" action="index.php">
                     @csrf
                         <label for="email">
