@@ -137,7 +137,7 @@
 </head>
 
 <body>
-
+    @include('header')
         @if (session('status')) 
             <div class="alert alert-success">
                 {{ session('status') }}
@@ -295,6 +295,7 @@
             });
         });
     </script>
+    @include('footer')
 </body>
 
 </html>
