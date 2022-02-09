@@ -13,9 +13,10 @@
         }
 
         #contLogin{
-            width: 1000px;
-            height: 1000px;
-            background-color: orange;
+            width: 500px;
+            height: 500px;
+            background-color: #f2f2f2;
+            border-radius: 3em
             margin: 5em auto;
         }
 
