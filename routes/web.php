@@ -25,11 +25,11 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::post('/', [HomeController::class, 'login'])->name('login');
 
-Route::get('/export/reporte/create',function(){
+Route::get('/reportes',function(){
     return view('reportes'); 
 });
 
-Route::get('/export/estadisticas/create',function(){
+Route::get('/estadisticas',function(){
     return view('estadisticas'); 
 });
 
