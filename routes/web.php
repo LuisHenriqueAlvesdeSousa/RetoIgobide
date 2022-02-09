@@ -1,4 +1,4 @@
-t<?php
+<?php
 use App\Http\Controllers\UsuarioController;
 
 use App\Http\Controllers\ManualController;
@@ -20,19 +20,24 @@ use App\Http\Controllers\Auth;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/menujefe',function(){
-    return view('menujefe'); 
-})->name('menu');
+Route::post('/', [HomeController::class, 'login'])->name('login');
 
-Route::get('/login', function(){
-    return view('login'); 
-})->name('login');
-
-Route::post('/login', [HomeController::class, 'login'])->name('login.validate');
-
-Route::get('/reportes',function(){
+Route::get('/export/reporte/create',function(){
     return view('reportes'); 
 });
+
+Route::get('/export/estadisticas/create',function(){
+    return view('estadisticas'); 
+});
+
+//Rutas descargar excels
+
+Route::post('/export/reporte/create', [App\Http\Controllers\ReporteController::class, 'ReporteExport']);
+
+Route::post('/export/estadisticas/create', [App\Http\Controllers\EstadisticaController::class, 'EstadisticaExport']);
+
+//___________________________
+
 
 Route::get('/detalleIncidencia',function(){
     return view('detalleIncidencia'); 
@@ -72,13 +77,10 @@ Route::get('/incidenciaCreate', function(){
 
 //Rutas manuales
 
-Route::post('/subir', 'ManualController@subirManual')->name('subir');
+Route::post('/subir', [App\Http\Controllers\ManualController::class, 'subirManual'])->name('subir');
 
-//Rutas descargar excels
 
-Route::post('/export/reporte/create', [App\Http\Controllers\ExcelController::class, 'ReporteExport']);
 
-Route::post('/export/estadisticas/create', [App\Http\Controllers\ExcelController::class, 'EstadisticaExport']);
 
 //Auth::routes();
 

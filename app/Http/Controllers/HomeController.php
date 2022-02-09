@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Tecnico;
+use App\Models\Operador;
+use App\Models\Jefe;
+use App\Models\Director;
 
 class HomeController extends Controller
 {
@@ -13,7 +18,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -29,54 +34,54 @@ class HomeController extends Controller
         session_start();
         
         //si el usuario ya se ha logeado vamos directamente a menu
-        if(null == $_SESSION["email"]){
-             return redirect()->route('login');
+        if(empty($_SESSION["email"])){
+             return view('login');
         }
         //comprobamos si recibimos parametros para realizar un login
         else{
-            return redirect()->route('menu');
+            return view('menujefe');
         }
     }
     
     public function login()
     {
-        if(null !== $_POST["login"] && null !== $_POST["email"] && null !== $_POST["password"]){
-            if(comprobarCredenciales($_POST["email"], $_POST["password"])){
-                $_SESSION["email"] = $_POST["email"];
-                return redirect()->route('menu');
-            }else{
-                return redirect()->route("login");
-            }
-        }else{
-                return redirect()->route("login");
-        }
-
-        function comprobarCredenciales($email, $password)
+        if(null !== $_POST["email"] && null !== $_POST["password"])
         {
-            $usuarioActual = User::where('email', '=', $email)->first();
-            if($usuarioActual->id() != null){
-                return false;
+            $usuarioActual = User::where('email', '=', $_POST["email"])->first();
+            if(empty($usuarioActual))
+            {
+                return view('login');
             }else{
-                $_SESSION['idUsuario'] = $usuarioActual->id();
+                if($usuarioActual->password == $_POST['password'])
+                {
+                    $_SESSION['idUsuario'] = $usuarioActual->id;
+                    $_SESSION["email"] = $_POST["email"];
 
-                $validacion = Director::find($usuarioActual->id());
-                if($validacion == null){
-                    $validacion = Jefe::find($usuarioActual->id());
+                    $validacion = Director::where('user_id', '=', $usuarioActual->id);
                     if($validacion == null){
-                        $validacion = Tecnico::find($usuarioActual->id());
+                        $validacion = Jefe::where('user_id', '=', $usuarioActual->id);
                         if($validacion == null){
-                            $_SESSION['rol'] = "operador";
+                            $validacion = Tecnico::where('user_id', '=', $usuarioActual->id);
+                            if($validacion == null){
+                                $_SESSION['rol'] = "operador";
+                            }else{
+                                $_SESSION['rol'] = "tecnico";
+                            }
                         }else{
-                            $_SESSION['rol'] = "tecnico";
+                            $_SESSION['rol'] = "jefe";
                         }
                     }else{
-                        $_SESSION['rol'] = "jefe";
+                        $_SESSION['rol'] = "director";
                     }
+                    return view('menujefe'); 
                 }else{
-                    $_SESSION['rol'] = "director";
+                    return view('login');
                 }
+                return view('login');
+       
+
+        
             }
-            return true;
         }
-    }
+}
 }
