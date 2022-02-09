@@ -146,6 +146,7 @@
     </style>
 </head>
 <body>
+@include('header')
         <div class="mainHome">
           <div>
              <div class="row">
@@ -234,7 +235,7 @@
             </div>
           </div> 
     </div>
-
+@include('footer')
 
      <!--Distribucion de las columnas-->
     <script>
