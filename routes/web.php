@@ -45,6 +45,28 @@ Route::get('/header',function(){
     return view('header'); 
 });
 
+//Control de Usuarios
+
+Route::post('/usuarioCreate', [UserController::class, 'store'])->name('usuarioCreate.store');
+
+Route::delete('/eliminar/{id}', [JefeController::class, 'delete'])->name('jefes.eliminar');
+
+Route::delete('/eliminar/{id}', [OperadorController::class, 'delete'])->name('operadores.eliminar');
+
+Route::delete('/eliminar/{id}', [TecnicoController::class, 'delete'])->name('tecnicos.eliminar');
+
+Route::delete('/eliminar/{id}', [DirectorController::class, 'delete'])->name('directores.eliminar');
+
+//Rutas manuales
+Route::post('/subir', [ManualController::class, 'subirManual'])->name('manuales.subir');
+
+Route::delete('/eliminar/{id}', [ManualController::class, 'delete'])->name('manuales.eliminar');
+
+Route::get('manuales/', [ManualController::class, 'index']);
+
+//Rutas comentarios
+Route::post('detalleIncidencia', [ComentarioController::class, 'store']);
+
 //Control de Incidencias
 
 Route::post('/incidenciaCreate', [IncidenciaController::class, 'store'])->name('incidenciaCreate.store');
@@ -53,14 +75,13 @@ Route::delete('incidencias/eliminar/{id}', [IncidenciaController::class, 'delete
 
 Route::get('/incidencias', [IncidenciaController::class, 'index'])->name('incidencias');
 
-Route::get('/incidencias/{id}/create', [IncidenciaController::class, 'create'])->name('incidencias.crear');
+Route::get('/incidenciaCreate', function(){
+    return view('incidenciaCreate');
+});
 
-Route::get('/incidencias/{id}/edit', [IncidenciaController::class, 'edit'])->name('incidencias.edit');
-
-Route::put('/incidencias/{id}', [IncidenciaController::class, 'update']);
-
-Route::get('incidencias/{id}', [IncidenciaController::class, 'show'])->name('incidencias.detalle'); 
-
+Route::get('/detalleIncidencia',function(){
+    return view('detalleIncidencia'); 
+});
 
 Route::get('/listadoJefeEquipo',function(){
     return view('listadoJefeEquipo'); 
@@ -72,14 +93,6 @@ Route::get('/listadoTecnicos',function(){
 
 Route::get('/listadoOperarios',function(){
     return view('listadoOperarios'); 
-});
-
-Route::get('/manuales',function(){
-    return view('manuales'); 
-});
-
-Route::get('/usuarioCreate', function(){
-    return view('usuarioCreate');
 });
 
 Route::get('/historial',function(){
