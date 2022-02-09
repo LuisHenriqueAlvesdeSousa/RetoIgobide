@@ -48,9 +48,22 @@ Route::get('/header',function(){
     return view('header'); 
 });
 
-Route::get('/incidencias',function(){
-    return view('incidencias'); 
-});
+//Control de Incidencias
+
+Route::post('/incidenciaCreate', [IncidenciaController::class, 'store'])->name('incidenciaCreate.store');
+
+Route::delete('incidencias/eliminar/{id}', [IncidenciaController::class, 'delete'])->name('incidencias.eliminar');
+
+Route::get('/incidencias', [IncidenciaController::class, 'index'])->name('incidencias');
+
+Route::get('/incidencias/{id}/create', [IncidenciaController::class, 'create'])->name('incidencias.crear');
+
+Route::get('/incidencias/{id}/edit', [IncidenciaController::class, 'edit'])->name('incidencias.edit');
+
+Route::put('/incidencias/{id}', [IncidenciaController::class, 'update']);
+
+Route::get('incidencias/{id}', [IncidenciaController::class, 'show'])->name('incidencias.detalle'); 
+
 
 Route::get('/listadoJefeEquipo',function(){
     return view('listadoJefeEquipo'); 
