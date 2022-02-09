@@ -60,7 +60,6 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-6">
             <div class="card px-5 py-5" id="form1">
-                <div class="form-data" v-if="!submitted">
                 <form method="POST" action="index.php">
                     @csrf
                         <label for="email">
@@ -77,7 +76,6 @@
                         </label>
                     <div class="mb-3"><input type="submit" value="Entrar"></div>
                 </form>
-                </div>
             </div>
         </div>
     </div>
