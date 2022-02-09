@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historial</title>
@@ -242,7 +243,7 @@
 
     <!--Creacion de los web components-->
     <script>
-        var url1="/getIncidencias/";
+        var url1="/getIncidencias";
         $.ajax({
         type: 'post',
         url: url1,
