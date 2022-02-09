@@ -39,11 +39,6 @@ Route::post('/export/estadisticas/create', [App\Http\Controllers\EstadisticaCont
 
 //___________________________
 
-
-Route::get('/detalleIncidencia',function(){
-    return view('detalleIncidencia'); 
-});
-
 Route::get('/header',function(){
     return view('header'); 
 });
@@ -85,9 +80,6 @@ Route::get('/usuarioCreate', function(){
     return view('usuarioCreate');
 });
 
-Route::get('/incidenciaCreate', function(){
-    return view('incidenciaCreate');
-});
 Route::get('/historial',function(){
     return view('historial'); 
 });
