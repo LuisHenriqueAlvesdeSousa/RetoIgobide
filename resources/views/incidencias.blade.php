@@ -348,7 +348,6 @@
         $.ajax({
         type: 'post',
         url: url1,
-        data: {"_token": "{{ csrf_token() }}"},
         dataType: 'json',
         success: function(data) {
             console.log(data);
