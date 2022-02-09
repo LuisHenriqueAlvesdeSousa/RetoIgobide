@@ -35,9 +35,9 @@ Route::get('/estadisticas',function(){
 
 //Rutas descargar excels
 
-Route::post('/export/reporte/create', [App\Http\Controllers\ReporteController::class, 'ReporteExport']);
+Route::post('/create', [App\Http\Controllers\ReporteController::class, 'ReporteExport']);
 
-Route::post('/export/estadisticas/create', [App\Http\Controllers\EstadisticaController::class, 'EstadisticaExport']);
+Route::post('/create', [App\Http\Controllers\EstadisticaController::class, 'EstadisticaExport']);
 
 //___________________________
 
@@ -100,7 +100,7 @@ Route::get('/historial',function(){
 });
 //Rutas manuales
 
-Route::post('/subir', [App\Http\Controllers\ManualController::class, 'subirManual'])->name('subir');
+//Route::post('/subir', [App\Http\Controllers\ManualController::class, 'subirManual'])->name('subir');
 
 //BASE DE DATOS
 ///MANUALES
