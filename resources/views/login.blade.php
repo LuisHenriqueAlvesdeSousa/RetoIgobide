@@ -9,7 +9,7 @@
 <body>
     <style>
         body{
-            background-img: url(fondo_login.bmp);
+            background-image: url(fondo_login.bmp);
         }
 
         #contLogin{
