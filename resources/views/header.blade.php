@@ -8,7 +8,7 @@
     <style>
        *{
             font-size: 1.35pc;
-            font-family: Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
         }
         #header{
@@ -46,7 +46,7 @@
 
         #logo{
             width: 58.5%;
-            background-image: url("{{url('logo.png')}}");
+            background-image: url("{{ asset('logo.png')}}");
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -73,7 +73,7 @@
         #salirMenuOculto{
             height: 42px;
             width: 10%;
-            margin: 2%;
+            margin: 2vh;
             overflow: hidden;
             position: absolute;
         }
@@ -93,7 +93,7 @@
             margin: 0%;
             width: inherit;
             position: relative;
-            top: 7%;
+            top: 8.5%;
         }
 
         .opMenuOculto{
@@ -116,6 +116,53 @@
             border-radius: 1em;
             margin: 0 auto;
             background-color: rgb(255, 255, 255);
+        }
+
+          /*** BOTON CAMBIAR TEMA ***/
+       .botTema{
+           width: 4em;
+           height: 2em;
+           background-color: gainsboro;
+           border: none;
+           border-radius: 1em;
+           position: absolute;
+           right: 0%;
+           margin: 2vh;
+       }
+
+       .interruptor{
+            height: 100%;
+            width: 50%;
+            border-radius: 50%;
+            box-shadow: inset 0px 0px 2px 1px black;
+            background-color: white;
+            animation-name: oscuro;
+            animation-duration: 0.3s;
+            animation-fill-mode: forwards;
+            animation-play-state: paused;
+       }
+
+        .controles{
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes oscuro{
+    
+            100%{
+            transform:translateX(2em)
+            }
+        }
+
+        @keyframes claro{
+            100%{
+                position: relative;
+                transform:translateX(0em)
+            }
         }
 
         @keyframes muestraMenu {
@@ -161,7 +208,9 @@
                         console.log("Poner incidencia como completada")
                         return "salir";
                     } else if (result.isDenied) {
-                        console.log("Poner incidencia en proceso")
+                        console.log("Poner incidencia en proceso");
+                        objDiv.scrollTop = $(document).height();
+                        console.log($(document).height());
                     }
                     }));
             });
@@ -181,13 +230,18 @@
         }
     </script>
 </head>
-<body>
+<body id="body">
     <div id="menuOculto">
         <div id="salirMenuOculto">
             <svg id="exit" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
                 <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
             </svg>
+        </div>
+
+        <!--Boton tema claro/oscuro-->
+        <div id="botTema"class="botTema">
+            <div id="interruptor" class="interruptor"></div>
         </div>
         
          <ul id="listaOp">
@@ -197,8 +251,8 @@
             <li><div class="opMenuOculto" onclick="confirmaNavegar('./listadoJefeEquipo')">Jefes de Equipo</div></li><hr class="line">
             <li><div class="opMenuOculto" onclick="confirmaNavegar('./reportes')">Reportes</div></li><hr class="line">
             <li><div class="opMenuOculto" onclick="confirmaNavegar('./manuales')">Manuales</div></li><hr class="line">
-            <li><div class="opMenuOculto">Historial</div></li><hr class="line">
-            <li><div class="opMenuOculto">Estadisticas</div></li>
+            <li><div class="opMenuOculto" onclick="confirmaNavegar('./historial')">Historial</div></li><hr class="line">
+            <li><div class="opMenuOculto" onclick="confirmaNavegar('./estadisticas')">Estadisticas</div></li>
         </ul>
     </div>
     <div id="header">
@@ -226,6 +280,34 @@
             $('#listaOp').fadeIn('slow');
         });
 
+        //Cambiar de tema
+        $("#interruptor").click(function(){
+            if(document.getElementById("interruptor").style.animationName=="oscuro"){
+                document.getElementById("botTema").style.backgroundColor="gainsboro";
+                document.getElementById("body").style.color="black";
+                document.getElementById("interruptor").style.animationName="claro";
+                document.getElementById("interruptor").style.animationDuration="0.3s";
+                document.getElementById("interruptor").style.animationPlayState="running";
+                var documento=document.getElementsByTagName("body");
+                for(let i=0;i<documento.length;i++){
+                    documento[i].setAttribute("style","background-color:white");
+                    
+                }
+            }else{
+                document.getElementById("botTema").style.border="solid 1px gainsboro";
+                document.getElementById("botTema").style.backgroundColor="black";
+                document.getElementById("interruptor").style.animationName="oscuro";
+                document.getElementById("interruptor").style.animationDuration="0.3s";
+                var documento=document.getElementsByTagName("body");
+                for(let i=0;i<documento.length;i++){
+                    documento[i].setAttribute("style","background-color:black");
+                    
+                }
+                document.getElementById("interruptor").style.animationPlayState="running";
+            }
+            
+        });
+
         document.getElementById("salirMenuOculto").addEventListener('click',function(){
             document.getElementById("menuOculto").style.animationName="ocultaMenu";
             document.getElementById("menuOculto").style.animationPlayState="running";
@@ -235,7 +317,6 @@
 
         //Cuando selecciona el boton de cerrar sesion
         document.getElementById("salir").addEventListener('click',function(){
-        console.log(window.location.href);
             Swal.fire({
                 title: '¿Cerrar sesion?',
                 text: "Se cerrará la sesión para (NombreUsuario)",

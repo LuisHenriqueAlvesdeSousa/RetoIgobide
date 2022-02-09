@@ -11,11 +11,13 @@
         
         constructor(){
             super();
+
             this.addEventListener("click",function(){
             //abrir prf
             window.open(url('./Práctica Heroku.pdf'));
             });
         }
+
         connectedCallback(){
             let shadowRoot = this.attachShadow({ mode: "open" });
             shadowRoot.innerHTML = `
@@ -50,6 +52,7 @@
                 .opciones li{
                     margin: 6px;
                 }
+
                 .imagenTecn{
                     width: auto;
                     height: auto;
@@ -66,11 +69,13 @@
                     overflow:hidden;
                     margin-left: 1.5%;
                 }
+
                 .info li{
                     margin: 0 0 2% 0;
                     height:1.9pc;
                     overflow:hidden;
                 }
+
                 .opciones{
                     height: 100%;
                     width: auto;
@@ -82,6 +87,7 @@
                         #listaManuales >li{
                             width: 100%;
                         }
+
                     }
                 
             </style>
@@ -102,16 +108,19 @@
                         </li>
                     </ul>
                 </div>
+
                 <div class="info">
                     <ul>
-                        <li style="font-weight:500;">${this.getAttribute("modeloAscensor")}</li>
-                        <li>${this.getAttribute("idManual")}</li>
+                        <li style="font-weight:500;">Modelo: ${this.getAttribute("modeloAscensor")}</li>
+                        <li>Id Ascensor: ${this.getAttribute("idAscensor")}</li>
                     </ul>
                 </div>
             </div>
             `;
         }
+
     }
+
     window.customElements.define("manual-p", Manual);
 </script>
 <style>
@@ -124,14 +133,17 @@
         margin: 0 2%;
         height: auto;
     }
+
     .mainmanuales ul{
         list-style: none;
         margin: 0;
         padding: 0%;
     }
+
     .mainmanuales li{
         margin:0;
     }
+
     .manOpc{
         width: 100%;
         height: 70px;
@@ -142,15 +154,18 @@
         /*box-shadow: 0px 0px 2px grey;*/
         margin-bottom: 0%;
     }
+
     .subMan{
         background: linear-gradient(rgb(164, 228, 122), rgb(148, 202, 111));
         margin: 3% 0;
     }
+
     .contflex{
         display: flex;
         flex-direction: row;
         justify-content: space-around;
     }
+
     .manOpc2{
         height: 70px;
         border-radius: 0.4em;
@@ -163,6 +178,7 @@
     .manOpc3{
         height: auto;
     }
+
     #listaManuales{
         width: 100%;
         height: auto;
@@ -171,14 +187,17 @@
         flex-direction: row;
         flex-wrap: wrap;
     }
+
     #listaManuales >li{
         width: 50%;
     }
+
     @media (max-width:768px) {
         #listaManuales >li{
             width: 100%;
         }
     }
+
 </style>
 </head>
 <body>
@@ -241,24 +260,30 @@
 
 
     <script>
-        var manuales=[
-            {idManual:"2D13Va",modeloAscensor:"Kobra"},
-            {idManual:"2D13Va",modeloAscensor:"Boa"},
-            {idManual:"2D13Va",modeloAscensor:"Titan"},
-            {idManual:"2D13Va",modeloAscensor:"Spider"},
-            {idManual:"2D13Va",modeloAscensor:"E3MKA"},
-            {idManual:"2D13Va",modeloAscensor:"CC32A"},
-            {idManual:"2D13Va",modeloAscensor:"KDSL3"},
-            {idManual:"2D13Va",modeloAscensor:"4OASF"}
-        ];    
-        for(let i=0;i<manuales.length;i++){
+        //Peticion AJAX
+        var url1="/getAllManuales/";
+        $.ajax({
+        type: 'post',
+        url: url1,
+        data: {"_token": "{{ csrf_token() }}"},
+        dataType: 'json',
+        success: function(data) {
+            console.log(data);
+            for(let i=0;i<data.length;i++){
             var item=document.createElement("li");
             var elemento = document.createElement("manual-p");
-            elemento.setAttribute("idManual",manuales[i]["idManual"]);
-            elemento.setAttribute("modeloAscensor",manuales[i]["modeloAscensor"]);//Paso los datos del array mediante un atributo al web component
+            elemento.setAttribute("idAscensor",data[i]["id"]);
+            elemento.setAttribute("modeloAscensor",data[i]["modelo"]);//Paso los datos del array mediante un atributo al web component
             item.appendChild(elemento);
             document.getElementById("listaManuales").appendChild(item);
         }
+        },
+        error: function(data) {
+            var errors = data.responseJSON;
+            console.log(errors);
+        }
+        });
+
     </script>
 </body>
 </html>

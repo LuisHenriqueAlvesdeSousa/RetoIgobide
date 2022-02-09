@@ -20,6 +20,7 @@
             display:flex;
             align-items:center;
             justify-content:center;
+            margin: 0% 0% 0 2%;
         }
 
         .title1{
@@ -81,7 +82,7 @@
             width: 96%;
             background: linear-gradient(rgb(164, 228, 122), rgb(148, 202, 111));
             border-radius: 0.4em;
-            margin: 5% 2% 4% 2%;
+            margin: 2%;
             font-size: 1.35pc;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
@@ -140,11 +141,6 @@
         }
     </style>
 </head>
-<script src="./sweetalert2.all.min.js"></script>
-<script src="./jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-<sctipt src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></sctipt>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 //Web component
   class Incidencia extends HTMLElement{
@@ -154,8 +150,13 @@
 
            this.addEventListener("click",function(){
             //Almacena los datos en sesion
-            sessionStorage.setItem("idIncidencia",this.id);
             sessionStorage.setItem("calleIncidencia",this.getAttribute("calle"));
+            sessionStorage.setItem("fechaInicio",this.getAttribute("fecha"));
+            sessionStorage.setItem("modeloAscensor",this.getAttribute("modeloAsc"));
+            sessionStorage.setItem("tipoAveria",this.getAttribute("tipoAveria"));
+            sessionStorage.setItem("capacidad",this.getAttribute("capacidad"));
+            sessionStorage.setItem("peso",this.getAttribute("peso"));
+            sessionStorage.setItem("cliente",this.getAttribute("cliente"));
             location.href='./detalleIncidencia';
            });
        }
@@ -186,6 +187,13 @@
                    position: relative;
                    overflow: hidden;
                    padding: 2% 0;
+                   background-image:linear-gradient(rgb(214, 231, 245), lightsteelblue), url("./vector.jpg");
+                    background-size: cover;
+                    background-blend-mode: multiply;
+               }
+               
+               .tecnicosOpc2:hover{
+                    cursor:pointer;
                }
                
                .opciones li{
@@ -267,8 +275,8 @@
 
                <div class="info">
                    <ul>
-                       <li style="font-weight:500;">${this.getAttribute("calle")}</li>
-                       <li>${this.getAttribute("fecha")}</li>
+                       <li style="font-weight:500;">Calle: ${this.getAttribute("calle")}</li>
+                       <li>F.Inicio: ${this.getAttribute("fecha")}</li>
                    </ul>
                </div>
            </div>
@@ -283,7 +291,7 @@
 
     @include('header')
     
-    <div class="mainIncidencia">
+    <div class="mainIncidencia">   
         <div class="title">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
@@ -296,6 +304,14 @@
                 <li class="breadcrumb-item">Incidencias</li>
               </ol>
             </nav>
+        </div>
+        
+         <div class="opcIncidencia2" onclick="location.href='./nuevaIncidencia'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+                <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
+                <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
+              </svg>
+            Nueva Incidencia
         </div>
 
         <ul>
@@ -327,56 +343,43 @@
         </ul>
     </div>
 
-    <div class="opcIncidencia2" onclick="location.href='./incidenciaCreate'">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
-            <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
-            <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
-          </svg>
-        Nueva Incidencia
-    </div>
-
-
     <script>
-        //Array con datos (cambiar a consulta a BD)
-        var datos=[
-            {id:"A001A",calle:"Pozoa Kalea, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"urgente"},
-            {id:"K2256",calle:"Calle Correría, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"urgente"},
-            {id:"P381B",calle:"Calle Reyes Católicos, Vitoria-Gasteiz",fecha:"1/2/2022",tipo:"urgente"},
-            {id:"HG2891F",calle:"Pozoa Kalea, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"urgente"},
-            {id:"FR656A",calle:"Calle Correría, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"urgente"},
-            {id:"A677S",calle:"Calle Ramón y Cajal, Vitoria-Gasteiz",fecha:"1/2/2022",tipo:"prioritaria"},
-            {id:"4888V",calle:"Calle Prudencio María Verástegui, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"prioritaria"},
-            {id:"AH995V",calle:"Calle de Puerto Rico, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"prioritaria"},
-            {id:"X552P",calle:"Pozoa Kalea, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"noprioritaria"},
-            {id:"88CA",calle:"Calle Correría, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"noprioritaria"},
-            {id:"A265C",calle:"Calle Reyes Católicos, Vitoria-Gasteiz",fecha:"1/2/2022",tipo:"noprioritaria"},
-            {id:"A016LA",calle:"Pozoa Kalea, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"noprioritaria"},
-            {id:"ASLV5",calle:"Calle Correría, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"noprioritaria"},
-        ];
-       
-        for(let i=0;i<datos.length;i++){
+        var url1="/getIncidencias/";
+        $.ajax({
+        type: 'post',
+        url: url1,
+        data: {"_token": "{{ csrf_token() }}"},
+        dataType: 'json',
+        success: function(data) {
+            console.log(data);
+            for(let i=0;i<data.length;i++){
             var item=document.createElement("li");
-           var elemento = document.createElement("incidencia-p");
-           elemento.setAttribute("id",datos[i]["id"]);
-           elemento.setAttribute("calle",datos[i]["calle"]);//Paso los datos del array mediante un atributo al web component
-           elemento.setAttribute("fecha",datos[i]["fecha"]);
-           elemento.setAttribute("tipo",datos[i]["tipo"]);
-           item.appendChild(elemento);
-       
-           var posicionElemento = i+1;
+            var elemento = document.createElement("incidencia-p");
+            elemento.setAttribute("id",data[i]["id"]);
+            var calleArr=data[i]["direccion"];
+            var calle=calleArr.split(",");
+            elemento.setAttribute("calle",calle[0]);//Paso los datos del array mediante un atributo al web component
+            elemento.setAttribute("fecha",data[i]["fechaInicio"]);
+            elemento.setAttribute("tipo",data[i]["urgencia"]);
+            elemento.setAttribute("modeloAsc",data[i]["modelo"]);
+            elemento.setAttribute("tipoAveria",data[i]["averia"]);
+            elemento.setAttribute("capacidad",data[i]["capacidad"]);
+            elemento.setAttribute("peso",data[i]["peso"]);
+            elemento.setAttribute("cliente",data[i]["cliente"]);
+            item.appendChild(elemento);
+        
 
-           //Condicional para saber si es urgente
-            if(datos[i]["tipo"]=="urgente"){
+            //Condicional para saber si es urgente
+            if(data[i]["urgencia"]=="urgente"){
                 document.getElementById("lUrgentes").appendChild(item);
-            }else if(datos[i]["tipo"]=="prioritaria"){
+            }else if(data[i]["urgencia"]=="prioritario"){
                 document.getElementById("lPrioritaria").appendChild(item);
-            }else if(datos[i]["tipo"]=="noprioritaria"){
+            }else if(data[i]["urgencia"]=="no prioritario"){
                 document.getElementById("lNoprioritaria").appendChild(item);
             }
         }
+        }}); 
     </script>
-
-
 
 </body>
 </html>

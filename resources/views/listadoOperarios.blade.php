@@ -94,7 +94,7 @@
 
                     <div class="info">
                         <ul>
-                            <li style="font-weight:500">${this.getAttribute("nombre")}</li>
+                            <li style="font-weight:500">Nombre: ${this.getAttribute("nombre")}</li>
                             <li>${this.getAttribute("equipo")}</li>
                         </ul>
                     </div>
@@ -232,11 +232,6 @@
         }
     }
 </style>
-<script src="./sweetalert2.all.min.js"></script>
-<script src="./jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-<sctipt src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></sctipt>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <body>
    @include('header')
    <div>
@@ -291,34 +286,25 @@
    </div>
    
    <script>
-        //Array con datos (cambiar a consulta a BD)
-        var datos=[
-            {nombre:"Carlos",equipo:"Equipo 1"},
-            {nombre:"Luis",equipo:"Equipo 2"},
-            {nombre:"Aitor",equipo:"Equipo 3"},
-            {nombre:"Daniel",equipo:"Equipo 4"},
-            {nombre:"Manuel",equipo:"Equipo 5"},
-            {nombre:"2gdaw01",equipo:"Equipo 6"},
-            {nombre:"2gdaw02",equipo:"Equipo 7"},
-            {nombre:"1gdaw04",equipo:"Equipo 8"},
-            {nombre:"2gdaw10",equipo:"Equipo 9"},
-            {nombre:"2gdaw03",equipo:"Equipo 10"},
-            {nombre:"2gdam11",equipo:"Equipo 11"},
-            {nombre:"2gdaw05",equipo:"Equipo 12"},
-            {nombre:"2gsmr01",equipo:"Equipo 13"},
-            {nombre:"1gsmr09",equipo:"Equipo 14"},
-            {nombre:"2gdaw14",equipo:"Equipo 15"},
-            {nombre:"2gdam06",equipo:"Equipo 16"}
-        ];
-       
-        for(let i=0;i<datos.length;i++){
+    //Peticion AJAX
+    var url1="/getOperarios/";
+    $.ajax({
+    type: 'post',
+    url: url1,
+    data: {"_token": "{{ csrf_token() }}"},
+    dataType: 'json',
+    success: function(data) {
+        for(let i=0;i<data.length;i++){
             var item = document.createElement("li");
             var elemento = document.createElement("usuario-p");
-            elemento.setAttribute("nombre",datos[i]["nombre"]);//Paso los datos del array mediante un atributo al web component
-            elemento.setAttribute("equipo",datos[i]["equipo"]);
+            elemento.setAttribute("nombre",data[i]["name"]);//Paso los datos del array mediante un atributo al web component
+            elemento.setAttribute("equipo",data[i]["email"]);
             item.appendChild(elemento);
             document.getElementById("listaprueba1").appendChild(item);
        }
+    }});
+
+       
 
        $("#vista").click(function(){
                 Swal.fire({

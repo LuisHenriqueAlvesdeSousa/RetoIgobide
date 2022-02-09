@@ -144,11 +144,6 @@
             }
         }
     </style>
-    <script src="./sweetalert2.all.min.js"></script>
-    <script src="./jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <sctipt src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></sctipt>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
         <div class="mainHome">
@@ -197,7 +192,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="opcDirector" onclick="location.href='./export/reporte/create'">
+                            <div class="opcDirector" onclick="location.href='./reportes'">
                                 <div class="info">3</div>
                                 <svg class="w-50 h-50 w-lg-100 h-lg-100 w-xl-100 h-xl-100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 15 20">
                                     <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
@@ -214,7 +209,7 @@
                                 Manuales
                             </div>
                         </li>
-                        <li><div class="opcDirector">
+                        <li><div class="opcDirector" onclick="location.href='./historial'">
                                 <div class="info">1</div>
                                 <svg class="w-50 h-50 w-lg-100 h-lg-100 w-xl-100 h-xl-100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-clock-history" viewBox="0 0 15 20">
                                     <path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022l-.074.997zm2.004.45a7.003 7.003 0 0 0-.985-.299l.219-.976c.383.086.76.2 1.126.342l-.36.933zm1.37.71a7.01 7.01 0 0 0-.439-.27l.493-.87a8.025 8.025 0 0 1 .979.654l-.615.789a6.996 6.996 0 0 0-.418-.302zm1.834 1.79a6.99 6.99 0 0 0-.653-.796l.724-.69c.27.285.52.59.747.91l-.818.576zm.744 1.352a7.08 7.08 0 0 0-.214-.468l.893-.45a7.976 7.976 0 0 1 .45 1.088l-.95.313a7.023 7.023 0 0 0-.179-.483zm.53 2.507a6.991 6.991 0 0 0-.1-1.025l.985-.17c.067.386.106.778.116 1.17l-1 .025zm-.131 1.538c.033-.17.06-.339.081-.51l.993.123a7.957 7.957 0 0 1-.23 1.155l-.964-.267c.046-.165.086-.332.12-.501zm-.952 2.379c.184-.29.346-.594.486-.908l.914.405c-.16.36-.345.706-.555 1.038l-.845-.535zm-.964 1.205c.122-.122.239-.248.35-.378l.758.653a8.073 8.073 0 0 1-.401.432l-.707-.707z"/>
@@ -225,7 +220,7 @@
                             </div>
                         </li>
                         <li>
-                            <div class="opcDirector" onclick="location.href='./export/estadisticas/create'">
+                            <div class="opcDirector" onclick="location.href='./estadisticas'">
                                 <svg class="w-50 h-50 w-lg-100 h-lg-100 w-xl-100 h-xl-100" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 15 20">
                                     <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z"/>
                                 </svg>
@@ -239,6 +234,8 @@
             </div>
           </div> 
     </div>
+
+
      <!--Distribucion de las columnas-->
     <script>
         $(document).ready(function(){
