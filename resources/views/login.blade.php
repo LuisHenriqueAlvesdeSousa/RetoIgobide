@@ -12,12 +12,47 @@
             background-image: url(fondo_login.png);
         }
 
-        #contLogin{
-            width: 500px;
-            height: 500px;
-            background-color: #f2f2f2;
-            border-radius: 3em
-            margin: 5em auto;
+
+        .card {
+            border: none;
+            height: 320px
+        }
+
+        .forms-inputs {
+            position: relative
+        }
+
+        .forms-inputs span {
+            position: absolute;
+            top: -18px;
+            left: 10px;
+            background-color: #fff;
+            padding: 5px 10px;
+            font-size: 15px
+        }
+
+        .forms-inputs input {
+            height: 50px;
+            border: 2px solid #eee
+        }
+
+        .forms-inputs input:focus {
+            box-shadow: none;
+            outline: none;
+            border: 2px solid #000
+        }
+
+        .btn {
+            height: 50px
+        }
+
+        .success-data {
+            display: flex;
+            flex-direction: column
+        }
+
+        .bxs-badge-check {
+            font-size: 90px
         }
 
     </style>
