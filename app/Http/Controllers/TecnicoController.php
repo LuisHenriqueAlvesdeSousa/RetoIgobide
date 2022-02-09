@@ -24,7 +24,7 @@ class TecnicoController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -78,8 +78,9 @@ class TecnicoController extends Controller
      * @param  \App\Models\Tecnico  $tecnico
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tecnico $tecnico)
+    public function destroy($id)
     {
-        //
+        $tecnicoEliminar = Tecnico::findOrFail($id);
+        $tecnicoEliminar->delete();
     }
 }

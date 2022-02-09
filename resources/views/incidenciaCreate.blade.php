@@ -137,22 +137,21 @@
 </head>
 
 <body>
-    <!--
-        @section('content')
+
         @if (session('status')) 
             <div class="alert alert-success">
                 {{ session('status') }}
             </div>
         @endif
-    -->
+
     <div class="newOperario">
-        <form method="post">
-            <!--
+        <form method="POST" action="{{ route('incidenciaCreate.store') }}">
+
                 @foreach ($errors->all() as $error)
                     <p class="alert alert-danger">{{ $error}}</p><br>
                 @endforeach
-                {!! csrf_field() !!}
-            -->
+                @csrf
+
             <p class="alert alert-danger" id="error"></p><br>
 
             <ul>
@@ -197,7 +196,7 @@
                             <select class="selector" id="tipoAveria" name="tipoAveria">
                                 <option value="electrica">Eléctrica</option>
                                 <option value="mecanica">Mecánica</option>
-                                <option value="bandalismo">Bandalismo</option>
+                                <option value="bandalismo">Vandalismo</option>
                             </select>
                         </div>
 
@@ -236,7 +235,6 @@
             </div>
         </form>
     </div>
-    <!--@endsection('content')-->
 
     <script>
         $(document).ready(function() {

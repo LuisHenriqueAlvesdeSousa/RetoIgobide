@@ -73,28 +73,21 @@
 </head>
 
 <body>
-
-    <!--
-        falta pasar a blade.php
-        falta testear.
-
-
-        @section('content')
         @if (session('status')) 
             <div class="alert alert-success">
                 {{ session('status') }}
             </div>
         @endif
-    -->
+  
 
     <div class="newOperario">
-        <form method="post">
-            <!--
+        <form method="POST" action="{{ route('usuarioCreate.store') }}">
+
                 @foreach ($errors->all() as $error)
                     <p class="alert alert-danger">{{ $error}}</p><br>
                 @endforeach
-                {!! csrf_field() !!}
-            -->
+                @csrf
+
             <p class="alert alert-danger" id="error"></p><br>
 
             <ul>
@@ -173,7 +166,6 @@
             </div>
         </form>
         </div>
-        <!--@endsection('content')-->
         <script>
             //Comprobar que todo es correcto y no hay campos vacios
             document.getElementById("guardar").addEventListener('submit', function() {

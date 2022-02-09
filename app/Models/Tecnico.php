@@ -22,4 +22,8 @@ class Tecnico extends Model
     public function incidencias(){
         return $this->hasMany('App\Incidencia');
     }
+
+    public function comentarios(){
+        return $this->hasMany('App\Comentarios');
+    }
 }

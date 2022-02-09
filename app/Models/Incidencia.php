@@ -30,4 +30,8 @@ class Incidencia extends Model
     public function operador(){
         return $this->belongsTo('App\Operador');
     }
+    
+    public function comentarios(){
+        return $this->hasMany('App\Comentario');
+    }
 }

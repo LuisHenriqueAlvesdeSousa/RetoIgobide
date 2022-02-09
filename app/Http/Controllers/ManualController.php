@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Manual;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ManualController extends Controller
 {
@@ -26,18 +27,7 @@ class ManualController extends Controller
     {
         //
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
+    
     /**
      * Display the specified resource.
      *
@@ -78,12 +68,19 @@ class ManualController extends Controller
      * @param  \App\Models\Manual  $manual
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Manual $manual)
+    public function destroy($id)
     {
-        //
+        $manualEliminar = Manual::findOrFail($id);
+        $manualEliminar->delete();
     }
 
-    public function subirManual(Request $request){
-        $request->file('archivo')->store('public');
+    public function store(Request $request){
+        $path = $request->file('archivo')->store('public');
+
+        $manual = new Manual;
+        $manual->ruta->$path;
+        $manual->idAscensor->$request->get('idAscensor');
+
+        $manual->save();
     }
 }

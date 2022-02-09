@@ -151,6 +151,13 @@
       
        constructor(){
            super();
+
+           this.addEventListener("click",function(){
+            //Almacena los datos en sesion
+            sessionStorage.setItem("idIncidencia",this.id);
+            sessionStorage.setItem("calleIncidencia",this.getAttribute("calle"));
+            location.href='./detalleIncidencia';
+           });
        }
 
        connectedCallback(){
@@ -174,7 +181,6 @@
                    margin:1%;
                    border-radius: 0.4em;
                    box-shadow: 0px 0px 2px grey;
-                   background: linear-gradient(rgb(214, 231, 245), lightsteelblue);
                    display: flex;
                    flex-direction: row;
                    position: relative;
@@ -205,7 +211,7 @@
 
                .info li{
                    margin: 0 0 2% 0;
-                   height:1.7pc;
+                   height:1.9pc;
                    overflow:hidden;
                }
 
@@ -217,19 +223,26 @@
                }
 
                .urgente{
-                    background: linear-gradient(rgb(255, 113, 113), rgb(223, 84, 84));
+                background-image:linear-gradient(rgb(255, 102, 102),rgb(250, 83, 83)), url("./vector.jpg");
+                background-size: cover;
+                background-blend-mode: multiply;
                 }
 
                 .prioritaria{
-                    background: linear-gradient(rgb(253, 158, 94),rgb(247, 139, 68));
+                    background-image:linear-gradient(rgb(253, 158, 94),rgb(247, 139, 68)), url("./vector.jpg");
+                    background-size: cover;
+                    background-blend-mode: multiply;
                 }
 
                 .noprioritaria{
-                    background: linear-gradient(rgb(214, 231, 245), lightsteelblue);
+       
+                    background-image:linear-gradient(rgb(214, 231, 245), lightsteelblue), url("./vector.jpg");
+                    background-size: cover;
+                    background-blend-mode: multiply;
                 }
                
            </style>
-           <div class="tecnicosOpc2 ${this.getAttribute("tipo")}" onclick="location.href='./detalleIncidencia'">
+           <div class="tecnicosOpc2 ${this.getAttribute("tipo")}">
                <div class="imagenTecn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="4pc" height="4.1pc" fill="currentColor" class="bi bi-exclamation" viewBox="0 0 16 16">
                 <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.553.553 0 0 1-1.1 0L7.1 4.995z"/>
@@ -254,13 +267,14 @@
 
                <div class="info">
                    <ul>
-                       <li>${this.getAttribute("calle")}</li>
+                       <li style="font-weight:500;">${this.getAttribute("calle")}</li>
                        <li>${this.getAttribute("fecha")}</li>
                    </ul>
                </div>
            </div>
            `;
        }
+
   }
 
   window.customElements.define("incidencia-p", Incidencia);
@@ -287,7 +301,7 @@
         <ul>
             <li>
                 <a class="title1">Incidencias Urgentes</a><!--Indicar el numero de incidencias-->
-                <div class="opcIncidencia" onclick="location.href='./detalleIncidencia'">
+                <div class="opcIncidencia">
                     <ul id="lUrgentes">
                         <!--Introducir los datos aqui-->
                     </ul>
@@ -313,7 +327,7 @@
         </ul>
     </div>
 
-    <div class="opcIncidencia2" onclick="location.href='./nuevaIncidencia'">
+    <div class="opcIncidencia2" onclick="location.href='./incidenciaCreate'">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
             <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
             <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
@@ -325,24 +339,25 @@
     <script>
         //Array con datos (cambiar a consulta a BD)
         var datos=[
-            {calle:"Pozoa Kalea, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"urgente"},
-            {calle:"Calle Correría, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"urgente"},
-            {calle:"Calle Reyes Católicos, Vitoria-Gasteiz",fecha:"1/2/2022",tipo:"urgente"},
-            {calle:"Pozoa Kalea, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"urgente"},
-            {calle:"Calle Correría, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"urgente"},
-            {calle:"Calle Ramón y Cajal, Vitoria-Gasteiz",fecha:"1/2/2022",tipo:"prioritaria"},
-            {calle:"Calle Prudencio María Verástegui, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"prioritaria"},
-            {calle:"Calle de Puerto Rico, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"prioritaria"},
-            {calle:"Pozoa Kalea, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"noprioritaria"},
-            {calle:"Calle Correría, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"noprioritaria"},
-            {calle:"Calle Reyes Católicos, Vitoria-Gasteiz",fecha:"1/2/2022",tipo:"noprioritaria"},
-            {calle:"Pozoa Kalea, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"noprioritaria"},
-            {calle:"Calle Correría, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"noprioritaria"},
+            {id:"A001A",calle:"Pozoa Kalea, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"urgente"},
+            {id:"K2256",calle:"Calle Correría, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"urgente"},
+            {id:"P381B",calle:"Calle Reyes Católicos, Vitoria-Gasteiz",fecha:"1/2/2022",tipo:"urgente"},
+            {id:"HG2891F",calle:"Pozoa Kalea, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"urgente"},
+            {id:"FR656A",calle:"Calle Correría, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"urgente"},
+            {id:"A677S",calle:"Calle Ramón y Cajal, Vitoria-Gasteiz",fecha:"1/2/2022",tipo:"prioritaria"},
+            {id:"4888V",calle:"Calle Prudencio María Verástegui, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"prioritaria"},
+            {id:"AH995V",calle:"Calle de Puerto Rico, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"prioritaria"},
+            {id:"X552P",calle:"Pozoa Kalea, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"noprioritaria"},
+            {id:"88CA",calle:"Calle Correría, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"noprioritaria"},
+            {id:"A265C",calle:"Calle Reyes Católicos, Vitoria-Gasteiz",fecha:"1/2/2022",tipo:"noprioritaria"},
+            {id:"A016LA",calle:"Pozoa Kalea, Vitoria-Gasteiz",fecha:"2/2/2022",tipo:"noprioritaria"},
+            {id:"ASLV5",calle:"Calle Correría, Vitoria-Gasteiz",fecha:"5/2/2022",tipo:"noprioritaria"},
         ];
        
         for(let i=0;i<datos.length;i++){
             var item=document.createElement("li");
            var elemento = document.createElement("incidencia-p");
+           elemento.setAttribute("id",datos[i]["id"]);
            elemento.setAttribute("calle",datos[i]["calle"]);//Paso los datos del array mediante un atributo al web component
            elemento.setAttribute("fecha",datos[i]["fecha"]);
            elemento.setAttribute("tipo",datos[i]["tipo"]);
@@ -358,10 +373,8 @@
             }else if(datos[i]["tipo"]=="noprioritaria"){
                 document.getElementById("lNoprioritaria").appendChild(item);
             }
-           
-       }
-
-   </script>
+        }
+    </script>
 
 
 

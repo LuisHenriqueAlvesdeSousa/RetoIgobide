@@ -10,45 +10,22 @@ use \App\Http\Requests\UserFormRequest;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        return view('usuarioCreate'); 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
@@ -65,8 +42,13 @@ class UserController extends Controller
         //
     }
 
-    public function store(UserFormRequest $request)
-    {
+    public function create($id)
+    {       
+        return view('usuarioCreate');
+    }
+    
+    public function store(Request $request){
+        
         $user = new User(array(
             'rol' => $request->get('rol'),
             'name' => $request->get('nombre'), 
@@ -165,11 +147,4 @@ class UserController extends Controller
         }
     
     }
-
-    public function create($listaEquipos)
-    {
-
-    }
-
-
 }

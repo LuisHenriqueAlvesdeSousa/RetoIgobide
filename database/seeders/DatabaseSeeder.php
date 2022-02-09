@@ -22,10 +22,12 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+
     public function run()
     {
         // \App\Models\User::factory(10)->create();
         $faker = \Faker\Factory::create('es_ES');
+        $manuales = User::pluck('id')->toArray();
         for($i=0;$i<10;$i++){
             DB::table('users')->insert([
                 'name' => $faker->name(),
@@ -39,8 +41,9 @@ class DatabaseSeeder extends Seeder
             ]);
 
             DB::table('manuals')->insert([
-                'ruta'=>$faker->url()
+                'ruta'=>$faker->url(),
             ]);
+            
 
             DB::table('ascensors')->insert([
                 'direccion' => $faker->address(),
@@ -49,7 +52,7 @@ class DatabaseSeeder extends Seeder
                 'peso' =>$faker->numberBetween(100, 500),
                 'paradas'=>$faker->numberBetween(1, 20),
                 'recorrido'=>$faker->numberBetween(3, 39),
-                'manual_id'=>$faker->unique()->numberBetween(1, Manual::count()),
+                'manual_id'=>$faker->randomElement($manuales),
             ]);
 
             DB::table('equipos')->insert([
@@ -92,6 +95,8 @@ class DatabaseSeeder extends Seeder
                 'ascensor_id'=>$faker->randomElement($ascensores),
                 'tecnico_id'=>$faker->randomElement($tecnicos),
                 'operador_id'=>$faker->randomElement($operadores),
+                'urgencia'=>$faker->randomElement(['no prioritario', 'prioritario', 'urgente']),
+                'averia'=>$faker->randomElement(['electrica', 'mecanica', 'estetica']),
             ]);
         }    
 

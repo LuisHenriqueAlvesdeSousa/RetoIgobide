@@ -78,8 +78,9 @@ class OperadorController extends Controller
      * @param  \App\Models\Operador  $operador
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Operador $operador)
+    public function destroy($id)
     {
-        //
+        $operadorEliminar = Operador::findOrFail($id);
+        $operadorEliminar->delete();
     }
 }

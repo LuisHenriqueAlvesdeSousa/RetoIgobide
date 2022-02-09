@@ -78,8 +78,9 @@ class JefeController extends Controller
      * @param  \App\Models\Jefe  $jefe
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Jefe $jefe)
+    public function destroy($id)
     {
-        //
+        $jefeEliminar = Jefe::findOrFail($id);
+        $jefeEliminar->delete();
     }
 }

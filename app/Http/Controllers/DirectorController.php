@@ -78,8 +78,9 @@ class DirectorController extends Controller
      * @param  \App\Models\Director  $director
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Director $director)
+    public function destroy($id)
     {
-        //
+        $directorEliminar = Director::findOrFail($id);
+        $directorEliminar->delete();
     }
 }
