@@ -25,7 +25,7 @@
                 @endforeach
 
         <h1 class="card-title text-center mb-5 fw-light fs-5">Generador de repotes en Excel.</h1>
-        <p>Aquí podrás podras generar un reporte y descargar un archivo Excel (.xsl) en el cual podrás analizar e imprimir los datos con mayor facilidad</p>
+        <p>Aquí podrás podras generar un reporte y descargar un archivo Excel (.xsl) en el cual podrás analizar e imprimir los datos con mayor facilidad.</p>
 
             <form method="post">
             @csrf
