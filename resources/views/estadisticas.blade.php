@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-
+  @include('header') 
         @if (session('status')) 
             <div class="alert alert-success">
                 {{ session('status') }}
@@ -36,5 +36,6 @@
       </div>
     </div>
   </div>
+  @include('footer')
 </body>
 </html>

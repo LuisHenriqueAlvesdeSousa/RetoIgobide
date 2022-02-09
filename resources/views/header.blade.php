@@ -8,7 +8,7 @@
     <style>
        *{
             font-size: 1.35pc;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Verdana, sans-serif;
             margin: 0;
         }
         #header{
