@@ -288,7 +288,7 @@
    
    <script>
     //Peticion AJAX
-    var url1="/getOperarios/";
+    var url1="/getOperarios";
     $.ajax({
     type: 'post',
     url: url1,
