@@ -1,12 +1,14 @@
 <?php
-use App\Http\Controllers\UsuarioController;
-
+use App\Http\Controllers\TecnicoController;
+use App\Http\Controllers\OperadorController;
+use App\Http\Controllers\JefeController;
+use App\Http\Controllers\DirectorController;
+use App\Http\Controllers\IncidenciaController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ManualController;
-
 use App\Http\Controllers\HomeController;
-use Illuminate\Support\Facades\DB;
-
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Auth;
 /*
 |--------------------------------------------------------------------------
