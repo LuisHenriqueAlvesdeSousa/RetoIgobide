@@ -9,7 +9,8 @@
 <body>
     <style>
         body{
-            background-image: url(fondo_login.png);
+          background: #007bff;
+          background: linear-gradient(to right, #0062E6, #33AEFF);
         }
 
         .btn-login {
