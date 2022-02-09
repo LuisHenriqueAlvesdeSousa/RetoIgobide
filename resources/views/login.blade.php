@@ -63,18 +63,18 @@
                 <div class="form-data" v-if="!submitted">
                 <form method="POST" action="index.php">
                     @csrf
-                    <div class="forms-inputs mb-4"> 
                         <label for="email">
+                        <div class="forms-inputs mb-4"> 
                             <span>Email Coorporativo</span>
                             <input type="email" id="email" name="email" required>
+                        </div>
                         </label>
-                    </div>
-                    <div class="forms-inputs mb-4">
                         <label for="password">
+                        <div class="forms-inputs mb-4">
                             <span>Contraseña</span>
                             <input type="password" id="password" name="password" required>
+                        </div>
                         </label>
-                    </div>
                     <div class="mb-3"><input type="submit" value="Entrar"></div>
                 </form>
                 </div>
