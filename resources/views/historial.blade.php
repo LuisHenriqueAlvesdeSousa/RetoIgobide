@@ -17,6 +17,12 @@
                     //Almacena los datos en sesion
                     sessionStorage.setItem("idIncidencia",this.id);
                     sessionStorage.setItem("calleIncidencia",this.getAttribute("calle"));
+                    sessionStorage.setItem("fechaInicio",this.getAttribute("fecha"));
+                    sessionStorage.setItem("modeloAscensor",this.getAttribute("modeloAsc"));
+                    sessionStorage.setItem("tipoAveria",this.getAttribute("tipoAveria"));
+                    sessionStorage.setItem("capacidad",this.getAttribute("capacidad"));
+                    sessionStorage.setItem("peso",this.getAttribute("peso"));
+                    sessionStorage.setItem("cliente",this.getAttribute("cliente"));
                     location.href='./detalleIncidencia';
                  });
             }
