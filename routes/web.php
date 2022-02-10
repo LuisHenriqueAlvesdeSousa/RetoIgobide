@@ -72,7 +72,8 @@ Route::delete('/eliminar/{id}', [DirectorController::class, 'delete'])->name('di
 Route::post('/subir', [ManualController::class, 'store'])->name('manuales.subir');
 
 //Route::delete('/manuales/eliminar/{id}', [ManualController::class, 'delete'])->name('manuales.eliminar');
-Route::get('/manuales/eliminar/{id}', 'ManualController@destroy')->name('manuales.destroy');
+//Route::get('/manuales/eliminar/{id}', 'ManualController@destroy')->name('manuales.destroy');
+Route::get('/manuales/eliminar/{id}', [ManualController::class, 'delete'])->name('manuales.eliminar');
 
 Route::get('manuales/', [ManualController::class, 'index']);
 
