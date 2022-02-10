@@ -87,7 +87,7 @@ class ManualController extends Controller
     }
     
     public function buscarManual($search){
-        $search = urldecode($search);
+        $search = $search;
         $manuales = DB::table('ascensors')
                 ->select('*')
                 ->join('manuals', 'manuals.id', '=', 'ascensors.manual_id')
