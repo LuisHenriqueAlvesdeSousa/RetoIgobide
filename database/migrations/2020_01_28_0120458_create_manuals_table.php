@@ -36,7 +36,7 @@ class CreateManualsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('manuals');
+        //Schema::dropIfExists('manuals');
         $table->dropForeign('lists_manual_id_foreign');
         $table->dropIndex('lists_id_index');
         $table->dropColumn('manual_id');
