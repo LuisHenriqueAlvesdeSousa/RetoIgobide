@@ -73,6 +73,7 @@ class ManualController extends Controller
     {
         $manualEliminar = Manual::findOrFail($id);
         $manualEliminar->delete();
+        return redirect()->route('/manuales');
     }
 
     public function store(Request $request){
