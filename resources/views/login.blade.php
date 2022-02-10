@@ -10,7 +10,7 @@
     <style>
       body{
         background: #f6f6f6;
-        background: linear-gradient(to right, #0062E6, #33AEFF);
+        background: linear-gradient(to right, #47464d, #fb742d);
       }
     </style>
 </head>
