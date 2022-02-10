@@ -72,7 +72,6 @@ class ManualController extends Controller
     public function destroy($id)
     {
         $manualEliminar = Manual::findOrFail($id);
-        $manualEliminar->steps->each->delete();
         $manualEliminar->delete();
     }
 
