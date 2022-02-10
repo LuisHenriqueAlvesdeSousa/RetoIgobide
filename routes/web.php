@@ -127,15 +127,14 @@ Route::post('/getAllManuales', function(){
 
     return  $manuales;
 });
-
-Route::post('/buscarManual', function(){
-    $manual = DB::table('ascensors')
-    ->select('*')
-    ->join('manuals', 'manuals_id', '=', 'ascensors.manual_id')
-    ->get();
-    
-    return $manual;
+ //Buscador
+Route::get('/buscarManual', function(){    
+    $search = urlencode(e(Input::get('search')));
+    $route = "manuales/$search";
+    return redirect($route);
 });
+
+Route::get('/manuales/{search}', [ManualController::class, 'buscarManual']);
 
 Route::post('/getJefes', function(){
     $jefes = DB::table('jeves')
