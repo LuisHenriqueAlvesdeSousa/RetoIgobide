@@ -75,10 +75,8 @@ class ManualController extends Controller
     }
 
     public function store(Request $request){
-        $path = $request->file('archivo')->store('public');
-
         $manual = new Manual;
-        $manual->ruta->$path;
+        $manual->ruta->$path->$request->file('archivo');
         $manual->idAscensor->$request->get('idAscensor');
 
         $manual->save();
