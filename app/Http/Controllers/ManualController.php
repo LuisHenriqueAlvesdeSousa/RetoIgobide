@@ -85,16 +85,4 @@ class ManualController extends Controller
         $manual->save();
     }
     
-    public function buscarManual($search){
-        $search = $search;
-        $manuales = DB::table('ascensors')
-                ->select('*')
-                ->join('manuals', 'manuals.id', '=', 'ascensors.manual_id')
-                ->where('ascensors.modelo', 'LIKE', '%'.$search.'%')
-                ->get();
-        
-        return View('/manuales')
-            ->with('manuales', $manuales)
-            ->with('search', $search);
-    }
 }
