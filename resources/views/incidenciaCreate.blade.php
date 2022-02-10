@@ -188,7 +188,7 @@
                 <li>
                     <div class="container">
                         <div class="opNewOperario2 lineal">
-                            <a class="titulo">Tipo Averia/a><br>
+                            <a class="titulo">Tipo Averia</a><br>
                             <select class="selector" id="tipoAveria" name="tipoAveria">
                                 <option value="electrica">Eléctrica</option>
                                 <option value="mecanica">Mecánica</option>
