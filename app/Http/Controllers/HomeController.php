@@ -39,7 +39,7 @@ class HomeController extends Controller
         }
         //comprobamos si recibimos parametros para realizar un login
         else{
-            return view('menujefe');
+            return route('menu');
         }
     }
     
@@ -73,7 +73,7 @@ class HomeController extends Controller
                     }else{
                         $_SESSION['rol'] = "director";
                     }
-                    return view('menujefe'); 
+                    return route('menu'); 
                 }else{
                     return view('login');
                 }
