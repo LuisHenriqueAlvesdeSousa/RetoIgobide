@@ -257,7 +257,7 @@
 
     <script>
     
-        verManual(){
+        function verManual(){
             alert("ver manual");
         }
     
