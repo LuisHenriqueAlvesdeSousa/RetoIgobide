@@ -71,7 +71,7 @@ Route::delete('/eliminar/{id}', [DirectorController::class, 'delete'])->name('di
 //Rutas manuales
 Route::post('/subir', [ManualController::class, 'store'])->name('manuales.subir');
 
-Route::delete('/eliminar/{id}', [ManualController::class, 'delete'])->name('manuales.eliminar');
+Route::get('/eliminar/{id}', [ManualController::class, 'delete'])->name('manuales.eliminar');
 
 Route::get('manuales/', [ManualController::class, 'index']);
 
