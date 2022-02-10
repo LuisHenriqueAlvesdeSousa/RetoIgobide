@@ -48,16 +48,16 @@ class IncidenciaController extends Controller
     public function store(Request $request)
     {
         $incidencia = new Incidencia;
-        $incidencia=cliente->$request->get('nombre');
-        $incidencia=fechaInicio-> DateTime('today')->format('dd-mm-yyyy');
-        $incidencia=fechaFin->null;
-        $incidencia=email->$request->get('email');
-        $incidencia=descripcion->$request->get('comentario');
-        $incidencia=urgencia->$request->get('urgencia');
-        $incidencia=averia->$request->get('averia');
-        $incidencia=idOperario->null;
-        $incidencia=idTecnico->null;
-        $incidencia=idAscensor->$request->get('idAscensor');
+        $incidencia->cliente=$request->get('nombre');
+        $incidencia->fechaInicio= DateTime('today')->format('dd-mm-yyyy');
+        $incidencia->fechaFin =null;
+        $incidencia->email=$request->get('email');
+        $incidencia->descripcion=$request->get('comentario');
+        $incidencia->urgencia=$request->get('urgencia');
+        $incidencia->averia=$request->get('averia');
+        $incidencia->idOperario=null;
+        $incidencia->idTecnico=null;
+        $incidencia->idAscensor=$request->get('idAscensor');
         
         
                     $patron_text = '/[A-Za-z0-9_]/';
