@@ -67,28 +67,28 @@ class IncidenciaController extends Controller
                 return redirect('/incidencia/create')->with('status', 'Nombre vacío.');
             }else{
                 if(!preg_match($patron_text, $incidencia->nombreCliente)){
-                    return redirect('/incidencia/create')->with('status', 'Formato del nombre incorrecto, se acepta carácteres alfanuméricos.');
+                    return redirect()->route('incidenciaCreate.store')->with('status', 'Formato del nombre incorrecto, se acepta carácteres alfanuméricos.');
                 }
             }
     
             if(!trim($incidencia->descripcion ='')){
-                return redirect('/incidencia/create')->with('status', 'Comentario vacío.');
+                return redirect()->route('incidenciaCreate.store')->with('status', 'Comentario vacío.');
             }
     
             if(!trim($incidencia->urgencia ='')){
-                return redirect('/incidencia/create')->with('status', 'Seleccione por favor el nivel de urgencia.');
+                return redirect()->route('incidenciaCreate.store')->with('status', 'Seleccione por favor el nivel de urgencia.');
             }
     
             if(!trim($incidencia->tipoAveria ='')){
-                return redirect('/incidencia/create')->with('status', 'Seleccione por favor el tipo de averia.');
+                return redirect()->route('incidenciaCreate.store')->with('status', 'Seleccione por favor el tipo de averia.');
             }
     
             if(!trim($incidencia->idAscensor ='')){
-                return redirect('/incidencia/create')->with('status', 'ID ascensor vacío.');
+                return redirect()->route('incidenciaCreate.store')->with('status', 'ID ascensor vacío.');
             }
     
             $incidencia->save();
-            return redirect('/incidencia/create')->with('status', 'Nuevo usuario creado correctamente.');
+            return redirect()->route('incidenciaCreate.store')->with('status', 'Nuevo usuario creado correctamente.');
         
         
     }
