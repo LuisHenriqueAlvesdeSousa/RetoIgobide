@@ -47,9 +47,11 @@ class IncidenciaController extends Controller
 
     public function store(Request $request)
     {
+        $date = new DateTime('today');
+        
         $incidencia = new Incidencia;
         $incidencia->cliente=$request->get('nombre');
-        $incidencia->fechaInicio= new DateTime('today')->format('dd-mm-yyyy');
+        $incidencia->fechaInicio= $date->format('dd-mm-yyyy');
         $incidencia->fechaFin =null;
         $incidencia->email=$request->get('email');
         $incidencia->descripcion=$request->get('comentario');
