@@ -48,26 +48,19 @@ class IncidenciaController extends Controller
     public function store(Request $request)
     {
         $incidencia = new Incidencia;
-        $incidencia->cliente->$request->get('nombre');
-        $incidencia->fechaInicio-> DateTime('today')->format('dd-mm-yyyy');
-        $incidencia->fechaFin->null;
-        $incidencia->email->$request->get('email');
-        $incidencia->descripcion->$request->get('comentario');
-        $incidencia->urgencia->$request->get('urgencia');
-        $incidencia->averia->$request->get('averia');
-        $incidencia->idOperario->null;
-        $incidencia->idTecnico->null;
-        $incidencia->idAscensor->$request->get('idAscensor');
-    
-        if(validar($incidencia)){
-            $incidencia->save();
-            return redirect('/incidencia/create')->with('status', 'Nuevo usuario creado correctamente.');
-        }
+        $incidencia=cliente->$request->get('nombre');
+        $incidencia=fechaInicio-> DateTime('today')->format('dd-mm-yyyy');
+        $incidencia=fechaFin->null;
+        $incidencia=email->$request->get('email');
+        $incidencia=descripcion->$request->get('comentario');
+        $incidencia=urgencia->$request->get('urgencia');
+        $incidencia=averia->$request->get('averia');
+        $incidencia=idOperario->null;
+        $incidencia=idTecnico->null;
+        $incidencia=idAscensor->$request->get('idAscensor');
         
-    }
-    
-        function validar($incidencia){
-            $patron_text = '/[A-Za-z0-9_]/';
+        
+                    $patron_text = '/[A-Za-z0-9_]/';
     
             if(!trim($incidencia->nombreCliente ='')){
                 return redirect('/incidencia/create')->with('status', 'Nombre vacío.');
@@ -93,6 +86,11 @@ class IncidenciaController extends Controller
                 return redirect('/incidencia/create')->with('status', 'ID ascensor vacío.');
             }
     
-            return true;
+            $incidencia->save();
+            return redirect('/incidencia/create')->with('status', 'Nuevo usuario creado correctamente.');
+        
+        
     }
+    
+
 }
