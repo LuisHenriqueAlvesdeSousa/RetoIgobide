@@ -257,9 +257,8 @@
 
     <script>
     
-        function verManual(event){
-            alert(event.target.id);
-            
+        function verManual(ruta){
+            alert(ruta);   
         }
     
     
