@@ -159,7 +159,6 @@
             sessionStorage.setItem("capacidad",this.getAttribute("capacidad"));
             sessionStorage.setItem("peso",this.getAttribute("peso"));
             sessionStorage.setItem("cliente",this.getAttribute("cliente"));
-            location.href='./detalleIncidencia';
            });
        }
 
@@ -254,7 +253,7 @@
            </style>
            <div class="tecnicosOpc2 ${this.getAttribute("tipo")}">
                <div class="imagenTecn">
-                <svg xmlns="http://www.w3.org/2000/svg" width="4pc" height="4.1pc" fill="currentColor" class="bi bi-exclamation" viewBox="0 0 16 16">
+                <svg onclick="location.href='./detalleIncidencia'" xmlns="http://www.w3.org/2000/svg" width="4pc" height="4.1pc" fill="currentColor" class="bi bi-exclamation" viewBox="0 0 16 16">
                 <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.553.553 0 0 1-1.1 0L7.1 4.995z"/>
                 </svg>
                </div>
