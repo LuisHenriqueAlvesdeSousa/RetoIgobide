@@ -22,7 +22,7 @@ class CreateIncidenciasTable extends Migration
             $table->string('email');
             $table->text('descripcion');
             $table->unsignedInteger('ascensor_id');
-            $table->foreign('ascensor_id')->references('id')->on('ascensors')->onDelete('cascade')->nullable();
+            $table->foreign('ascensor_id')->references('id')->on('ascensors')->onDelete('SET NULL')->nullable();
             $table->unsignedInteger('tecnico_id');
             $table->foreign('tecnico_id')->references('codigo')->on('tecnicos');
             $table->unsignedInteger('operador_id');
