@@ -241,7 +241,7 @@
                     <!--Busqueda-->
                     <div class="manOpc2" style="flex-grow: 2;">
                         <div class="input-group mb-3" style="margin: 0;display: flex;justify-content: center;align-items: center;">
-                            <form class="navbar-form navbar-left" role="search" method="GET" action="/buscarManual">
+                            <form class="navbar-form navbar-left" role="search" method="GET" action="/buscarManual?search=">
                                  <div class="form-group">
                                   <input type="text" class="form-control" name='search' placeholder="Buscar en manuales..." />
                                  </div>
