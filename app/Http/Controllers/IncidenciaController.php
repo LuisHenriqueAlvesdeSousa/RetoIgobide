@@ -49,7 +49,7 @@ class IncidenciaController extends Controller
     {
         $incidencia = new Incidencia;
         $incidencia->cliente=$request->get('nombre');
-        $incidencia->fechaInicio= DateTime('today')->format('dd-mm-yyyy');
+        $incidencia->fechaInicio= new DateTime('today')->format('dd-mm-yyyy');
         $incidencia->fechaFin =null;
         $incidencia->email=$request->get('email');
         $incidencia->descripcion=$request->get('comentario');
