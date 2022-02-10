@@ -257,8 +257,9 @@
 
     <script>
     
-        function verManual(){
-            alert("ver manual");
+        function verManual(event){
+            alert(event.target.id);
+            
         }
     
     
