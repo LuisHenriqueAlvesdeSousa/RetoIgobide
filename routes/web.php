@@ -69,7 +69,7 @@ Route::delete('/eliminar/{id}', [TecnicoController::class, 'delete'])->name('tec
 Route::delete('/eliminar/{id}', [DirectorController::class, 'delete'])->name('directores.eliminar');
 
 //Rutas manuales
-Route::post('/subir', [ManualController::class, 'subirManual'])->name('manuales.subir');
+Route::post('/subir', [ManualController::class, 'store'])->name('manuales.subir');
 
 Route::delete('/eliminar/{id}', [ManualController::class, 'delete'])->name('manuales.eliminar');
 
