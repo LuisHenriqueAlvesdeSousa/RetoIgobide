@@ -1,7 +1,7 @@
   <style>
   /*Footer*/
   footer{
-    margin-top: 150px;
+    margin-top: 250px;
     color: white;
     background-color: black;
     width: 100%;
