@@ -14,10 +14,19 @@ class CreateManualsTable extends Migration
     public function up()
     {
         Schema::create('manuals', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             $table->string('ruta');
+            $table->foreign('id')->references('manual_id')->on('acensors')->onDelete('cascade');
             $table->timestamps();
         });
+        
+        /*
+            Schema::create('manuals', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('ruta');
+            $table->timestamps(); 
+            });
+        */
     }
 
     /**
