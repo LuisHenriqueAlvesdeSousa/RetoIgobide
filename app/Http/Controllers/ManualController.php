@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Manual;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use \App\Http\Requests\ManualFormRequest;
 
 class ManualController extends Controller
 {
