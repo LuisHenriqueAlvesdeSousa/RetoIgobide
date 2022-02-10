@@ -382,6 +382,6 @@
         }
         }}); 
     </script>
-
+@include('footer')
 </body>
 </html>
