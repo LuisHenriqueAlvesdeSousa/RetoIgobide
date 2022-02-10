@@ -9,7 +9,7 @@
     <title>Login</title>
     <style>
       body{
-        background: #007bff;
+        background: #f6f6f6;
         background: linear-gradient(to right, #0062E6, #33AEFF);
       }
     </style>
