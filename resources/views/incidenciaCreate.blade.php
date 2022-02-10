@@ -147,9 +147,6 @@
     <div class="newOperario">
         <form method="POST" action="{{ route('incidenciaCreate.store') }}">
 
-                @foreach ($errors->all() as $error)
-                    <p class="alert alert-danger">{{ $error}}</p><br>
-                @endforeach
                 @csrf
 
             <p class="alert alert-danger" id="error"></p><br>
