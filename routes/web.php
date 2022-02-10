@@ -23,7 +23,7 @@ use App\Http\Controllers\Auth;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/menu', function(){ return view('menujefe'})->name('menu');
+Route::get('/menu', function(){ return view('menujefe')->name('menu');
 
 
 Route::post('/', [HomeController::class, 'login'])->name('login');
