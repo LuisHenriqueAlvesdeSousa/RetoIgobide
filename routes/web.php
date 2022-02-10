@@ -51,7 +51,7 @@ Route::post('/usuarioCreate', [UserController::class, 'store'])->name('usuarioCr
 
 Route::get('/usuarioCreate', [UserController::class, 'create'])->name('usuarioCreate.create');
 
-Route::get('/usuarioCreate', [UserController::class, 'edit'])->name('usuarioCreate.edit');
+Route::get('/usuarioCreate/{id}', [UserController::class, 'edit'])->name('usuarioCreate.edit');
 
 Route::delete('/eliminar/{id}', [JefeController::class, 'delete'])->name('jefes.eliminar');
 
