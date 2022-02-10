@@ -14,7 +14,7 @@ class CreateManualsTable extends Migration
     public function up()
     {
         Schema::create('manuals', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
+            $table->index('id');
             $table->string('ruta');
             $table->foreign('id')->references('manual_id')->on('acensors')->onDelete('cascade');
             $table->timestamps();
@@ -37,5 +37,8 @@ class CreateManualsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('manuals');
+        $table->dropForeign('lists_manual_id_foreign');
+        $table->dropIndex('lists_id_index');
+        $table->dropColumn('manual_id');
     }
 }
