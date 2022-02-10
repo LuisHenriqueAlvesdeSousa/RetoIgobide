@@ -241,11 +241,11 @@
                     <!--Busqueda-->
                     <div class="manOpc2" style="flex-grow: 2;">
                         <div class="input-group mb-3" style="margin: 0;display: flex;justify-content: center;align-items: center;">
-                            <form method="POST" action="/buscarManual">
-                            <input type="text" class="form-control" placeholder="Buscar en manuales..." aria-label="Buscar en manuales..." aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                              <span class="input-group-text" id="basic-addon2">Buscar</span>
-                            </div>
+                            <form class="navbar-form navbar-left" role="search" method="GET" action="/buscarManual">
+                                 <div class="form-group">
+                                  <input type="text" class="form-control" name='search' placeholder="Buscar en manuales..." />
+                                 </div>
+                                 <button type="submit" class="btn btn-default">Buscar</button>
                             </form>
                           </div>
                     </div>
