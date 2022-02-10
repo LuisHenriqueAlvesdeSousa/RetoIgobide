@@ -13,10 +13,6 @@
         constructor(){
             super();
         }
-        
-        verManual(){
-            alert("ir a manual");
-        }
 
         connectedCallback(){
             let shadowRoot = this.attachShadow({ mode: "open" });
@@ -260,6 +256,12 @@
 
 
     <script>
+    
+        verManual(){
+            alert("ver manual");
+        }
+    
+    
         //Peticion AJAX
         var url1="/getAllManuales";
         $.ajax({
