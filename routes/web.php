@@ -129,7 +129,7 @@ Route::post('/getAllManuales', function(){
 });
  //Buscador
 Route::get('/buscarManual', function(){    
-    $search = urlencode(e(input->('search')));
+    $search = Input::get('search');
     $route = "manuales/$search";
     return redirect($route);
 });
