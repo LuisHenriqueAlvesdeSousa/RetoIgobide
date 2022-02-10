@@ -235,7 +235,7 @@
             </div>
           </div> 
     </div>
-@include('footer')
+
 
      <!--Distribucion de las columnas-->
     <script>
