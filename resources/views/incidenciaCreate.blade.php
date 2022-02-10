@@ -149,7 +149,6 @@
 
                 @csrf
 
-            <p class="alert alert-danger" id="error"></p><br>
 
             <ul>
                 <li>
