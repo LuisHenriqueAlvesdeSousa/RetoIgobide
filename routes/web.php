@@ -35,9 +35,9 @@ Route::get('/estadisticas',function(){
 
 //Rutas descargar excels
 
-Route::post('/create', [App\Http\Controllers\ReporteController::class, 'ReporteExport']);
+Route::post('/reportes', [App\Http\Controllers\ReporteController::class, 'ReporteExport']);
 
-Route::post('/create', [App\Http\Controllers\EstadisticaController::class, 'EstadisticaExport']);
+Route::post('/estadisticas', [App\Http\Controllers\EstadisticaController::class, 'EstadisticaExport']);
 
 //___________________________
 
