@@ -151,6 +151,7 @@
 
            this.addEventListener("click",function(){
             //Almacena los datos en sesion
+            sessionStorage.setItem("idIncidencia",this.id);
             sessionStorage.setItem("calleIncidencia",this.getAttribute("calle"));
             sessionStorage.setItem("fechaInicio",this.getAttribute("fecha"));
             sessionStorage.setItem("modeloAscensor",this.getAttribute("modeloAsc"));
