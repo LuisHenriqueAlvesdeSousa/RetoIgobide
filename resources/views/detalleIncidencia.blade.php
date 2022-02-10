@@ -387,6 +387,6 @@
         var objDiv = document.getElementById("manOpc4");
         objDiv.scrollTop = objDiv.scrollHeight;*/
     </script>
-    
+    @include('footer')
 </body>
 </html>
