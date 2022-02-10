@@ -16,7 +16,7 @@ class CreateManualsTable extends Migration
         Schema::create('manuals', function (Blueprint $table) {
             $table->index('id');
             $table->string('ruta');
-            $table->foreign('id')->references('manual_id')->on('acensors')->onDelete('cascade');
+            $table->foreign('id')->references('manual_id')->on('acensors')->onDelete('SET NULL');
             $table->timestamps();
         });
         
