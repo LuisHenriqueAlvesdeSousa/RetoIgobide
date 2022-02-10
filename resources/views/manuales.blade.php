@@ -15,7 +15,7 @@
 
             this.addEventListener("click",function(){
             //abrir prf
-            window.open(`./${this.getAttribute("ruta")}`);
+            window.open(`${this.getAttribute("ruta")}`);
             });
         }
 
@@ -275,6 +275,7 @@
             var elemento = document.createElement("manual-p");
             elemento.setAttribute("idAscensor",data[i]["id"]);
             elemento.setAttribute("modeloAscensor",data[i]["modelo"]);//Paso los datos del array mediante un atributo al web component
+            elemento.setAttribute("ruta",data[i]["ruta"]);
             item.appendChild(elemento);
             document.getElementById("listaManuales").appendChild(item);
         }
