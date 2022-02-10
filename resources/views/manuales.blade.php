@@ -15,7 +15,7 @@
 
             this.addEventListener("click",function(){
             //abrir prf
-            window.open(url('./Práctica Heroku.pdf'));
+            window.open(url(`./${this.getAttribute("ruta")}`));
             });
         }
 
