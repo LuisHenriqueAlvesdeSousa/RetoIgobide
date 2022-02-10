@@ -266,6 +266,11 @@
             elemento.setAttribute("calle",calle[0]);
             elemento.setAttribute("fecha",data[i]["fechaFin"]);
             elemento.setAttribute("tipo",data[i]["urgencia"]);
+            elemento.setAttribute("modeloAsc",data[i]["modelo"]);
+            elemento.setAttribute("tipoAveria",data[i]["averia"]);
+            elemento.setAttribute("capacidad",data[i]["capacidad"]);
+            elemento.setAttribute("peso",data[i]["peso"]);
+            elemento.setAttribute("cliente",data[i]["cliente"]);
             item.appendChild(elemento);
             document.getElementById("lUrgentes").appendChild(item);
              }
