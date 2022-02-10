@@ -49,7 +49,9 @@ Route::get('/header',function(){
 
 Route::post('/usuarioCreate', [UserController::class, 'store'])->name('usuarioCreate.store');
 
-Route::get('/usuarioCreate', [UserController::class, 'create'])->name('usuarioCreate.create');
+Route::get('/usuarioCreate', function(){
+    return view('usuarioCreate');
+});
 
 Route::get('/usuarioCreate/{id}', [UserController::class, 'edit'])->name('usuarioCreate.edit');
 
