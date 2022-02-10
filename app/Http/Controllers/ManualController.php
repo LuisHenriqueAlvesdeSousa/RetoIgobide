@@ -90,7 +90,7 @@ class ManualController extends Controller
         $manuales = DB::table('ascensors')
                 ->select(*)
                 ->join('manuals', 'manuals.id', '=', 'ascensors.manual_id')
-                ->where('modelo', 'LIKE', '%'.$search.'%')
+                ->where('ascensors.modelo', 'LIKE', '%'.$search.'%')
                 ->get();
         
         return View('/manuales')
