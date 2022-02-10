@@ -145,7 +145,7 @@
         @endif
 
     <div class="newOperario">
-        <form method="POST" action="{{ route('incidenciaCreate.store') }}">
+        <form method="POST" /*action="{{ route('incidenciaCreate.store') }}"*/>
 
                 @csrf
 
