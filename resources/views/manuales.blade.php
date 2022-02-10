@@ -89,7 +89,7 @@
             </style>
             <div class="tecnicosOpc2">
                 <div class="imagenTecn">
-                    <svg onclick="window.location.href='https://www.sepin.es/administrador-de-finques/VerDoc.asp?referencia=SP%2FART%2F393670&cod=0JP1S_0%2630Ha1%2Fp1Da0Fa1y91zp0Fk17N1zc0Fa1aB1T40Ha1-K1Da0Fa1%3DQ0XV0G_17V0GL0FF1Db0G90GA1Mp0%26V0E_1DY1yt'" xmlns="http://www.w3.org/2000/svg" width="4pc" height="4.1pc" fill="currentColor" class="bi bi-info" viewBox="0 0 16 16">
+                    <svg onclick="window.location.href=this.getAttribute("ruta")" xmlns="http://www.w3.org/2000/svg" width="4pc" height="4.1pc" fill="currentColor" class="bi bi-info" viewBox="0 0 16 16">
                     <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                     </svg>
                 </div>
