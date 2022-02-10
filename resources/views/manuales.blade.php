@@ -236,10 +236,12 @@
                     <!--Busqueda-->
                     <div class="manOpc2" style="flex-grow: 2;">
                         <div class="input-group mb-3" style="margin: 0;display: flex;justify-content: center;align-items: center;">
+                            <form method="GET" action="/buscarManual">
                             <input type="text" class="form-control" placeholder="Buscar en manuales..." aria-label="Buscar en manuales..." aria-describedby="basic-addon2">
                             <div class="input-group-append">
                               <span class="input-group-text" id="basic-addon2">Buscar</span>
                             </div>
+                            </form>
                           </div>
                     </div>
                 </div>
@@ -257,8 +259,9 @@
 
     <script>
     
-        function verManual(ruta){
-            alert(ruta);   
+        function verManual(event){
+            alert(event.target.id);
+            
         }
     
     
