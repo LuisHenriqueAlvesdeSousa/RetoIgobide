@@ -226,7 +226,7 @@
             </ul>
 
             <div id="controles">
-                <button type="button" class="botControl" id="guardar">Guardar</button>
+                <button type="submit" class="botControl" id="guardar">Guardar</button>
                 <button type='button' class="botControl" id="cancelar">Cancelar</button>
             </div>
         </form>
